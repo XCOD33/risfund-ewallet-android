@@ -1,9 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="450dp"
+    android:layout_height="800dp"
+    android:background="@color/primaryGreen"
     tools:context=".Register2Activity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <View
+        android:id="@+id/animationView"
+        android:layout_width="400dp"
+        android:layout_height="121dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="34dp"
+        android:background="@drawable/rectangle15"/>
+
+    <LinearLayout
+        android:id="@+id/loginLinear"
+        android:layout_width="397dp"
+        android:layout_height="392dp"
+        android:layout_marginTop="185dp"
+        android:layout_marginLeft="25dp"
+        android:background="@drawable/rectangle25"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:layout_marginLeft="30.24dp"
+            android:text="Lanjutkan ..."
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="30.24dp"
+            android:text="Username"
+            android:textSize="16sp"
+            android:textColor="@color/black"/>
+
+        <EditText
+            android:layout_width="340.55dp"
+            android:layout_height="44dp"
+            android:layout_marginLeft="30.24dp"
+            android:backgroundTint="@color/primaryGreen"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:shadowColor="@color/secondaryGreen"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="31dp"
+            android:layout_marginLeft="30.24dp"
+            android:text="Password"
+            android:textSize="16sp"
+            android:textColor="@color/black"/>
+
+        <EditText
+            android:layout_width="340.55dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="30.24dp"
+            android:backgroundTint="@color/primaryGreen"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:shadowColor="@color/secondaryGreen"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="31dp"
+            android:layout_marginLeft="30.24dp"
+            android:text="Ulangi Password"
+            android:textSize="16sp"
+            android:textColor="@color/black"/>
+
+        <EditText
+            android:layout_width="340.55dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="30.24dp"
+            android:backgroundTint="@color/primaryGreen"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:shadowColor="@color/secondaryGreen"/>
+
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>
