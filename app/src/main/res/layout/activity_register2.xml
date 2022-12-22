@@ -22,7 +22,8 @@
         android:layout_marginTop="185dp"
         android:layout_marginLeft="25dp"
         android:background="@drawable/rectangle25"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:elevation="20dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -61,7 +62,12 @@
             android:textSize="16sp"
             android:textColor="@color/black"/>
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:endIconMode="password_toggle">
+
+            <com.google.android.material.textfield.TextInputEditText
             android:layout_width="340.55dp"
             android:layout_height="45dp"
             android:layout_marginLeft="30.24dp"
@@ -69,6 +75,10 @@
             android:textSize="16sp"
             android:textColor="@color/black"
             android:shadowColor="@color/secondaryGreen"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
 
         <TextView
             android:layout_width="match_parent"
@@ -89,6 +99,20 @@
             android:shadowColor="@color/secondaryGreen"/>
 
     </LinearLayout>
+    
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_marginTop="612dp"
+        android:layout_marginHorizontal="25dp"
+        android:backgroundTint="@color/white"
+        android:text="Daftar"
+        android:textColor="@color/primaryGreen"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:cornerRadius="15dp"/>
+    
+    
 
 
 
