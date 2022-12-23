@@ -47,7 +47,7 @@
             style="@style/customInputLayout">
             <com.google.android.material.textfield.TextInputEditText
                 style="@style/customInputLayout"
-                android:id="@+id/usernameRegisterEditText"/>
+                android:id="@+id/usernameRegisterEditText" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -60,21 +60,10 @@
             android:textColor="@color/black"/>
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="0dp"
-            app:boxBackgroundColor="@color/white"
-            app:boxStrokeColor="@color/primaryGreen"
-            app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/primaryGreen">
+            style="@style/customInputLayoutPassword">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/passwordRegisterEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingStart="0dp"
-                android:textSize="16sp"
-                android:inputType="textPassword"/>
+                style="@style/customEditTextPassword"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -90,20 +79,10 @@
             android:textColor="@color/black"/>
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:boxBackgroundColor="@color/white"
-            app:boxStrokeColor="@color/primaryGreen"
-            app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/primaryGreen">
+            style="@style/customInputLayoutPassword">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/rePasswordRegisterEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingStart="0dp"
-                android:textSize="16sp"
-                android:inputType="textPassword"/>
+                style="@style/customEditTextPassword"/>
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
