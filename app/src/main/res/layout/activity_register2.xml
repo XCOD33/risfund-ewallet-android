@@ -16,9 +16,9 @@
         android:background="@drawable/rectangle15"/>
 
     <LinearLayout
-        android:id="@+id/loginLinear"
+        android:id="@+id/Register2Linear"
         android:layout_width="397dp"
-        android:layout_height="392dp"
+        android:layout_height="410dp"
         android:paddingHorizontal="30sp"
         android:layout_marginTop="185dp"
         android:layout_marginLeft="25dp"
@@ -46,8 +46,8 @@
         <com.google.android.material.textfield.TextInputLayout
             style="@style/customInputLayout">
             <com.google.android.material.textfield.TextInputEditText
-                style="@style/customInputLayout"
-                android:id="@+id/usernameRegisterEditText" />
+                style="@style/customEditText"
+                android:id="@+id/usernameRegisterEditText"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -90,7 +90,8 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="54dp"
-        android:layout_marginTop="612dp"
+        android:layout_below="@id/Register2Linear"
+        android:layout_marginTop="33dp"
         android:layout_marginHorizontal="25dp"
         android:backgroundTint="@color/white"
         android:text="Daftar"
