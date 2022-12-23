@@ -11,10 +11,7 @@
     
     <View
         android:id="@+id/animationView"
-        android:layout_width="400dp"
-        android:layout_height="121dp"
-        android:layout_marginTop="34dp"
-        android:background="@drawable/rectangle15"/>
+        style="@style/customAnimasiImage"/>
     
     <LinearLayout
         android:id="@+id/loginLinear"
