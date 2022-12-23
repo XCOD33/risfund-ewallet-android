@@ -43,16 +43,10 @@
             android:textColor="@color/black"/>
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:boxBackgroundColor="@color/white"
-            app:boxStrokeColor="@color/secondaryGreen">
+            style="@style/customInputLayout">
             <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingStart="0dp"
-                android:textSize="16sp"/>
+                android:id="@+id/usernameEditText"
+                style="@style/customEditText"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -72,6 +66,7 @@
             app:passwordToggleEnabled="true"
             app:passwordToggleTint="@color/secondaryGreen">
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="0dp"
