@@ -19,6 +19,7 @@
         android:id="@+id/loginLinear"
         android:layout_width="397dp"
         android:layout_height="392dp"
+        android:paddingHorizontal="30sp"
         android:layout_marginTop="185dp"
         android:layout_marginLeft="25dp"
         android:background="@drawable/rectangle25"
@@ -29,7 +30,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
-            android:layout_marginLeft="30.24dp"
             android:text="Lanjutkan ..."
             android:textSize="32sp"
             android:textStyle="bold"
@@ -39,42 +39,45 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="35dp"
-            android:layout_marginLeft="30.24dp"
             android:text="Username"
             android:textSize="16sp"
             android:textColor="@color/black"/>
 
-        <EditText
-            android:layout_width="340.55dp"
-            android:layout_height="44dp"
-            android:layout_marginLeft="30.24dp"
-            android:backgroundTint="@color/primaryGreen"
-            android:textSize="16sp"
-            android:textColor="@color/black"
-            android:shadowColor="@color/secondaryGreen"/>
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeColor="@color/secondaryGreen">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="31dp"
-            android:layout_marginLeft="30.24dp"
             android:text="Password"
             android:textSize="16sp"
             android:textColor="@color/black"/>
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:endIconMode="password_toggle">
-
+            android:paddingStart="0dp"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeColor="@color/primaryGreen"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/primaryGreen">
             <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="340.55dp"
-            android:layout_height="45dp"
-            android:layout_marginLeft="30.24dp"
-            android:backgroundTint="@color/primaryGreen"
-            android:textSize="16sp"
-            android:textColor="@color/black"
-            android:shadowColor="@color/secondaryGreen"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="0dp"
+                android:textSize="16sp"
+                android:inputType="textPassword"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -84,19 +87,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="31dp"
-            android:layout_marginLeft="30.24dp"
             android:text="Ulangi Password"
             android:textSize="16sp"
             android:textColor="@color/black"/>
 
-        <EditText
-            android:layout_width="340.55dp"
-            android:layout_height="45dp"
-            android:layout_marginLeft="30.24dp"
-            android:backgroundTint="@color/primaryGreen"
-            android:textSize="16sp"
-            android:textColor="@color/black"
-            android:shadowColor="@color/secondaryGreen"/>
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeColor="@color/primaryGreen"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/primaryGreen">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="0dp"
+                android:textSize="16sp"
+                android:inputType="textPassword"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
     
