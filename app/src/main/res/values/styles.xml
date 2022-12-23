@@ -10,7 +10,7 @@
     <style name="customEditText">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="paddingStart">0dp</item>
+        <item name="android:paddingStart">0dp</item>
         <item name="android:textSize">16sp</item>
     </style>
 
@@ -26,8 +26,12 @@
     <style name="customEditTextPassword">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="paddingStart">0dp</item>
+        <item name="android:paddingStart">0dp</item>
         <item name="android:textSize">16sp</item>
         <item name="android:inputType">textPassword</item>
+    </style>
+
+    <style name="customButton">
+
     </style>
 </resources>
