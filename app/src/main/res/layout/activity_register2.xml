@@ -44,18 +44,14 @@
             android:textColor="@color/black"/>
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:boxBackgroundColor="@color/white"
-            app:boxStrokeColor="@color/secondaryGreen">
+            style="@style/customInputLayout">
             <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"/>
+                style="@style/customInputLayout"
+                android:id="@+id/usernameRegisterEditText"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
+            android:id="@+id/passwordRegisterTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="31dp"
@@ -73,6 +69,7 @@
             app:passwordToggleEnabled="true"
             app:passwordToggleTint="@color/primaryGreen">
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordRegisterEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="0dp"
@@ -84,6 +81,7 @@
 
 
         <TextView
+            android:id="@+id/rePasswordRegisterTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="31dp"
@@ -100,6 +98,7 @@
             app:passwordToggleEnabled="true"
             app:passwordToggleTint="@color/primaryGreen">
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/rePasswordRegisterEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="0dp"
