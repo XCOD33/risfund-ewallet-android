@@ -31,7 +31,29 @@
         <item name="android:inputType">textPassword</item>
     </style>
 
-    <style name="customButton">
+    <style name="customButtonWhite">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">54dp</item>
+        <item name="cornerRadius">15dp</item>
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/secondaryGreen</item>
+    </style>
 
+    <style name="customButtonGreen">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">54dp</item>
+        <item name="cornerRadius">15dp</item>
+        <item name="android:backgroundTint">@color/secondaryGreen</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    
+    <style name="customAnimasiImage">
+        <item name="android:layout_width">400dp</item>
+        <item name="android:layout_height">121dp</item>
+        <item name="android:layout_marginTop">34dp</item>
     </style>
 </resources>
