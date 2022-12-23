@@ -77,16 +77,10 @@
 
     <Button
         android:id="@+id/loginButton"
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
         android:layout_below="@+id/loginLinear"
         android:layout_marginTop="35dp"
-        app:cornerRadius="15dp"
-        android:backgroundTint="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
         android:text="Masuk"
-        android:textColor="@color/secondaryGreen" />
+        style="@style/customButtonWhite" />
 
     <TextView
         android:id="@+id/daftar1TextView"
