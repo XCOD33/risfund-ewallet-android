@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="primaryGreen">#70CF97</color>
     <color name="secondaryGreen">#25AA63</color>
+    <color name="red">#FC2323</color>
 </resources>
