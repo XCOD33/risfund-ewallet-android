@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="450dp"
+    android:layout_height="800dp"
+    android:background="@color/primaryGreen"
+    tools:context=".TopUpActivity"
+    tools:ignore="HarcodedText">
+
+    <LinearLayout
+        android:id="@+id/layoutTopUp"
+        android:layout_width="383dp"
+        android:layout_height="153dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginHorizontal="33dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="153dp"
+            android:paddingTop="20dp"
+            android:paddingHorizontal="38dp"
+            android:background="@drawable/rectangle25_15"
+            android:orientation="horizontal"
+            android:elevation="4dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/usernameTopUpTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hi, Nama Pengguna"
+                    android:textSize="12sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Saldo"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/balanceTopUpTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Rp123.000"
+                    android:textSize="32sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/balanceNotifTopUpTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Saldo sisa sedikit"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/red"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:layout_below="@id/layoutTopUp"
+        android:paddingTop="37dp"
+        android:paddingHorizontal="37dp"
+        android:layout_marginTop="43dp"
+        android:background="@drawable/rectangle25"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/NominalTopUpTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nominal Top Up"
+            android:textSize="26dp"
+            android:textStyle="bold"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeColor="@color/primaryGreen">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="0dp"
+                android:hint="Rp"
+                android:textSize="16dp"
+                android:id="@+id/nominalEditText"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/catatan1TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="29dp"
+            android:text="Maksimal saldo yang bisa kamu simpandalam satu waktu adalah Rp.20.000.000"
+            android:textSize="14sp"
+            />
+
+        <TextView
+            android:id="@+id/catatan2Textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Akumulasi nominal topup saldo yang bisa dilakukan dalam satu bulan maksimal Rp.40.000.000"
+            android:textSize="14dp"
+            />
+
+    </LinearLayout>
+
+
+        <Button
+            android:id="@+id/TopupButton"
+            style="@style/customButtonGreen"
+            android:layout_below="@+id/catatan2Textview"
+            android:layout_marginTop="200dp"
+            android:text="Isi Saldo" />
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
