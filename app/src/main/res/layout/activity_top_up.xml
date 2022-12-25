@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="34dp"
-            android:layout_marginLeft="170dp"
+            android:layout_marginStart="148dp"
             android:text="Top Up"
             android:textStyle="bold"
             android:textSize="20sp"/>
@@ -106,7 +106,7 @@
         android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
@@ -119,37 +119,76 @@
             android:textStyle="bold"/>
 
         <com.google.android.material.textfield.TextInputLayout
-            style="Widget.MaterialComponents.TextInputLayout.FilledBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:boxBackgroundColor="@color/white"
-            app:boxStrokeColor="@color/primaryGreen">
+            style="@style/customInputLayout">
+
             <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingStart="0dp"
-                android:hint="Rp"
-                android:textSize="16dp"
+                style="@style/customEditText"
+                android:drawableStart="@drawable/rp"
+                android:drawablePadding="10dp"
                 android:id="@+id/nominalEditText"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:id="@+id/catatan1TextView"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="29dp"
-            android:text="Maksimal saldo yang bisa kamu simpandalam satu waktu adalah Rp.20.000.000"
-            android:textSize="14sp"
-            />
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/catatan2Textview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="Akumulasi nominal topup saldo yang bisa dilakukan dalam satu bulan maksimal Rp.40.000.000"
-            android:textSize="14dp"
-            />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:src="@drawable/icon__note_"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginStart="9dp"
+                android:layout_marginEnd="5dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ellipse_1"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="44dp"
+                    android:src="@drawable/ellipse_1"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/catatan1TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Maksimal saldo yang bisa kamu simpan\ndalam satu waktu adalah Rp.20.000.000"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/gotham_book"
+                    android:lineSpacingExtra="7sp"
+                    />
+
+                <TextView
+                    android:id="@+id/catatan2Textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="Akumulasi nominal topup saldo yang bisa\ndilakukan dalam satu bulan maksimal\nRp.40.000.000"
+                    android:textSize="14sp"
+                    android:lineSpacingExtra="7sp"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -158,12 +197,10 @@
             android:id="@+id/TopupButton"
             style="@style/customButtonGreen"
             android:layout_below="@+id/catatan2Textview"
-            android:layout_marginTop="170dp"
+            android:layout_marginTop="160dp"
+            android:elevation="5dp"
             android:text="Isi Saldo" />
 
-
     </LinearLayout>
-
-
 
 </RelativeLayout>
