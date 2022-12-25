@@ -197,5 +197,18 @@
 
     </LinearLayout>
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/rectangle25"
+        android:elevation="12dp"
+        android:paddingBottom="18dp"
+        android:paddingHorizontal="25dp"
+        app:menu="@menu/bottom_navigation"
+        app:itemActiveIndicatorStyle="@color/white"
+        app:itemIconSize="40dp"
+        app:itemIconTint="@drawable/bottom_nav_icon_color_selector" />
 
 </RelativeLayout>
