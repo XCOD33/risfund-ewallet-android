@@ -48,14 +48,16 @@
             android:orientation="horizontal">
 
             <ImageButton
+                android:id="@+id/plnPrabayarImageButton1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/pln_prabayar1"/>
 
             <ImageButton
+                android:id="@+id/plnPrabayarImageButton2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="20dp"
                 android:background="@drawable/pln_prabayar2"/>
 
         </LinearLayout>
@@ -67,14 +69,16 @@
             android:orientation="horizontal">
 
             <ImageButton
+                android:id="@+id/plnPrabayarImageButton3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/pln_prabayar3"/>
 
             <ImageButton
+                android:id="@+id/plnPrabayarImageButton4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="20dp"
                 android:background="@drawable/pln_prabayar4"/>
 
         </LinearLayout>
@@ -86,14 +90,16 @@
             android:orientation="horizontal">
 
             <ImageButton
+                android:id="@+id/plnPrabayarImageButton5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/pln_prabayar5"/>
 
             <ImageButton
+                android:id="@+id/plnPrabayarImageButton6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="20dp"
                 android:background="@drawable/pln_prabayar6"/>
 
         </LinearLayout>
@@ -105,14 +111,16 @@
             android:orientation="horizontal">
 
             <ImageButton
+                android:id="@+id/plnPrabayarImageButton7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/pln_prabayar7"/>
 
             <ImageButton
+                android:id="@+id/plnPrabayarImageButton8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="20dp"
                 android:background="@drawable/pln_prabayar8"/>
 
         </LinearLayout>

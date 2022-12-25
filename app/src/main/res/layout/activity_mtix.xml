@@ -32,4 +32,99 @@
             android:textSize="20sp"/>
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/cardPurchaseMtix"
+        android:layout_below="@+id/layoutMtix1"
+        style="@style/customCardPurchases">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@+id/cardPurchaseMtix"
+        style="@style/customLayoutPurchases">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/mTixImageButton1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/m_tix1"/>
+
+            <ImageButton
+                android:id="@+id/mTixImageButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/m_tix2"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/mTixImageButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/m_tix1"/>
+
+            <ImageButton
+                android:id="@+id/mTixImageButton4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/m_tix2"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/mTixImageButton5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/m_tix1"/>
+
+            <ImageButton
+                android:id="@+id/mTixImageButton6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/m_tix2"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/mTixImageButton7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/m_tix1"/>
+
+            <ImageButton
+                android:id="@+id/mTixImageButton8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/m_tix2"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 </RelativeLayout>
