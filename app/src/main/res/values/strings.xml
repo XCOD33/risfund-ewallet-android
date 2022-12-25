@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">RISFund</string>
+
+    <string-array name="gender">
+        <item>Laki - laki</item>
+        <item>Perempuan</item>
+    </string-array>
 </resources>
