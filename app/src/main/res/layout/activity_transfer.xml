@@ -5,7 +5,7 @@
     android:layout_width="450dp"
     android:layout_height="800dp"
     android:background="@color/primaryGreen"
-    tools:context=".Transfer"
+    tools:context=".TransferActivity"
     tools:ignore="HarcodedText">
 
     <LinearLayout
@@ -55,12 +55,12 @@
                 android:orientation="vertical">
 
                 <TextView
-                android:id="@+id/usernameTransferTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hi, Nama Pengguna"
-                android:textSize="12sp"
-                android:textStyle="bold"/>
+                    android:id="@+id/usernameTransferTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hi, Nama Pengguna"
+                    android:textSize="12sp"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/saldoTransferTextView"
@@ -206,5 +206,7 @@
             android:text="Transfer" />
 
     </LinearLayout>
+
+</RelativeLayout>
 
 </RelativeLayout>
