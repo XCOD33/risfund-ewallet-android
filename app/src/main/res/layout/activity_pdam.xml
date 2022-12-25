@@ -32,4 +32,19 @@
             android:textSize="20sp"/>
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/cardPurchasePdam"
+        style="@style/customCardPurchases"
+        android:layout_below="@id/layoutPdam1">
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/pdamButton"
+        style="@style/customButtonWhite"
+        android:layout_marginTop="35dp"
+        android:layout_below="@id/cardPurchasePdam"
+        android:layout_marginHorizontal="25dp"
+        android:text="Lanjutkan"/>
+
 </RelativeLayout>

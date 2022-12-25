@@ -32,4 +32,19 @@
             android:textSize="20sp"/>
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/cardPurchasePlnPascabayar"
+        android:layout_below="@+id/layoutPlnPascabayar1"
+        style="@style/customCardPurchases">
+
+    </LinearLayout>
+    
+    <Button
+        android:id="@+id/plnPascabayarButton"
+        android:layout_marginTop="35dp"
+        android:layout_marginHorizontal="25dp"
+        android:layout_below="@+id/cardPurchasePlnPascabayar"
+        style="@style/customButtonWhite"
+        android:text="Lanjutkan"/>
+
 </RelativeLayout>
