@@ -32,4 +32,33 @@
             android:textSize="20sp"/>
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/cardPurchasePulsa"
+        android:layout_below="@+id/layoutPulsa1"
+        style="@style/customCardPurchases">
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@id/cardPurchasePulsa"
+        style="@style/customLayoutPurchases">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/paketpulsa1"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/paketpulsa2"/>
+        </LinearLayout>
+    </LinearLayout>
+
 </RelativeLayout>
