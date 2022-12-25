@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="450dp"
+    android:layout_height="800dp"
+    android:background="@color/primaryGreen"
+    tools:ignore="HardcodedText"
+    tools:context=".VoucherFisikActivity">
+
+    <LinearLayout
+        android:id="@+id/layoutVoucherFisik1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/backVoucherFisik"
+            android:layout_width="15dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="34dp"
+            android:background="@drawable/iconback" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="34dp"
+            android:layout_marginStart="148dp"
+            android:text="Voucher Fisik"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
+</RelativeLayout>
