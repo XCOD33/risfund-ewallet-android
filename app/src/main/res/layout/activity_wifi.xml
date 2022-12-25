@@ -40,9 +40,10 @@
 
     <Button
         android:id="@+id/wifiButton"
+        style="@style/customButtonWhite"
         android:layout_below="@+id/cardPurchaseWifi"
         android:layout_marginTop="35dp"
-        android:text="Lanjutkan"
-        style="@style/customButtonWhite" />
+        android:layout_marginHorizontal="25dp"
+        android:text="Lanjutkan" />
 
 </RelativeLayout>

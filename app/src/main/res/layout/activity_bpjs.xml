@@ -32,4 +32,19 @@
             android:textSize="20sp"/>
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/cardPurchaseBpjs"
+        style="@style/customCardPurchases"
+        android:layout_below="@id/layoutBpjs1">
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/BpjsButton"
+        style="@style/customButtonWhite"
+        android:layout_marginTop="35dp"
+        android:layout_below="@id/cardPurchaseBpjs"
+        android:layout_marginHorizontal="25dp"
+        android:text="Lanjutkan"/>
+
 </RelativeLayout>
