@@ -61,5 +61,20 @@
     <style name="customSpinner">
         <item name="android:textColor">@color/secondaryGreen</item>
     </style>
-
+    
+    <style name="customCardPurchase">
+        <item name="android:layout_width">400dp</item>
+        <item name="android:layout_height">169dp</item>
+        <item name="android:paddingTop">15dp</item>
+        <item name="android:paddingBottom">15dp</item>
+        <item name="android:paddingStart">19dp</item>
+        <item name="android:paddingEnd">19dp</item>
+    </style>
+    
+    <style name="customCardPriceMenu">
+        <item name="android:layout_width">170dp</item>
+        <item name="android:layout_height">87dp</item>
+        <item name="android:backgroundTint">@color/secondaryGreen</item>
+        <item name="android:elevation">5dp</item>
+    </style>
 </resources>
