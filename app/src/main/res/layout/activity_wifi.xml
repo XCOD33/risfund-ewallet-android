@@ -32,4 +32,17 @@
             android:textSize="20sp"/>
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/cardPurchaseWifi"
+        android:layout_below="@+id/layoutWifi1"
+        style="@style/customCardPurchases">
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/wifiButton"
+        android:layout_below="@+id/cardPurchaseWifi"
+        android:layout_marginTop="35dp"
+        android:text="Lanjutkan"
+        style="@style/customButtonWhite" />
+
 </RelativeLayout>
