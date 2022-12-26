@@ -61,7 +61,7 @@
             style="@style/customInputLayout">
             <com.google.android.material.textfield.TextInputEditText
                 style="@style/customEditText"
-                android:id="@+id/usernameRegisterEditText"
+                android:id="@+id/nomorTeleponRegisterEditText"
                 android:drawableStart="@drawable/_62"
                 android:drawablePadding="10dp"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -88,6 +88,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
+            android:id="@+id/jenisKelaminRegisterTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
@@ -102,6 +103,7 @@
             app:boxStrokeColor="@color/secondaryGreen">
 
             <AutoCompleteTextView
+                android:id="@+id/jenisKelaminRegisterAutoComplete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="-- Pilih Salah Satu --"
@@ -113,6 +115,7 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/lanjutkanRegisterButton"
         android:layout_width="match_parent"
         android:layout_height="54dp"
         android:layout_marginHorizontal="25dp"
