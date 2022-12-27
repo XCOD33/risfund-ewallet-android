@@ -36,6 +36,56 @@
         android:id="@+id/cardPurchaseMtix"
         android:layout_below="@+id/layoutMtix1"
         style="@style/customCardPurchases">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Topup M-Tix"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/mTixImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/mtix"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="15dp"
+                android:text="M-Tix"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Nomor Telepon"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/customInputLayout"
+            android:paddingTop="3dp">
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/customEditText"
+                android:paddingTop="3dp"
+                android:id="@+id/nomorTeleponMtixEditText"
+                android:drawableStart="@drawable/_62"
+                android:drawablePadding="10dp"
+                android:textSize="16dp"
+                android:inputType="phone"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
     </LinearLayout>
 
     <LinearLayout
