@@ -36,6 +36,68 @@
         android:id="@+id/cardPurchaseWifi"
         android:layout_below="@+id/layoutWifi1"
         style="@style/customCardPurchases">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Penyedia Layanan"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/wifiImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/logoindihome"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                android:id="@+id/wifiLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:hint="Indihome"
+                android:textColorHint="@color/black"
+                app:boxBackgroundColor="@color/white"
+                app:endIconDrawable="@drawable/spinnericon"
+                app:endIconTint="@color/primaryGreen"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:boxStrokeColor="@color/white">
+
+                <AutoCompleteTextView
+                    android:id="@+id/wifiAutoComplete"
+                    android:layout_width="match_parent"
+                    android:paddingStart="0dp"
+                    android:paddingBottom="0dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:inputType="none"
+                    android:textSize="16sp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="Nomor Pelanggan"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/customInputLayout">
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/customEditText"
+                android:id="@+id/nomorPelangganWifiEditText"/>
+        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
     <Button

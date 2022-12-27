@@ -96,7 +96,7 @@
             style="@style/customInputLayout">
             <com.google.android.material.textfield.TextInputEditText
                 style="@style/customEditText"
-                android:id="@+id/nomorTeleponPaketDataEditText"/>
+                android:id="@+id/emailVoucherFisikEditText"/>
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
