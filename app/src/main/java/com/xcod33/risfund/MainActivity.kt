@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         Handler().postDelayed({
             // Launch the main activity
-            startActivity(Intent(this, HistoryActivity::class.java))
+            startActivity(Intent(this, PaketDataActivity::class.java))
             // Close the splash screen activity
             finish()
         }, splashDelay)

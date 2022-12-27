@@ -103,6 +103,8 @@
             android:hint="-- Pilih Salah Satu --"
             android:textColorHint="@color/black"
             app:boxBackgroundColor="@color/white"
+            app:endIconDrawable="@drawable/spinnericon"
+            app:endIconTint="@color/primaryGreen"
             app:boxStrokeColor="@color/secondaryGreen">
 
             <AutoCompleteTextView
