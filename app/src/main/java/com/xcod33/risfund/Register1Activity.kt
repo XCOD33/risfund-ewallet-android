@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.FrameLayout
+import android.widget.ImageView
 import android.widget.TextView
 import com.google.android.material.textfield.TextInputLayout
 
@@ -13,7 +14,6 @@ class Register1Activity : AppCompatActivity() {
 
     private lateinit var jenisKelaminRegisterAutoComplete: AutoCompleteTextView
     private lateinit var jenisKelaminRegisterInputLayout: TextInputLayout
-    private lateinit var jkregister: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +21,6 @@ class Register1Activity : AppCompatActivity() {
 
         jenisKelaminRegisterAutoComplete = findViewById(R.id.jenisKelaminRegisterAutoComplete)
         jenisKelaminRegisterInputLayout = findViewById(R.id.jenisKelaminRegisterInputLayout)
-        jkregister = findViewById(R.id.jenisKelaminRegisterTextView)
 
         val gender = listOf("Laki - laki", "Perempuan")
 
@@ -30,6 +29,7 @@ class Register1Activity : AppCompatActivity() {
         jenisKelaminRegisterAutoComplete.setAdapter(genderAdapter)
         jenisKelaminRegisterAutoComplete.setOnItemClickListener { adapterView, view, i, l ->
             jenisKelaminRegisterInputLayout.setHint(adapterView.getItemAtPosition(i).toString())
+
         }
     }
 }
