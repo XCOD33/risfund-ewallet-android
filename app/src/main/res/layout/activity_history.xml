@@ -18,11 +18,21 @@
         android:textStyle="bold"
         android:textSize="20sp"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="611dp"
-        android:layout_marginTop="109dp"
-        style="@style/customLayoutPurchases"/>
+    <LinearLayout
+        style="@style/customLayoutPurchases"
+        android:layout_height="match_parent"
+        android:paddingTop="0dp"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp"
+        android:layout_below="@id/riwayatTextView">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/card_view_riwayat"
+            tools:itemCount="8"/>
+
+    </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
