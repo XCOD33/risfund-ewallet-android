@@ -32,4 +32,9 @@
             android:textSize="20sp"/>
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/cardPurchasePaketData"
+        style="@style/customCardPurchases"
+        android:layout_below="@+id/layoutPaketData1"/>
+
 </RelativeLayout>
