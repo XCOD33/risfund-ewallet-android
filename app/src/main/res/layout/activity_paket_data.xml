@@ -87,18 +87,21 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
             android:text="Nomor Telepon"
             android:textSize="14sp"
             android:textStyle="bold"/>
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/customInputLayout">
+            style="@style/customInputLayout"
+            android:paddingTop="3dp">
             <com.google.android.material.textfield.TextInputEditText
                 style="@style/customEditText"
+                android:paddingTop="3dp"
                 android:id="@+id/nomorTeleponPaketDataEditText"
                 android:drawableStart="@drawable/_62"
-                android:drawablePadding="10dp"/>
+                android:drawablePadding="10dp"
+                android:textSize="16dp"
+                android:inputType="phone"/>
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
