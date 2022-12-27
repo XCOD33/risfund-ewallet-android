@@ -1,9 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="450dp"
     android:layout_height="800dp"
+    android:background="@color/primaryGreen"
+    tools:ignore="HardcodedText"
     tools:context=".SettingsActivity">
 
-</ScrollView>
+    <TextView
+        android:id="@+id/pengaturanTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:layout_marginStart="167dp"
+        android:text="Pengaturan"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+
+    <ImageView
+        android:id="@+id/profileImageView"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="109dp"
+        android:layout_marginHorizontal="185dp"
+        android:src="@drawable/rectangle25"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="211dp"
+        android:gravity="center_horizontal"
+        android:text="Aldo Attalarick"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+    
+    <LinearLayout
+        android:id="@+id/profilLinearLayout"
+        android:layout_width="400dp"
+        android:layout_height="312dp"
+        android:layout_marginTop="248dp"
+        android:layout_marginHorizontal="25dp"
+        android:paddingHorizontal="30dp"
+        android:orientation="vertical"
+        android:background="@drawable/rectangle15">
+        
+        <TextView
+            android:id="@+id/namaLengkapProfilTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Nama Lengkap"
+            android:textSize="16sp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/customInputLayout">
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/customEditText"
+                android:id="@+id/namaLengkapProfilEditText"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/nomorTeleponProfilTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="Nomor Telepon"
+            android:textSize="16sp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/customInputLayout">
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/customEditText"
+                android:id="@+id/nomorTeleponProfilEditText"
+                android:drawableStart="@drawable/_62"
+                android:drawablePadding="10dp"
+                android:inputType="phone"
+                android:maxLength="13"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tanggalLahirProfilTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="Tanggal Lahir"
+            android:textSize="16sp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/customInputLayout">
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/customEditText"
+                android:id="@+id/tanggalLahirProfilEditView"
+                android:focusable="false"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusableInTouchMode="false"
+                android:hint="dd/mm/yyyy"
+                android:textSize="14sp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/editProfilButton"
+        android:layout_width="397dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="575dp"
+        android:layout_marginHorizontal="26dp"
+        style="@style/customButtonWhite"
+        android:text="Edit Profil"/>
+
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="397dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="645dp"
+        android:layout_marginHorizontal="26dp"
+        style="@style/customButtonWhite"
+        android:text="Logout"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/rectangle25"
+        android:elevation="12dp"
+        android:paddingBottom="18dp"
+        android:paddingHorizontal="25dp"
+        app:menu="@menu/bottom_navigation"
+        app:itemActiveIndicatorStyle="@color/white"
+        app:itemIconSize="40dp"
+        app:itemIconTint="@drawable/bottom_nav_icon_color_selector" />
+</RelativeLayout>
