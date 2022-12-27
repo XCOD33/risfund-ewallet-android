@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="450dp"
+    android:layout_height="800dp"
+    android:background="@color/primaryGreen"
+    tools:ignore="HardcodedText"
+    tools:context=".HistoryActivity">
+
+    <TextView
+        android:id="@+id/riwayatTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:layout_marginStart="173dp"
+        android:text="Riwayat"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="611dp"
+        android:layout_marginTop="109dp"
+        style="@style/customLayoutPurchases"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/rectangle25"
+        android:elevation="12dp"
+        android:paddingBottom="18dp"
+        android:paddingHorizontal="25dp"
+        app:menu="@menu/bottom_navigation"
+        app:itemActiveIndicatorStyle="@color/white"
+        app:itemIconSize="40dp"
+        app:itemIconTint="@drawable/bottom_nav_icon_color_selector" />
+
+</RelativeLayout>
