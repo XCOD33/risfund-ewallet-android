@@ -32,4 +32,90 @@
             android:textSize="20sp"/>
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/cardPurchaseVoucherFisik"
+        style="@style/customCardPurchases"
+        android:layout_below="@id/layoutVoucherFisik1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jenis Voucher"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/voucherImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/playstore"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                android:id="@+id/jenisVoucherLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:hint="Google Play Store"
+                android:textColorHint="@color/black"
+                app:boxBackgroundColor="@color/white"
+                app:endIconDrawable="@drawable/spinnericon"
+                app:endIconTint="@color/primaryGreen"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:boxStrokeColor="@color/white">
+
+                <AutoCompleteTextView
+                    android:id="@+id/jenisVoucherAutoComplete"
+                    android:layout_width="match_parent"
+                    android:paddingStart="0dp"
+                    android:paddingBottom="0dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:inputType="none"
+                    android:textSize="16sp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="Email"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/customInputLayout">
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/customEditText"
+                android:id="@+id/nomorTeleponPaketDataEditText"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/customLayoutPurchases"
+        android:layout_below="@id/cardPurchaseVoucherFisik"
+        android:paddingStart="0dp"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            tools:listitem="@layout/card_view_purchases"
+            tools:itemCount="4"/>
+
+    </LinearLayout>
+
+
+
 </RelativeLayout>
