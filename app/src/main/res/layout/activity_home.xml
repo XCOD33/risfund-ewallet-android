@@ -95,7 +95,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="35dp"
+                android:layout_marginHorizontal="25dp"
                 android:src="@drawable/line"/>
 
             <ImageButton
