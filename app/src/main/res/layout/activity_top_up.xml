@@ -125,6 +125,7 @@
                 style="@style/customEditText"
                 android:drawableStart="@drawable/rp"
                 android:drawablePadding="10dp"
+                android:inputType="number"
                 android:id="@+id/nominalEditText"/>
         </com.google.android.material.textfield.TextInputLayout>
 
