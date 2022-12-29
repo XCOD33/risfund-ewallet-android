@@ -29,9 +29,9 @@ class TopUpActivity : AppCompatActivity() {
 
         TopupButton.setOnClickListener{
             if(nominalEditText.text.isEmpty()) {
-                nominalEditText.error = "Input Top Up Amount"
+                nominalEditText.error = "Masukkan Nominal Top Up"
             } else {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://google.com"));
+                val intent = Intent(this, TripayWebViewActivity::class.java);
                 startActivity(intent)
             }
             }
