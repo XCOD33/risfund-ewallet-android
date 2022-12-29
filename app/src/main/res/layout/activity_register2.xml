@@ -44,6 +44,7 @@
             android:textColor="@color/black"/>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/usernameRegisterInputLayout"
             style="@style/customInputLayout">
             <com.google.android.material.textfield.TextInputEditText
                 style="@style/customEditText"
