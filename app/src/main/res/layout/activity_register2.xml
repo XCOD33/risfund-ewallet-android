@@ -61,6 +61,7 @@
             android:textColor="@color/black"/>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordRegisterInputLayout"
             style="@style/customInputLayoutPassword">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/passwordRegisterEditText"
@@ -80,6 +81,7 @@
             android:textColor="@color/black"/>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/rePasswordRegisterInputLayout"
             style="@style/customInputLayoutPassword">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/rePasswordRegisterEditText"
@@ -89,6 +91,7 @@
     </LinearLayout>
     
     <Button
+        android:id="@+id/daftarRegisterButton"
         android:layout_width="match_parent"
         android:layout_height="54dp"
         android:layout_below="@id/Register2Linear"
