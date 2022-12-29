@@ -35,15 +35,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="35dp"
-            android:text="Username"
+            android:text="Nomor Telepon"
             android:textSize="16sp"
             android:textColor="@color/black"/>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/usernameInputLayout"
             style="@style/customInputLayout">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/usernameEditText"
-                style="@style/customEditText" />
+                style="@style/customEditText"
+                android:inputType="phone"
+                android:drawableStart="@drawable/_62"
+                android:drawablePadding="10dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -55,6 +59,7 @@
             android:textColor="@color/black"/>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordInputLayout"
             style="@style/customInputLayoutPassword">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/passwordEditText"

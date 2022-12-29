@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         Handler().postDelayed({
             // Launch the main activity
-            startActivity(Intent(this, SettingsActivity::class.java))
+            startActivity(Intent(this, LoginActivity::class.java))
             // Close the splash screen activity
             finish()
         }, splashDelay)

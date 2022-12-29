@@ -1,9 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="450dp"
+    android:layout_height="800dp"
+    android:background="@color/primaryGreen"
+    tools:ignore="HarcodedText"
+    android:paddingHorizontal="25dp"
     tools:context=".PaymentSuccessActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/layoutPembayaranSukses1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/backPembayaranSukses"
+            android:layout_width="15dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="34dp"
+            android:background="@drawable/iconback" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="34dp"
+            android:layout_marginStart="85dp"
+            android:text="Pembayaran Berhasil"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutPembayaranSukses2"
+        android:layout_width="match_parent"
+        android:layout_height="421dp"
+        android:layout_marginTop="53dp"
+        android:layout_below="@id/layoutPembayaranSukses1"
+        android:background="@drawable/rectangle25"
+        android:orientation="vertical"
+        android:paddingTop="88dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/transfersucces"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_gravity="center"
+            android:text="Pembayaran Berhasil"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:textColor="@color/secondaryGreen"/>
+
+        <TextView
+            android:id="@+id/transferAmountTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            android:layout_gravity="center"
+            android:text="-Rp123.000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/secondaryGreen"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/transferBerhasilButton"
+        android:layout_marginTop="36dp"
+        android:layout_below="@id/layoutPembayaranSukses2"
+        style="@style/customButtonWhite"
+        android:text="Lanjutkan"/>
+
+</RelativeLayout>

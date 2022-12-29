@@ -62,6 +62,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 style="@style/customEditText"
                 android:id="@+id/nomorTeleponRegisterEditText"
+                android:inputType="phone"
                 android:drawableStart="@drawable/_62"
                 android:drawablePadding="10dp"/>
         </com.google.android.material.textfield.TextInputLayout>

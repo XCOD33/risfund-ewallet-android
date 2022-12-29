@@ -45,14 +45,14 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="116dp"
+            android:layout_gravity="center"
             android:src="@drawable/transfersucces"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:layout_marginHorizontal="72dp"
+            android:layout_gravity="center"
             android:text="Pembayaran Berhasil"
             android:textStyle="bold"
             android:textSize="24sp"
@@ -63,7 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="11dp"
-            android:layout_marginStart="140dp"
+            android:layout_gravity="center"
             android:text="-Rp123.000"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -72,7 +72,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="58dp"
+            android:layout_gravity="center"
             android:layout_marginTop="11dp"
             android:text="1a8c4fdb-8a86-4744-9d06-4fb54d6d8333"
             android:textSize="13dp"
