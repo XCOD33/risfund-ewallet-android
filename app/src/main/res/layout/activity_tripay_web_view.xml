@@ -14,12 +14,12 @@
         android:background="@color/secondaryGreen">
 
         <ImageButton
-            android:id="@+id/backMtix"
-            android:layout_width="15dp"
+            android:id="@+id/closeTripayWebView"
+            android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="34dp"
-            android:background="@drawable/iconback" />
+            android:background="@drawable/x_close" />
 
     </LinearLayout>
     <WebView

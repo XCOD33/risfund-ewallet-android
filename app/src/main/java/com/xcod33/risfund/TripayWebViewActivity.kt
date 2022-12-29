@@ -1,15 +1,21 @@
 package com.xcod33.risfund
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.ImageButton
 
 class TripayWebViewActivity : AppCompatActivity() {
+
+    private lateinit var closeTripayWebView: ImageButton
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tripay_web_view)
 
+        closeTripayWebView = findViewById(R.id.closeTripayWebView)
         val webView: WebView = findViewById(R.id.webview)
 
 // WebViewClient allows you to handle
@@ -24,6 +30,11 @@ class TripayWebViewActivity : AppCompatActivity() {
 
         // if you want to enable zoom feature
         webView.settings.setSupportZoom(true)
+
+        closeTripayWebView.setOnClickListener {
+            var intent = Intent(this, TopUpActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     // if you press Back button this code will work
