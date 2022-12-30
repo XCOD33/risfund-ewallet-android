@@ -1,5 +1,6 @@
 package com.xcod33.risfund
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -37,7 +38,15 @@ class Register2Activity : AppCompatActivity() {
 
         daftarRegisterButton.setOnClickListener {
             if (usernameRegisterEditText.text.isEmpty()) {
-
+                usernameRegisterInputLayout.error = "Username diperlukan"
+                usernameRegisterInputLayout.requestFocus()
+            } else if (passwordRegisterEditText.text.isEmpty()) {
+                passwordRegisterInputLayout.error = "Password diperlukan"
+            } else if (rePasswordRegisterEditText.text.isEmpty()) {
+                rePasswordRegisterInputLayout.error = "Re-Password diperlukan"
+            } else {
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
             }
         }
 

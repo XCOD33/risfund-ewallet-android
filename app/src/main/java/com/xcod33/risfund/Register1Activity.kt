@@ -46,7 +46,7 @@ class Register1Activity : AppCompatActivity() {
 
         jenisKelaminRegisterAutoComplete.setAdapter(genderAdapter)
         jenisKelaminRegisterAutoComplete.setOnItemClickListener { adapterView, view, i, l ->
-            jenisKelaminRegisterInputLayout.setHint(jenisKelaminRegisterAutoComplete.text.toString())
+            jenisKelaminRegisterInputLayout.isHintEnabled = false
         }
 
         lanjutkanRegisterButton.setOnClickListener {
