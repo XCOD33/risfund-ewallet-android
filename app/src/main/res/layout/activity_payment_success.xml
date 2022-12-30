@@ -59,7 +59,7 @@
             android:textColor="@color/secondaryGreen"/>
 
         <TextView
-            android:id="@+id/transferAmountTextView"
+            android:id="@+id/PembayaranAmountTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="11dp"
@@ -72,7 +72,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/transferBerhasilButton"
+        android:id="@+id/pembayaranBerhasilButton"
         android:layout_marginTop="36dp"
         android:layout_below="@id/layoutPembayaranSukses2"
         style="@style/customButtonWhite"
