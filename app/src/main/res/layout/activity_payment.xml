@@ -2,8 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="450dp"
+    android:layout_height="800dp"
+    tools:ignore="HarcodedText"
     tools:context=".PaymentActivity">
 
     <com.budiyev.android.codescanner.CodeScannerView
@@ -12,9 +13,62 @@
         android:layout_height="match_parent"
         app:autoFocusButtonVisible="false"
         app:flashButtonVisible="false"
+        app:frameAspectRatioWidth="280"
+        app:frameAspectRatioHeight="300"
         app:frameColor="@color/white"
-        app:frameCornersSize="70dp"
-        app:frameCornersRadius="5dp"/>
+        app:frameCornersSize="50dp"
+        app:frameThickness="5dp"
+        app:frameCornersRadius="1dp"/>
+
+    <LinearLayout
+        android:id="@+id/layoutTopUp1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/backPayment"
+            android:layout_width="15dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="34dp"
+            android:background="@drawable/iconback_white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="34dp"
+            android:layout_marginStart="148dp"
+            android:text="Bayar"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        style="@style/customNotifMyQR"
+        android:layout_marginBottom="90dp"
+        android:layout_marginStart="60dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginStart="27dp"
+            android:src="@drawable/notif"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="10dp"
+            android:textSize="10dp"
+            android:fontFamily="@font/gotham_book"
+            android:text="Tunjukkan QR Code dan pindai untuk \n\nmelanjutkkan transaksi"/>
+
+    </LinearLayout>
 
 
 </RelativeLayout>
