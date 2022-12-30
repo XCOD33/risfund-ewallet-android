@@ -34,7 +34,7 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
@@ -50,7 +50,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.7.0'
 //  adding qrCode generate
     implementation('com.journeyapps:zxing-android-embedded:4.3.0') { transitive = false }
-    implementation 'com.google.zxing:core:3.3.0'
+    implementation 'com.google.zxing:core:3.5.1'
 //  adding qrCode scanner
     implementation 'com.github.yuriy-budiyev:code-scanner:2.3.2'
 }

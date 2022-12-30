@@ -1,9 +1,11 @@
 package com.xcod33.risfund
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.ImageView
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.WriterException
@@ -11,12 +13,20 @@ import com.google.zxing.qrcode.QRCodeWriter
 
 class MyQrActivity : AppCompatActivity() {
 
+    private lateinit var backMyQr: ImageButton
     private lateinit var qrImageView: ImageView
     private lateinit var bottomNav: com.google.android.material.bottomnavigation.BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_qr)
+
+        backMyQr = findViewById(R.id.backMyQR)
+
+        backMyQr.setOnClickListener {
+            var intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+        }
 
         qrImageView = findViewById(R.id.qrImageView)
         val data = "ivan"
