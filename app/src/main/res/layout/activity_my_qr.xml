@@ -47,7 +47,7 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="109dp"
         android:background="@drawable/rectangle25"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/layoutMyQRProfile"
@@ -90,6 +90,20 @@
 
             </LinearLayout>
         </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/linemyqr"
+            android:layout_gravity="center"/>
+
+        <ImageView
+            android:id="@+id/qrImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_launcher_background"/>
 
     </LinearLayout>
 
