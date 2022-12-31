@@ -13,6 +13,7 @@ class SettingsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_settings)
 
         bottomNav = findViewById(R.id.bottomNav)
+        bottomNav.setSelectedItemId(R.id.settingNavigation);
 
         bottomNav.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
