@@ -25,6 +25,7 @@ class Register2Activity : AppCompatActivity() {
     private lateinit var rePasswordRegisterInputLayout: TextInputLayout
     private lateinit var rePasswordRegisterEditText: EditText
     private lateinit var daftarRegisterButton: Button
+    private lateinit var Register2TV: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

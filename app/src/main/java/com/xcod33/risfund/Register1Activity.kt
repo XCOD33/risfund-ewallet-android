@@ -65,11 +65,13 @@ class Register1Activity : AppCompatActivity() {
             dpd.show()
         }
 
-        val getGender = when (jenisKelaminRegisterAutoComplete.text.toString()){
-            "Laki - laki" -> "Male"
-            "Perempuan" -> "Female"
+        var getGender: String? = null
+        when (jenisKelaminRegisterAutoComplete.text.toString()){
+            "Laki - laki" -> getGender = "Male"
+            "Perempuan" -> getGender = "Female"
             else -> null
         }
+
 
         lanjutkanRegisterButton.setOnClickListener {
             if (namaLengkapRegisterEditText.text.isEmpty()) {
@@ -88,7 +90,7 @@ class Register1Activity : AppCompatActivity() {
                 bundle.putString("name", namaLengkapRegisterEditText.text.toString())
                 bundle.putString("birthdate", tanggalLahirRegisterEditText.text.toString())
                 bundle.putString("phoneNumber", nomorTeleponRegisterEditText.text.toString())
-                bundle.putString("gender", jenisKelaminRegisterAutoComplete.text.toString())
+                bundle.putString("gender", getGender)
 
                 intent.putExtras(bundle)
                 startActivity(intent)
