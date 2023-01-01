@@ -17,7 +17,7 @@
         android:id="@+id/animasi2ImageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/untitled_1"/>
+        android:background="@drawable/register1_animation"/>
     </LinearLayout>
 
     <LinearLayout
