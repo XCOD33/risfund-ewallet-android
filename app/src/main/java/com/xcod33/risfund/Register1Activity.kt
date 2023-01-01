@@ -25,6 +25,7 @@ class Register1Activity : AppCompatActivity() {
     private lateinit var tanggalLahirRegisterEditText: EditText
     private lateinit var tanggalLahirInputLayout: TextInputLayout
     private lateinit var lanjutkanRegisterButton: Button
+    private lateinit var daftarRegisterTextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,15 +39,15 @@ class Register1Activity : AppCompatActivity() {
         nomorTeleponInputLayout = findViewById(R.id.nomorTeleponInputLayout)
         tanggalLahirRegisterEditText = findViewById(R.id.tanggalLahirRegisterEditText)
         lanjutkanRegisterButton = findViewById(R.id.lanjutkanRegisterButton)
+        daftarRegisterTextView = findViewById(R.id.daftarRegisterTextView)
 
         val genderList = listOf("Laki - laki", "Perempuan")
-        val bundle = Bundle()
         val genderAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, genderList)
-
 
         jenisKelaminRegisterAutoComplete.setAdapter(genderAdapter)
         jenisKelaminRegisterAutoComplete.setOnItemClickListener { adapterView, view, i, l ->
             jenisKelaminRegisterInputLayout.isHintEnabled = false
+            daftarRegisterTextView.text = i.toString()
         }
 
         lanjutkanRegisterButton.setOnClickListener {
@@ -62,6 +63,7 @@ class Register1Activity : AppCompatActivity() {
                 tanggalLahirRegisterEditText.requestFocus()
             } else {
                 val intent = Intent(this, Register2Activity::class.java)
+                val bundle = Bundle()
                 bundle.putString("name", namaLengkapRegisterEditText.text.toString())
                 bundle.putString("phoneNumber", nomorTeleponRegisterEditText.text.toString())
                 bundle.putString("gender", jenisKelaminRegisterAutoComplete.text.toString())
