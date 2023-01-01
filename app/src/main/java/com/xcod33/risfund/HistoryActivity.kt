@@ -30,8 +30,6 @@ class HistoryActivity : AppCompatActivity() {
                 }
 
                 R.id.historyNavigation -> {
-                    val intent = Intent(this, HistoryActivity::class.java)
-                    startActivity(intent)
                     true
                 }
 
