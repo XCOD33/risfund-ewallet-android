@@ -9,9 +9,19 @@
     android:paddingHorizontal="25dp"
     tools:ignore="HardcodedText">
     
-    <View
-        android:id="@+id/animationView"
-        style="@style/customAnimasiImage"/>
+    <LinearLayout
+        android:id="@+id/animationLoginView"
+        style="@style/customAnimasiImage"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/animasi1ImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/untitled_1"/>
+
+    </LinearLayout>
+
     
     <LinearLayout
         android:id="@+id/loginLinear"
