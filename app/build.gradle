@@ -53,4 +53,7 @@ dependencies {
     implementation 'com.google.zxing:core:3.5.1'
 //  adding qrCode scanner
     implementation 'com.github.yuriy-budiyev:code-scanner:2.3.2'
+
+//    fast android network
+    implementation 'com.amitshekhar.android:android-networking:1.0.2'
 }
