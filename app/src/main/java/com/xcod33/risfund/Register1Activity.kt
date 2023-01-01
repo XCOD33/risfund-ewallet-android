@@ -54,7 +54,6 @@ class Register1Activity : AppCompatActivity() {
         jenisKelaminRegisterAutoComplete.setAdapter(genderAdapter)
         jenisKelaminRegisterAutoComplete.setOnItemClickListener { adapterView, view, i, l ->
             jenisKelaminRegisterInputLayout.isHintEnabled = false
-            daftarRegisterTextView.text = i.toString()
         }
 
         tanggalLahirRegisterEditText.setOnClickListener {
@@ -64,6 +63,12 @@ class Register1Activity : AppCompatActivity() {
                 tanggalLahirRegisterEditText.setText("" + mYear + "/" + mMonth1 + "/" + mDay)
             }, year, month, day)
             dpd.show()
+        }
+
+        val getGender = when (jenisKelaminRegisterAutoComplete.text.toString()){
+            "Laki - laki" -> "Male"
+            "Perempuan" -> "Female"
+            else -> null
         }
 
         lanjutkanRegisterButton.setOnClickListener {
