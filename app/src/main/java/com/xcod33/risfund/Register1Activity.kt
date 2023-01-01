@@ -48,13 +48,12 @@ class Register1Activity : AppCompatActivity() {
         val year = cal.get(Calendar.YEAR)
         val month = cal.get(Calendar.MONTH)
         val day = cal.get(Calendar.DAY_OF_MONTH)
-        val genderList = listOf("male", "female")
+        val genderList = listOf("Laki - laki", "Perempuan")
         val genderAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, genderList)
 
         jenisKelaminRegisterAutoComplete.setAdapter(genderAdapter)
         jenisKelaminRegisterAutoComplete.setOnItemClickListener { adapterView, view, i, l ->
             jenisKelaminRegisterInputLayout.isHintEnabled = false
-            daftarRegisterTextView.text = i.toString()
         }
 
         tanggalLahirRegisterEditText.setOnClickListener {
@@ -64,6 +63,12 @@ class Register1Activity : AppCompatActivity() {
                 tanggalLahirRegisterEditText.setText("" + mYear + "/" + mMonth1 + "/" + mDay)
             }, year, month, day)
             dpd.show()
+        }
+
+        val getGender = when (jenisKelaminRegisterAutoComplete.text.toString()){
+            "Laki - laki" -> "Male"
+            "Perempuan" -> "Female"
+            else -> null
         }
 
         lanjutkanRegisterButton.setOnClickListener {
