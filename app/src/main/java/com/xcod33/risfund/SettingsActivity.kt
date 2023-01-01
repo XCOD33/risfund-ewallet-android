@@ -39,7 +39,7 @@ class SettingsActivity : AppCompatActivity() {
             tanggalLahirProfilInputLayout.isHintEnabled = false
             val dpd = DatePickerDialog(this, android.R.style.Theme_Material_Dialog,DatePickerDialog.OnDateSetListener { view, mYear, mMonth, mDay ->
                 val mMonth1 = mMonth + 1
-                tanggalLahirProfilEditText.setText("" + mDay + "/" + mMonth1 + "/" + mYear)
+                tanggalLahirProfilEditText.setText("" + mYear + "/" + mMonth1 + "/" + mDay)
             }, year, month, day)
             dpd.show()
         }

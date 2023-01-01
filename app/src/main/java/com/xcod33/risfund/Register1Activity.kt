@@ -1,5 +1,6 @@
 package com.xcod33.risfund
 
+import android.app.DatePickerDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,6 +14,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import java.util.*
 
 class Register1Activity : AppCompatActivity() {
 
@@ -23,7 +25,7 @@ class Register1Activity : AppCompatActivity() {
     private lateinit var nomorTeleponRegisterEditText: EditText
     private lateinit var nomorTeleponInputLayout: TextInputLayout
     private lateinit var tanggalLahirRegisterEditText: EditText
-    private lateinit var tanggalLahirInputLayout: TextInputLayout
+    private lateinit var tanggalLahirRegisterInputLayout: TextInputLayout
     private lateinit var lanjutkanRegisterButton: Button
     private lateinit var daftarRegisterTextView: TextView
 
@@ -37,10 +39,15 @@ class Register1Activity : AppCompatActivity() {
         namaInputLayout = findViewById(R.id.namaInputLayout)
         nomorTeleponRegisterEditText = findViewById(R.id.nomorTeleponRegisterEditText)
         nomorTeleponInputLayout = findViewById(R.id.nomorTeleponInputLayout)
+        tanggalLahirRegisterInputLayout = findViewById(R.id.tanggalLahirRegisterInputLayout)
         tanggalLahirRegisterEditText = findViewById(R.id.tanggalLahirRegisterEditText)
         lanjutkanRegisterButton = findViewById(R.id.lanjutkanRegisterButton)
         daftarRegisterTextView = findViewById(R.id.daftarRegisterTextView)
 
+        val cal = Calendar.getInstance()
+        val year = cal.get(Calendar.YEAR)
+        val month = cal.get(Calendar.MONTH)
+        val day = cal.get(Calendar.DAY_OF_MONTH)
         val genderList = listOf("Laki - laki", "Perempuan")
         val genderAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, genderList)
 
@@ -48,6 +55,15 @@ class Register1Activity : AppCompatActivity() {
         jenisKelaminRegisterAutoComplete.setOnItemClickListener { adapterView, view, i, l ->
             jenisKelaminRegisterInputLayout.isHintEnabled = false
             daftarRegisterTextView.text = i.toString()
+        }
+
+        tanggalLahirRegisterEditText.setOnClickListener {
+            tanggalLahirRegisterInputLayout.isHintEnabled = false
+            val dpd = DatePickerDialog(this, android.R.style.Theme_Material_Dialog,DatePickerDialog.OnDateSetListener { view, mYear, mMonth, mDay ->
+                val mMonth1 = mMonth + 1
+                tanggalLahirRegisterEditText.setText("" + mYear + "/" + mMonth1 + "/" + mDay)
+            }, year, month, day)
+            dpd.show()
         }
 
         lanjutkanRegisterButton.setOnClickListener {
@@ -65,6 +81,7 @@ class Register1Activity : AppCompatActivity() {
                 val intent = Intent(this, Register2Activity::class.java)
                 val bundle = Bundle()
                 bundle.putString("name", namaLengkapRegisterEditText.text.toString())
+                bundle.putString("birthdate", tanggalLahirRegisterEditText.text.toString())
                 bundle.putString("phoneNumber", nomorTeleponRegisterEditText.text.toString())
                 bundle.putString("gender", jenisKelaminRegisterAutoComplete.text.toString())
 

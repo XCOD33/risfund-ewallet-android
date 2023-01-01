@@ -78,8 +78,9 @@
             android:textSize="16sp"/>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tanggalLahirInputLayout"
-            style="@style/customInputLayout">
+            android:id="@+id/tanggalLahirRegisterInputLayout"
+            style="@style/customInputLayout"
+            android:hint="dd/mm/yyyy">
             <com.google.android.material.textfield.TextInputEditText
                 style="@style/customEditText"
                 android:id="@+id/tanggalLahirRegisterEditText"
@@ -87,7 +88,6 @@
                 android:clickable="false"
                 android:cursorVisible="false"
                 android:focusableInTouchMode="false"
-                android:hint="dd/mm/yyyy"
                 android:textSize="14sp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -105,7 +105,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="-- Pilih Salah Satu --"
-            android:textColorHint="@color/black"
             app:boxBackgroundColor="@color/white"
             app:endIconDrawable="@drawable/spinnericon"
             app:endIconTint="@color/primaryGreen"
