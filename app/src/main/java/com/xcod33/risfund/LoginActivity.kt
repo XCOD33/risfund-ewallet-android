@@ -52,6 +52,8 @@ class LoginActivity : AppCompatActivity() {
         val phoneNumber = usernameEditText.text.toString().trim()
         val password = passwordEditText.text.toString().trim()
 
+        val sessionManager = SessionManager(this)
+
         if (usernameEditText.text.isEmpty()) {
             usernameInputLayout.error = "Username is required"
         } else if (passwordEditText.text.isEmpty()) {
@@ -72,16 +74,19 @@ class LoginActivity : AppCompatActivity() {
                 .build()
                 .getAsJSONObject(object: JSONObjectRequestListener {
                     override fun onResponse(response: JSONObject?) {
-                        Log.d("response", response.toString())
                         try {
                             if (response != null) {
                                 if(response.getString("message").equals("Login Succeeded")) {
                                     Toast.makeText(this@LoginActivity, "Login Berhasil", Toast.LENGTH_LONG).show()
 
+                                    val token = JSONObject(response.getString("data"))
+
+                                    sessionManager.setLogin(true)
+                                    sessionManager.setToken(token.toString())
+
                                     val intent = Intent(this@LoginActivity, HomeActivity::class.java)
                                     startActivity(intent)
                                 }
-                                Log.d("response", response.toString())
                             }
                         } catch (e: JSONException) {
                             Log.d("error", e.toString())
