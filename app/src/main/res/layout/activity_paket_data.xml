@@ -52,8 +52,9 @@
 
             <ImageView
                 android:id="@+id/providerPaketDataImageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:layout_width="29dp"
+                android:layout_height="36dp"
                 android:src="@drawable/telkomsel"/>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -62,7 +63,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
-                android:hint="Telkomsel"
                 android:textColorHint="@color/black"
                 app:boxBackgroundColor="@color/white"
                 app:endIconDrawable="@drawable/spinnericon"
@@ -75,10 +75,12 @@
                     android:id="@+id/providerPaketDataAutoComplete"
                     android:layout_width="match_parent"
                     android:paddingStart="0dp"
+                    android:paddingTop="0dp"
                     android:paddingBottom="0dp"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
                     android:inputType="none"
+                    android:text="Telkomsel"
                     android:textSize="16sp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -115,7 +117,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:listitem="@layout/card_view_purchases"
-            tools:itemCount="2"/>
+            tools:itemCount="5"/>
 
     </LinearLayout>
 

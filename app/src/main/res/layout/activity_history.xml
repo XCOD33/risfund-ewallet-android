@@ -30,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:listitem="@layout/card_view_riwayat"
-            tools:itemCount="8"/>
+            tools:itemCount="3"/>
 
     </LinearLayout>
 

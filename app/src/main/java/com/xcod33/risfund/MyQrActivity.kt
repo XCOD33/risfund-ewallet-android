@@ -13,7 +13,6 @@ import com.google.zxing.qrcode.QRCodeWriter
 
 class MyQrActivity : AppCompatActivity() {
 
-    private lateinit var backMyQr: ImageButton
     private lateinit var qrImageView: ImageView
     private lateinit var bottomNav: com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -21,12 +20,8 @@ class MyQrActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_qr)
 
-        backMyQr = findViewById(R.id.backMyQR)
-
-        backMyQr.setOnClickListener {
-            var intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)
-        }
+        bottomNav = findViewById(R.id.bottomNav)
+        bottomNav.setSelectedItemId(R.id.qrNavigation);
 
         qrImageView = findViewById(R.id.qrImageView)
         val data = "ivan"
@@ -47,6 +42,33 @@ class MyQrActivity : AppCompatActivity() {
             e.printStackTrace()
         }
 
+        bottomNav.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.homeNavigation -> {
+                    val intent = Intent(this, HomeActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+
+                R.id.qrNavigation-> {
+                    true
+                }
+
+                R.id.historyNavigation -> {
+                    val intent = Intent(this, HistoryActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+
+                R.id.settingNavigation -> {
+                    val intent = Intent(this, SettingsActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+
+                else -> false
+            }
+        }
 
     }
 }

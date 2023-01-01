@@ -52,8 +52,8 @@
 
             <ImageView
                 android:id="@+id/wifiImageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="29dp"
+                android:layout_height="36dp"
                 android:src="@drawable/logoindihome"/>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -62,7 +62,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
-                android:hint="Indihome"
                 android:textColorHint="@color/black"
                 app:boxBackgroundColor="@color/white"
                 app:endIconDrawable="@drawable/spinnericon"
@@ -75,10 +74,12 @@
                     android:id="@+id/wifiAutoComplete"
                     android:layout_width="match_parent"
                     android:paddingStart="0dp"
+                    android:paddingTop="0dp"
                     android:paddingBottom="0dp"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
                     android:inputType="none"
+                    android:text="Indihome"
                     android:textSize="16sp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -96,7 +97,10 @@
             style="@style/customInputLayout">
             <com.google.android.material.textfield.TextInputEditText
                 style="@style/customEditText"
-                android:id="@+id/nomorPelangganWifiEditText"/>
+                android:id="@+id/nomorPelangganWifiEditText"
+                android:paddingTop="3dp"
+                android:textSize="16dp"
+                android:inputType="phone"/>
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 

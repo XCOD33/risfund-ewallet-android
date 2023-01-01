@@ -35,11 +35,17 @@
     <LinearLayout
         android:id="@+id/layoutKonfirmasiTransfer2"
         android:layout_width="match_parent"
-        android:layout_height="345dp"
+        android:layout_height="400dp"
         android:layout_marginTop="53dp"
         android:layout_below="@id/layoutKonfirmasiPembayaran1"
         android:orientation="vertical"
         android:background="@drawable/rectangle15">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/card_view_confirmation"
+            tools:itemCount="7"/>
 
     </LinearLayout>
 

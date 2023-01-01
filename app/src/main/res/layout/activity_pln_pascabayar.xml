@@ -63,7 +63,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
-                android:hint="PLN Pascabayar"
                 android:textColorHint="@color/black"
                 app:boxBackgroundColor="@color/white"
                 app:endIconDrawable="@drawable/spinnericon"
@@ -76,10 +75,12 @@
                     android:id="@+id/plnPascabayarAutoComplete"
                     android:layout_width="match_parent"
                     android:paddingStart="0dp"
+                    android:paddingTop="0dp"
                     android:paddingBottom="0dp"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
                     android:inputType="none"
+                    android:text="PLN Pascabayar"
                     android:textSize="16sp"/>
             </com.google.android.material.textfield.TextInputLayout>
 

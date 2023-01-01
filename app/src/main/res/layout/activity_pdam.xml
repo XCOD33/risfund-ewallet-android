@@ -80,7 +80,10 @@
             style="@style/customInputLayout">
             <com.google.android.material.textfield.TextInputEditText
                 style="@style/customEditText"
-                android:id="@+id/nomorPelangganPdamEditText"/>
+                android:id="@+id/nomorPelangganPdamEditText"
+                android:paddingTop="3dp"
+                android:textSize="16dp"
+                android:inputType="phone"/>
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>

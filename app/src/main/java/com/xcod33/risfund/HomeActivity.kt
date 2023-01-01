@@ -102,8 +102,6 @@ class HomeActivity : AppCompatActivity() {
         bottomNav.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.homeNavigation -> {
-                    val intent = Intent(this, HomeActivity::class.java)
-                    startActivity(intent)
                     true
                 }
 
