@@ -48,7 +48,7 @@ class Register1Activity : AppCompatActivity() {
         val year = cal.get(Calendar.YEAR)
         val month = cal.get(Calendar.MONTH)
         val day = cal.get(Calendar.DAY_OF_MONTH)
-        val genderList = listOf("Laki - laki", "Perempuan")
+        val genderList = listOf("male", "female")
         val genderAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, genderList)
 
         jenisKelaminRegisterAutoComplete.setAdapter(genderAdapter)

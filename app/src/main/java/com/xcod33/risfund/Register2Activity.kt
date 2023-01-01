@@ -35,6 +35,7 @@ class Register2Activity : AppCompatActivity() {
         val name = bundle?.getString("name")
         val phoneNumber = bundle?.getString("phoneNumber")
         val gender = bundle?.getString("gender")
+        val birthdate = bundle?.getString("birthdate")
 
         usernameRegisterInputLayout = findViewById(R.id.usernameRegisterInputLayout)
         usernameRegisterEditText = findViewById(R.id.usernameRegisterEditText)
@@ -59,12 +60,13 @@ class Register2Activity : AppCompatActivity() {
 
                 val jobj = JSONObject()
                 try {
-                    jobj.put("name", name)
+                    jobj.put("fullName", name)
                     jobj.put("phoneNumber", phoneNumber)
                     jobj.put("gender", gender)
+                    jobj.put("birthdate", birthdate)
                     jobj.put("username", username)
                     jobj.put("password", password)
-                    jobj.put("rePassword", rePassword)
+                    jobj.put("password_confirmation", rePassword)
                 } catch (e: JSONException) {
                     Log.d("error", e.toString())
                 }
