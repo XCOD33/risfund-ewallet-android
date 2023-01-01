@@ -115,7 +115,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:listitem="@layout/card_view_purchases"
-            tools:itemCount="2"/>
+            tools:itemCount="5"/>
 
     </LinearLayout>
 
