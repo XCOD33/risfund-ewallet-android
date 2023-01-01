@@ -70,8 +70,6 @@ class SettingsActivity : AppCompatActivity() {
                 }
 
                 R.id.settingNavigation -> {
-                    val intent = Intent(this, SettingsActivity::class.java)
-                    startActivity(intent)
                     true
                 }
 

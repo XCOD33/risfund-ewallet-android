@@ -51,8 +51,6 @@ class MyQrActivity : AppCompatActivity() {
                 }
 
                 R.id.qrNavigation-> {
-                    val intent = Intent(this, MyQrActivity::class.java)
-                    startActivity(intent)
                     true
                 }
 
