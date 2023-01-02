@@ -111,10 +111,12 @@
     <LinearLayout
         style="@style/customLayoutPurchases"
         android:paddingStart="0dp"
+        android:paddingEnd="0dp"
+        android:paddingTop="0dp"
         android:layout_below="@id/cardPurchasePaketData">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/containerRecyclerView"
+            android:id="@+id/paketDataRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:listitem="@layout/card_view_purchases"

@@ -98,7 +98,9 @@
             style="@style/customInputLayout">
             <com.google.android.material.textfield.TextInputEditText
                 style="@style/customEditText"
-                android:id="@+id/emailVoucherFisikEditText"/>
+                android:id="@+id/emailVoucherFisikEditText"
+                android:paddingTop="3dp"
+                android:textSize="16dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
@@ -107,14 +109,17 @@
         style="@style/customLayoutPurchases"
         android:layout_below="@id/cardPurchaseVoucherFisik"
         android:paddingStart="0dp"
+        android:paddingEnd="0dp"
+        android:paddingTop="0dp"
         android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/voucherRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="vertical"
             tools:listitem="@layout/card_view_purchases"
-            tools:itemCount="4"/>
+            tools:itemCount="5"/>
 
     </LinearLayout>
 

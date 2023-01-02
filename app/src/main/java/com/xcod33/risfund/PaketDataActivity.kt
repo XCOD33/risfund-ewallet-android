@@ -15,6 +15,7 @@ class PaketDataActivity : AppCompatActivity() {
     private lateinit var backPaketData: ImageButton
     private lateinit var providerPaketDataAutoComplete: AutoCompleteTextView
     private lateinit var providerPaketDataImageView: ImageView
+    private lateinit var paketDataRecyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +24,8 @@ class PaketDataActivity : AppCompatActivity() {
         backPaketData = findViewById(R.id.backPaketData)
         providerPaketDataAutoComplete = findViewById(R.id.providerPaketDataAutoComplete)
         providerPaketDataImageView = findViewById(R.id.providerPaketDataImageView)
+        paketDataRecyclerView = findViewById(R.id.paketDataRecyclerView)
+
         val providerList = listOf("Telkomsel", "Tri", "XL", "Axis", "Smartfren")
         val providerAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, providerList)
 
@@ -42,25 +45,14 @@ class PaketDataActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        //        getting the recycler view by its id
-        val recyclerview = findViewById<RecyclerView>(R.id.containerRecyclerView)
-
-//        this creates a vertical layout manager
-        recyclerview.layoutManager = LinearLayoutManager(this)
-
-//        ArrayList of class ItemsViewModel
+        paketDataRecyclerView.layoutManager = LinearLayoutManager(this)
         val data = ArrayList<ItemsViewModelPaketData>()
-
-//        This loop will create 9 Views containing
-//        the image with the count of view
-        for(i in 1..9) {
-            data.add(ItemsViewModelPaketData(i, i, i, i))
+        for(i in 1..7) {
+            data.add(ItemsViewModelPaketData(i, i))
         }
 
-//        This will pass the ArrayList to our Adapter
         val adapter = CustomAdapterPaketData(data)
+        paketDataRecyclerView.adapter = adapter
 
-//        Setting the Adapter with the recyclerview
-        recyclerview.adapter = adapter
     }
 }

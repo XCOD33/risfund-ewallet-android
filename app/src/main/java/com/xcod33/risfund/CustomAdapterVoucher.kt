@@ -8,7 +8,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class CustomAdapterPaketData(private val mList: ArrayList<ItemsViewModelPaketData>) : RecyclerView.Adapter<CustomAdapterPaketData.ViewHolder>() {
+class CustomAdapterVoucher(private val mList: List<ItemsViewModelVoucher>) : RecyclerView.Adapter<CustomAdapterVoucher.ViewHolder>() {
 
     class ViewHolder(ItemView: View): RecyclerView.ViewHolder(ItemView) {
         val purchaseTextView: TextView = ItemView.findViewById(R.id.purchaseTextView)
@@ -31,11 +31,10 @@ class CustomAdapterPaketData(private val mList: ArrayList<ItemsViewModelPaketDat
             val intent = Intent(holder.purchaseImageButton.context, PaymentConfirmationActivity::class.java)
             holder.purchaseImageButton.context.startActivity(intent)
         }
+
     }
 
     override fun getItemCount(): Int {
         return mList.size
     }
-
-
 }
