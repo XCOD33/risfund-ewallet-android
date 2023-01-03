@@ -21,7 +21,7 @@
 
         <LinearLayout
             android:id="@+id/layoutJudulCardViewRiwayat"
-            android:layout_width="wrap_content"
+            android:layout_width="210dp"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
@@ -47,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="25dp"
             android:text="-Rp12.000"/>
     </LinearLayout>

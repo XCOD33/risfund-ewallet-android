@@ -8,7 +8,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class CustomAdapterVoucher(private val mList: List<ItemsViewModelVoucher>) : RecyclerView.Adapter<CustomAdapterVoucher.ViewHolder>() {
+class CustomAdapterVoucher(private val mList: ArrayList<ItemsViewModelVoucher>) : RecyclerView.Adapter<CustomAdapterVoucher.ViewHolder>() {
 
     class ViewHolder(ItemView: View): RecyclerView.ViewHolder(ItemView) {
         val purchaseTextView: TextView = ItemView.findViewById(R.id.purchaseTextView)

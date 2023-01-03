@@ -7,7 +7,7 @@ data class ItemsViewModelRiwayat (val image: Int, val title: Int, val date: Int,
         3 -> R.drawable.menubpjs
         4 -> R.drawable.menuwifi
         5 -> R.drawable.menupdam
-        else -> "NULL"
+        else -> R.drawable.ic_launcher_background
     }
 
     val getTitle = when(title) {

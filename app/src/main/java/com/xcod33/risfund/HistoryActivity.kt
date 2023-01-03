@@ -17,6 +17,7 @@ class HistoryActivity : AppCompatActivity() {
 
         bottomNav = findViewById(R.id.bottomNav)
         bottomNav.setSelectedItemId(R.id.historyNavigation)
+        riwayatRecyclerView = findViewById(R.id.riwayatRecyclerView)
 
         bottomNav.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
@@ -48,7 +49,7 @@ class HistoryActivity : AppCompatActivity() {
 
         riwayatRecyclerView.layoutManager = LinearLayoutManager(this)
         val data = ArrayList<ItemsViewModelRiwayat>()
-        for(i in 1..7) {
+        for(i in 1..10) {
             data.add(ItemsViewModelRiwayat(i, i, i, i))
         }
 

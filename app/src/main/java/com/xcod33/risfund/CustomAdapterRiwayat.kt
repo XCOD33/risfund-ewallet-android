@@ -25,7 +25,7 @@ class CustomAdapterRiwayat(private val mList: ArrayList<ItemsViewModelRiwayat>) 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val itemsViewModel = mList[position]
 
-        holder.imageViewCardViewRiwayat.setImageResource(itemsViewModel.getImage as Int)
+        holder.imageViewCardViewRiwayat.setImageResource(itemsViewModel.getImage)
         holder.judulTextViewCardViewRiwayat.text = itemsViewModel.getTitle
         holder.tanggalTextViewCardViewRiwayat.text = itemsViewModel.getDate
         holder.hargaTextViewCardViewRiwayat.text = itemsViewModel.getPrice
