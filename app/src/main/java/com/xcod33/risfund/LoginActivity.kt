@@ -1,20 +1,22 @@
 package com.xcod33.risfund
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.google.android.material.textfield.TextInputLayout
+import okhttp3.OkHttpClient
 import org.json.JSONException
 import org.json.JSONObject
+
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var usernameEditText: EditText
@@ -67,9 +69,9 @@ class LoginActivity : AppCompatActivity() {
                 e.printStackTrace()
             }
 
-            AndroidNetworking.post("https://8718-125-160-101-0.ap.ngrok.io/api/login")
+            AndroidNetworking.post("https://fb9c-125-160-101-0.ap.ngrok.io/api/login")
                 .addJSONObjectBody(jobj)
-                .addHeaders("Content-Type", "application/json")
+                .addHeaders("Accept", "application/json")
                 .setPriority(Priority.MEDIUM)
                 .build()
                 .getAsJSONObject(object: JSONObjectRequestListener {
@@ -93,8 +95,14 @@ class LoginActivity : AppCompatActivity() {
                         }
                     }
 
-                    override fun onError(anError: ANError?) {
-                        Log.d("error", anError.toString())
+                    override fun onError(error: ANError?) {
+                        if (error != null) {
+                            if (error.errorCode != 0) {
+                                val response = JSONObject(error.errorBody)
+//                                Log.e("responseError", response.getString("message"))
+                                Toast.makeText(this@LoginActivity, response.getString("message"), Toast.LENGTH_LONG).show()
+                            }
+                        }
                     }
                 })
         }
