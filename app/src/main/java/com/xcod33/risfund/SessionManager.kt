@@ -17,4 +17,8 @@ class SessionManager(var context: Context?) {
         editor?.putString("token", token)
         editor?.commit()
     }
+
+    fun getToken(): String? {
+        return pref?.getString("token", "")
+    }
 }
