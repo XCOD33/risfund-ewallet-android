@@ -27,10 +27,11 @@
         android:layout_below="@id/riwayatTextView">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/riwayatRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:listitem="@layout/card_view_riwayat"
-            tools:itemCount="3"/>
+            tools:itemCount="7"/>
 
     </LinearLayout>
 

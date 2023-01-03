@@ -14,16 +14,19 @@
         android:orientation="horizontal">
         
         <ImageView
+            android:id="@+id/imageViewCardViewRiwayat"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@drawable/iconpulsa"/>
 
         <LinearLayout
+            android:id="@+id/layoutJudulCardViewRiwayat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/judulTextViewCardViewRiwayat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Pulsa"
@@ -31,6 +34,7 @@
                 android:layout_marginLeft="11dp"/>
 
             <TextView
+                android:id="@+id/tanggalTextViewCardViewRiwayat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="12 Desember 2022 - 09:00"
@@ -39,6 +43,7 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/hargaTextViewCardViewRiwayat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
@@ -48,6 +53,7 @@
     </LinearLayout>
 
     <ImageView
+        android:id="@+id/lineImageViewCardViewRiwayat"
         android:layout_marginTop="14dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
