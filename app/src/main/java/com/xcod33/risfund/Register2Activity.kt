@@ -71,9 +71,9 @@ class Register2Activity : AppCompatActivity() {
                     Log.d("error", e.toString())
                 }
 
-                AndroidNetworking.post("https://8718-125-160-101-0.ap.ngrok.io/api/register")
+                AndroidNetworking.post(" https://fb9c-125-160-101-0.ap.ngrok.io/api/register")
                     .addJSONObjectBody(jobj)
-                    .addHeaders("Content-Type", "application/json")
+                    .addHeaders("Accept", "application/json")
                     .setPriority(Priority.MEDIUM)
                     .build()
                     .getAsJSONObject(object: JSONObjectRequestListener {
@@ -92,8 +92,14 @@ class Register2Activity : AppCompatActivity() {
                             }
                         }
 
-                        override fun onError(anError: ANError?) {
-                            Log.e("error", anError.toString())
+                        override fun onError(error: ANError?) {
+                            if (error != null) {
+                                if (error.errorCode != 0) {
+                                    val response = JSONObject(error.errorBody)
+//                                Log.e("responseError", response.getString("message"))
+                                    Toast.makeText(this@Register2Activity, response.getString("message"), Toast.LENGTH_LONG).show()
+                                }
+                            }
                         }
                     })
             }
