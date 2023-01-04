@@ -16,92 +16,81 @@ import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.json.JSONException
 import org.json.JSONObject
+import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
-
-    private lateinit var topUpButton: ImageButton
-    private lateinit var paymentButton: ImageButton
-    private lateinit var transferButton: ImageButton
-    private lateinit var pulsaButton: ImageButton
-    private lateinit var paketDataButton: ImageButton
-    private lateinit var voucherButton: ImageButton
-    private lateinit var plnButton: ImageButton
-    private lateinit var pdamButton: ImageButton
-    private lateinit var wifiButton: ImageButton
-    private lateinit var mtixButton: ImageButton
-    private lateinit var bpjsButton: ImageButton
-    private lateinit var bottomNav: com.google.android.material.bottomnavigation.BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        getbalance()
+        val intent = intent
+        val userId = intent.getStringExtra("userId")
+        val fullName = intent.getStringExtra("fullName")
+        val phoneNumber = intent.getStringExtra("phoneNumber")
+        val birthdate = intent.getStringExtra("birthdate")
+        val gender = intent.getStringExtra("gender")
+        val username = intent.getStringExtra("username")
+        val balance = intent.getStringExtra("balance")
+        val userQr = intent.getStringExtra("userQr")
 
-        topUpButton = findViewById(R.id.topUpButton)
-        paymentButton = findViewById(R.id.paymentButton)
-        transferButton = findViewById(R.id.pulsaButton)
-        pulsaButton = findViewById(R.id.pulsaButton)
-        paketDataButton = findViewById(R.id.paketDataButton)
-        voucherButton = findViewById(R.id.voucherButton)
-        plnButton = findViewById(R.id.plnButton)
-        pdamButton = findViewById(R.id.pdamButton)
-        wifiButton = findViewById(R.id.wifiButton)
-        mtixButton = findViewById(R.id.mtixButton)
-        bpjsButton = findViewById(R.id.bpjsButton)
-        bottomNav = findViewById(R.id.bottomNav)
-        transferButton = findViewById(R.id.transferButton)
-        val balanceNotifTextView = findViewById<TextView>(R.id.balanceNotifTextView)
+        usernameTextView.text = "Hi, $fullName"
 
-        balanceNotifTextView.visibility = View.INVISIBLE
+        balanceTextView.text = balance.toString()
+            if(balanceTextView.text.toString().toInt() < 100000) {
+                balanceNotifTextView.visibility = View.VISIBLE
+            } else {
+                balanceNotifTextView.visibility = View.GONE
+            }
+
 
         topUpButton.setOnClickListener {
-            var intent = Intent(this, TopUpActivity::class.java)
+            val intent = Intent(this, TopUpActivity::class.java)
             startActivity(intent)
         }
 
         paymentButton.setOnClickListener {
-            var intent = Intent(this, PaymentActivity::class.java)
+            val intent = Intent(this, PaymentActivity::class.java)
             startActivity(intent)
         }
 
         transferButton.setOnClickListener {
-            var intent = Intent(this, TransferActivity::class.java)
+            val intent = Intent(this, TransferActivity::class.java)
             startActivity(intent)
         }
 
         pulsaButton.setOnClickListener {
-            var intent = Intent(this, PulsaActivity::class.java)
+            val intent = Intent(this, PulsaActivity::class.java)
             startActivity(intent)
         }
 
         paketDataButton.setOnClickListener {
-            var intent = Intent(this, PaketDataActivity::class.java)
+            val intent = Intent(this, PaketDataActivity::class.java)
             startActivity(intent)
         }
 
         voucherButton.setOnClickListener {
-            var intent = Intent(this, VoucherFisikActivity::class.java)
+            val intent = Intent(this, VoucherFisikActivity::class.java)
             startActivity(intent)
         }
 
         plnButton.setOnClickListener {
-            var intent = Intent(this, PlnPascabayarActivity::class.java)
+            val intent = Intent(this, PlnPascabayarActivity::class.java)
             startActivity(intent)
         }
 
         pdamButton.setOnClickListener {
-            var intent = Intent(this, PdamActivity::class.java)
+            val intent = Intent(this, PdamActivity::class.java)
             startActivity(intent)
         }
 
         wifiButton.setOnClickListener {
-            var intent = Intent(this, WifiActivity::class.java)
+            val intent = Intent(this, WifiActivity::class.java)
             startActivity(intent)
         }
 
         mtixButton.setOnClickListener {
-            var intent = Intent(this, MtixActivity::class.java)
+            val intent = Intent(this, MtixActivity::class.java)
             startActivity(intent)
         }
 
@@ -111,7 +100,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
         transferButton.setOnClickListener {
-            var intent = Intent(this, TransferActivity::class.java)
+            val intent = Intent(this, TransferActivity::class.java)
             startActivity(intent)
         }
 
@@ -142,55 +131,5 @@ class HomeActivity : AppCompatActivity() {
                 else -> false
             }
         }
-    }
-
-    fun getbalance() {
-        val balanceNotifTextView = findViewById<TextView>(R.id.balanceNotifTextView)
-
-        val sessionManager = SessionManager(this)
-        val token = JSONObject(sessionManager.getToken())
-
-        AndroidNetworking.get("https://79c9-125-160-101-0.ap.ngrok.io/api/user")
-            .addHeaders("Accept", "application/json")
-            .addHeaders("Authorization", "Bearer " + token.getString("token"))
-            .setPriority(Priority.IMMEDIATE)
-            .build()
-            .getAsJSONObject(object: JSONObjectRequestListener {
-                override fun onResponse(response: JSONObject?) {
-                    try {
-                        if (response != null) {
-                            if(response.getString("message").equals("User found")) {
-                                val data = JSONObject(response.getString("data"))
-                                val balance = data.getString("balance")
-                                val fullName = data.getString("fullName")
-
-                                val usernameTextView = findViewById<TextView>(R.id.usernameTextView)
-                                usernameTextView.text = "Hi, $fullName"
-
-                                val balanceTextView = findViewById<TextView>(R.id.balanceTextView)
-                                balanceTextView.text = balance
-
-                                if(balanceTextView.text.toString().toInt() < 100000) {
-                                    balanceNotifTextView.visibility = View.VISIBLE
-                                } else {
-                                    balanceNotifTextView.visibility = View.GONE
-                                }
-                            }
-                        }
-                    } catch (error: JSONException) {
-                        Log.d("error response", error.toString())
-                    }
-                }
-
-                override fun onError(error: ANError?) {
-                    if (error != null) {
-                        if (error.errorCode != 0) {
-                            val response = JSONObject(error.errorBody)
-//                                Log.e("responseError", response.getString("message"))
-                            Toast.makeText(this@HomeActivity, response.getString("message"), Toast.LENGTH_LONG).show()
-                        }
-                    }
-                }
-            })
     }
 }
