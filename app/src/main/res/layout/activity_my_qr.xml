@@ -135,7 +135,7 @@
         android:paddingBottom="18dp"
         android:paddingHorizontal="25dp"
         app:menu="@menu/bottom_navigation"
-        app:itemActiveIndicatorStyle="@color/white"
+
         app:itemIconSize="40dp"
         app:itemIconTint="@drawable/bottom_nav_icon_color_selector" />
 
