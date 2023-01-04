@@ -13,7 +13,6 @@ import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.xcod33.risfund.data.User
 import org.json.JSONException
 import org.json.JSONObject
 
