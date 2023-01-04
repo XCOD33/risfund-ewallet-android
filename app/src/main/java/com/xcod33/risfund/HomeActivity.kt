@@ -3,6 +3,7 @@ package com.xcod33.risfund
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.widget.ImageButton
@@ -143,7 +144,7 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-    private fun getbalance() {
+    fun getbalance() {
         val balanceNotifTextView = findViewById<TextView>(R.id.balanceNotifTextView)
 
         val sessionManager = SessionManager(this)
@@ -152,7 +153,7 @@ class HomeActivity : AppCompatActivity() {
         AndroidNetworking.get("https://79c9-125-160-101-0.ap.ngrok.io/api/user")
             .addHeaders("Accept", "application/json")
             .addHeaders("Authorization", "Bearer " + token.getString("token"))
-            .setPriority(Priority.LOW)
+            .setPriority(Priority.IMMEDIATE)
             .build()
             .getAsJSONObject(object: JSONObjectRequestListener {
                 override fun onResponse(response: JSONObject?) {
@@ -161,9 +162,10 @@ class HomeActivity : AppCompatActivity() {
                             if(response.getString("message").equals("User found")) {
                                 val data = JSONObject(response.getString("data"))
                                 val balance = data.getString("balance")
+                                val fullName = data.getString("fullName")
 
-                                Log.d("balance", balance)
-                                Log.d("token", token.getString("token"))
+                                val usernameTextView = findViewById<TextView>(R.id.usernameTextView)
+                                usernameTextView.text = "Hi, $fullName"
 
                                 val balanceTextView = findViewById<TextView>(R.id.balanceTextView)
                                 balanceTextView.text = balance
