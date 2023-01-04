@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         Handler().postDelayed({
             val sessionManager = SessionManager(this)
-            if(sessionManager.getToken()!!.isNotEmpty()) {
+            if(sessionManager.getToken()!! != "") {
                 checkLogin()
             } else {
             // Launch the main activity
