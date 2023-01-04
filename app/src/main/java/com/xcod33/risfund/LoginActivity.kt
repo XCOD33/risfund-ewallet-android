@@ -28,8 +28,14 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-//        initiate FAN
-        AndroidNetworking.initialize(applicationContext)
+        val sessionManager = SessionManager(this)
+        if(sessionManager.getToken()!!.isNotEmpty()) {
+            val token = JSONObject(sessionManager.getToken())
+            if(token.getString("token").isNotEmpty()) {
+                homeData()
+            }
+        }
+
 
         loginButton.setOnClickListener {
             login()
@@ -103,10 +109,10 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun login() {
+        val sessionManager = SessionManager(this)
+
         val phoneNumber = usernameEditText.text.toString().trim()
         val password = passwordEditText.text.toString().trim()
-
-        val sessionManager = SessionManager(this)
 
         if (usernameEditText.text!!.isEmpty()) {
             usernameInputLayout.error = "Username is required"

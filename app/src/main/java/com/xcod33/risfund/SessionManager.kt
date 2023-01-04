@@ -22,12 +22,8 @@ class SessionManager(var context: Context?) {
         return pref?.getString("token", "")
     }
 
-    fun setBalance(balance: Int) {
-        editor?.putInt("token", balance)
+    fun clearToken() {
+        editor?.clear()
         editor?.commit()
-    }
-
-    fun getBalance(): Int? {
-        return pref?.getInt("token", 0)
     }
 }
