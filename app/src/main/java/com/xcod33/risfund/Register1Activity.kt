@@ -12,6 +12,7 @@ import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import java.util.*
@@ -48,13 +49,17 @@ class Register1Activity : AppCompatActivity() {
         val year = cal.get(Calendar.YEAR)
         val month = cal.get(Calendar.MONTH)
         val day = cal.get(Calendar.DAY_OF_MONTH)
-        val genderList = listOf("male", "female")
+        val genderList = listOf("Laki - laki", "Perempuan")
         val genderAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, genderList)
+        var getGender: String? = null
 
         jenisKelaminRegisterAutoComplete.setAdapter(genderAdapter)
         jenisKelaminRegisterAutoComplete.setOnItemClickListener { adapterView, view, i, l ->
             jenisKelaminRegisterInputLayout.isHintEnabled = false
-            daftarRegisterTextView.text = i.toString()
+            when (i) {
+                0 -> getGender = "male"
+                1 -> getGender = "female"
+            }
         }
 
         tanggalLahirRegisterEditText.setOnClickListener {
@@ -83,7 +88,7 @@ class Register1Activity : AppCompatActivity() {
                 bundle.putString("name", namaLengkapRegisterEditText.text.toString())
                 bundle.putString("birthdate", tanggalLahirRegisterEditText.text.toString())
                 bundle.putString("phoneNumber", nomorTeleponRegisterEditText.text.toString())
-                bundle.putString("gender", jenisKelaminRegisterAutoComplete.text.toString())
+                bundle.putString("gender", getGender.toString())
 
                 intent.putExtras(bundle)
                 startActivity(intent)

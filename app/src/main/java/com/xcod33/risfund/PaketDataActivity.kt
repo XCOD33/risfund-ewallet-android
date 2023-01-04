@@ -7,12 +7,15 @@ import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.ImageButton
 import android.widget.ImageView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class PaketDataActivity : AppCompatActivity() {
 
     private lateinit var backPaketData: ImageButton
     private lateinit var providerPaketDataAutoComplete: AutoCompleteTextView
     private lateinit var providerPaketDataImageView: ImageView
+    private lateinit var paketDataRecyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +24,8 @@ class PaketDataActivity : AppCompatActivity() {
         backPaketData = findViewById(R.id.backPaketData)
         providerPaketDataAutoComplete = findViewById(R.id.providerPaketDataAutoComplete)
         providerPaketDataImageView = findViewById(R.id.providerPaketDataImageView)
+        paketDataRecyclerView = findViewById(R.id.paketDataRecyclerView)
+
         val providerList = listOf("Telkomsel", "Tri", "XL", "Axis", "Smartfren")
         val providerAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, providerList)
 
@@ -39,5 +44,15 @@ class PaketDataActivity : AppCompatActivity() {
             var intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
+
+        paketDataRecyclerView.layoutManager = LinearLayoutManager(this)
+        val data = ArrayList<ItemsViewModelPaketData>()
+        for(i in 1..7) {
+            data.add(ItemsViewModelPaketData(i, i))
+        }
+
+        val adapter = CustomAdapterPaketData(data)
+        paketDataRecyclerView.adapter = adapter
+
     }
 }

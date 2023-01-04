@@ -30,7 +30,6 @@ class Register2Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register2)
 
-
         val bundle = intent.extras
         val name = bundle?.getString("name")
         val phoneNumber = bundle?.getString("phoneNumber")

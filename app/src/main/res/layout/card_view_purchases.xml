@@ -10,12 +10,14 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:layout_marginStart="42dp"
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/purchaseTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Kuota 3GB"
@@ -23,6 +25,7 @@
                 android:textStyle="bold"/>
 
             <TextView
+                android:id="@+id/hargaPurchaseTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -32,16 +35,19 @@
         </LinearLayout>
 
         <ImageButton
+            android:id="@+id/purchaseImageButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:layout_marginStart="179dp"
+            android:layout_marginStart="50dp"
             android:background="@drawable/icon_kuota"/>
 
     </LinearLayout>
 
     <ImageView
+        android:id="@+id/linePurchaseImageView"
         android:layout_marginTop="14dp"
+        android:layout_marginBottom="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/layout1"
