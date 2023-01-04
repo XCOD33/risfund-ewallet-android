@@ -15,16 +15,10 @@ import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.google.android.material.textfield.TextInputLayout
 import org.json.JSONException
 import org.json.JSONObject
+import kotlinx.android.synthetic.main.activity_register2.*
 
 class Register2Activity : AppCompatActivity() {
 
-    private lateinit var usernameRegisterInputLayout: TextInputLayout
-    private lateinit var usernameRegisterEditText: EditText
-    private lateinit var passwordRegisterInputLayout: TextInputLayout
-    private lateinit var passwordRegisterEditText: EditText
-    private lateinit var rePasswordRegisterInputLayout: TextInputLayout
-    private lateinit var rePasswordRegisterEditText: EditText
-    private lateinit var daftarRegisterButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,21 +30,13 @@ class Register2Activity : AppCompatActivity() {
         val gender = bundle?.getString("gender")
         val birthdate = bundle?.getString("birthdate")
 
-        usernameRegisterInputLayout = findViewById(R.id.usernameRegisterInputLayout)
-        usernameRegisterEditText = findViewById(R.id.usernameRegisterEditText)
-        passwordRegisterInputLayout = findViewById(R.id.passwordRegisterInputLayout)
-        passwordRegisterEditText = findViewById(R.id.passwordRegisterEditText)
-        rePasswordRegisterInputLayout = findViewById(R.id.rePasswordRegisterInputLayout)
-        rePasswordRegisterEditText = findViewById(R.id.rePasswordRegisterEditText)
-        daftarRegisterButton = findViewById(R.id.daftarRegisterButton)
-
         daftarRegisterButton.setOnClickListener {
-            if (usernameRegisterEditText.text.isEmpty()) {
+            if (usernameRegisterEditText.text!!.isEmpty()) {
                 usernameRegisterInputLayout.error = "Username diperlukan"
                 usernameRegisterInputLayout.requestFocus()
-            } else if (passwordRegisterEditText.text.isEmpty()) {
+            } else if (passwordRegisterEditText.text!!.isEmpty()) {
                 passwordRegisterInputLayout.error = "Password diperlukan"
-            } else if (rePasswordRegisterEditText.text.isEmpty()) {
+            } else if (rePasswordRegisterEditText.text!!.isEmpty()) {
                 rePasswordRegisterInputLayout.error = "Re-Password diperlukan"
             } else {
                 val username = usernameRegisterEditText.text.toString().trim()

@@ -16,15 +16,10 @@ import com.google.android.material.textfield.TextInputLayout
 import okhttp3.OkHttpClient
 import org.json.JSONException
 import org.json.JSONObject
+import kotlinx.android.synthetic.main.activity_login.*
 
 
 class LoginActivity : AppCompatActivity() {
-    private lateinit var usernameEditText: EditText
-    private lateinit var passwordEditText: EditText
-    private lateinit var usernameInputLayout: TextInputLayout
-    private lateinit var passwordInputLayout: TextInputLayout
-    private lateinit var loginButton : Button
-    private lateinit var daftar2TextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,13 +27,6 @@ class LoginActivity : AppCompatActivity() {
 
 //        initiate FAN
         AndroidNetworking.initialize(applicationContext)
-
-        usernameEditText = findViewById(R.id.usernameEditText)
-        passwordEditText = findViewById(R.id.passwordEditText)
-        usernameInputLayout = findViewById(R.id.usernameInputLayout)
-        passwordInputLayout = findViewById(R.id.passwordInputLayout)
-        loginButton = findViewById(R.id.loginButton)
-        daftar2TextView = findViewById(R.id.daftar2TextView)
 
         loginButton.setOnClickListener {
             login()
@@ -56,9 +44,9 @@ class LoginActivity : AppCompatActivity() {
 
         val sessionManager = SessionManager(this)
 
-        if (usernameEditText.text.isEmpty()) {
+        if (usernameEditText.text!!.isEmpty()) {
             usernameInputLayout.error = "Username is required"
-        } else if (passwordEditText.text.isEmpty()) {
+        } else if (passwordEditText.text!!.isEmpty()) {
             passwordInputLayout.error = "Password is required"
         } else {
             val jobj = JSONObject()
