@@ -3,8 +3,19 @@ package com.xcod33.risfund
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import android.widget.ImageButton
+import android.widget.TextView
+import android.widget.Toast
+import com.androidnetworking.AndroidNetworking
+import com.androidnetworking.common.Priority
+import com.androidnetworking.error.ANError
+import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.xcod33.risfund.data.User
+import org.json.JSONException
+import org.json.JSONObject
 
 class HomeActivity : AppCompatActivity() {
 
@@ -25,6 +36,8 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        getbalance()
+
         topUpButton = findViewById(R.id.topUpButton)
         paymentButton = findViewById(R.id.paymentButton)
         transferButton = findViewById(R.id.pulsaButton)
@@ -38,6 +51,9 @@ class HomeActivity : AppCompatActivity() {
         bpjsButton = findViewById(R.id.bpjsButton)
         bottomNav = findViewById(R.id.bottomNav)
         transferButton = findViewById(R.id.transferButton)
+        val balanceNotifTextView = findViewById<TextView>(R.id.balanceNotifTextView)
+
+        balanceNotifTextView.visibility = View.INVISIBLE
 
         topUpButton.setOnClickListener {
             var intent = Intent(this, TopUpActivity::class.java)
@@ -126,5 +142,54 @@ class HomeActivity : AppCompatActivity() {
                 else -> false
             }
         }
+    }
+
+    private fun getbalance() {
+        val balanceNotifTextView = findViewById<TextView>(R.id.balanceNotifTextView)
+
+        val sessionManager = SessionManager(this)
+        val token = JSONObject(sessionManager.getToken())
+
+        AndroidNetworking.get("https://79c9-125-160-101-0.ap.ngrok.io/api/user")
+            .addHeaders("Accept", "application/json")
+            .addHeaders("Authorization", "Bearer " + token.getString("token"))
+            .setPriority(Priority.LOW)
+            .build()
+            .getAsJSONObject(object: JSONObjectRequestListener {
+                override fun onResponse(response: JSONObject?) {
+                    try {
+                        if (response != null) {
+                            if(response.getString("message").equals("User found")) {
+                                val data = JSONObject(response.getString("data"))
+                                val balance = data.getString("balance")
+
+                                Log.d("balance", balance)
+                                Log.d("token", token.getString("token"))
+
+                                val balanceTextView = findViewById<TextView>(R.id.balanceTextView)
+                                balanceTextView.text = balance
+
+                                if(balanceTextView.text.toString().toInt() < 100000) {
+                                    balanceNotifTextView.visibility = View.VISIBLE
+                                } else {
+                                    balanceNotifTextView.visibility = View.GONE
+                                }
+                            }
+                        }
+                    } catch (error: JSONException) {
+                        Log.d("error response", error.toString())
+                    }
+                }
+
+                override fun onError(error: ANError?) {
+                    if (error != null) {
+                        if (error.errorCode != 0) {
+                            val response = JSONObject(error.errorBody)
+//                                Log.e("responseError", response.getString("message"))
+                            Toast.makeText(this@HomeActivity, response.getString("message"), Toast.LENGTH_LONG).show()
+                        }
+                    }
+                }
+            })
     }
 }

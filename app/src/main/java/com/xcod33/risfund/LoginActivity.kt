@@ -69,7 +69,7 @@ class LoginActivity : AppCompatActivity() {
                 e.printStackTrace()
             }
 
-            AndroidNetworking.post("https://fb9c-125-160-101-0.ap.ngrok.io/api/login")
+            AndroidNetworking.post("https://79c9-125-160-101-0.ap.ngrok.io/api/login")
                 .addJSONObjectBody(jobj)
                 .addHeaders("Accept", "application/json")
                 .setPriority(Priority.MEDIUM)
