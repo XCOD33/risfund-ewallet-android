@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
+import kotlinx.android.synthetic.main.activity_transfer_success.*
 
 class TransferSuccessActivity : AppCompatActivity() {
 
@@ -28,5 +29,16 @@ class TransferSuccessActivity : AppCompatActivity() {
             var intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
+
+        accessIntent()
+    }
+
+    private fun accessIntent() {
+        val intent = intent
+        val transferId = intent.getStringExtra("transferId")
+        val amount = intent.getStringExtra("amount")
+
+        transferAmountTextView.text = amount
+        transferIdTextView.text = transferId
     }
 }

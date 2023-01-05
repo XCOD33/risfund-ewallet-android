@@ -23,7 +23,7 @@ class TripayWebViewActivity : AppCompatActivity() {
         webView.webViewClient = WebViewClient()
 
         // this will load the url of the website
-        webView.loadUrl("https://www.tripay.co.id/")
+        webView.loadUrl(intent.getStringExtra("checkout_url").toString())
 
         // this will enable the javascript settings, it can also allow xss vulnerabilities
         webView.settings.javaScriptEnabled = true

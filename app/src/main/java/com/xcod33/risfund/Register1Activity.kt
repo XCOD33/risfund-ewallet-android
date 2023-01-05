@@ -16,34 +16,13 @@ import android.widget.Toast
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import java.util.*
+import kotlinx.android.synthetic.main.activity_register1.*
 
 class Register1Activity : AppCompatActivity() {
-
-    private lateinit var jenisKelaminRegisterAutoComplete: AutoCompleteTextView
-    private lateinit var jenisKelaminRegisterInputLayout: TextInputLayout
-    private lateinit var namaLengkapRegisterEditText: EditText
-    private lateinit var namaInputLayout: TextInputLayout
-    private lateinit var nomorTeleponRegisterEditText: EditText
-    private lateinit var nomorTeleponInputLayout: TextInputLayout
-    private lateinit var tanggalLahirRegisterEditText: EditText
-    private lateinit var tanggalLahirRegisterInputLayout: TextInputLayout
-    private lateinit var lanjutkanRegisterButton: Button
-    private lateinit var daftarRegisterTextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register1)
-
-        jenisKelaminRegisterAutoComplete = findViewById(R.id.jenisKelaminRegisterAutoComplete)
-        jenisKelaminRegisterInputLayout = findViewById(R.id.jenisKelaminRegisterInputLayout)
-        namaLengkapRegisterEditText = findViewById(R.id.namaLengkapRegisterEditText)
-        namaInputLayout = findViewById(R.id.namaInputLayout)
-        nomorTeleponRegisterEditText = findViewById(R.id.nomorTeleponRegisterEditText)
-        nomorTeleponInputLayout = findViewById(R.id.nomorTeleponInputLayout)
-        tanggalLahirRegisterInputLayout = findViewById(R.id.tanggalLahirRegisterInputLayout)
-        tanggalLahirRegisterEditText = findViewById(R.id.tanggalLahirRegisterEditText)
-        lanjutkanRegisterButton = findViewById(R.id.lanjutkanRegisterButton)
-        daftarRegisterTextView = findViewById(R.id.daftarRegisterTextView)
 
         val cal = Calendar.getInstance()
         val year = cal.get(Calendar.YEAR)
@@ -72,10 +51,10 @@ class Register1Activity : AppCompatActivity() {
         }
 
         lanjutkanRegisterButton.setOnClickListener {
-            if (namaLengkapRegisterEditText.text.isEmpty()) {
+            if (namaLengkapRegisterEditText.text!!.isEmpty()) {
                 namaLengkapRegisterEditText.error = "Nama diperlukan"
                 namaLengkapRegisterEditText.requestFocus()
-            } else if (nomorTeleponRegisterEditText.text.isEmpty()) {
+            } else if (nomorTeleponRegisterEditText.text!!.isEmpty()) {
                 nomorTeleponRegisterEditText.error = "Nomor Telepon diperlukan"
                 nomorTeleponRegisterEditText.requestFocus()
             } else if (jenisKelaminRegisterAutoComplete.text.isEmpty()) {
