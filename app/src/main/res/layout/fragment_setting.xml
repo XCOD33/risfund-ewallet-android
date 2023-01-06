@@ -1,15 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="450dp"
-    android:layout_height="800dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/primaryGreen"
     tools:context=".SettingFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/pengaturanTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:text="Pengaturan"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/profileImageView"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="53dp"
+        android:layout_marginHorizontal="185dp"
+        app:layout_constraintTop_toTopOf="@+id/pengaturanTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/rectangle25"/>
+
+    <TextView
+        android:id="@+id/namaPenggunaProfilTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:gravity="center_horizontal"
+        android:text="Aldo Attalarick"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/profileImageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <LinearLayout
+        android:id="@+id/profilLinearLayout"
+        android:layout_width="400dp"
+        android:layout_height="312dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginHorizontal="25dp"
+        android:background="@drawable/rectangle15"
+        android:orientation="vertical"
+        android:paddingHorizontal="30dp"
+        app:layout_constraintTop_toBottomOf="@id/namaPenggunaProfilTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/namaLengkapProfilTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Nama Lengkap"
+            android:textSize="16sp" />
+
+        <com.google.android.material.textfield.TextInputLayout style="@style/customInputLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/namaLengkapProfilEditText"
+                style="@style/customEditText"
+                android:text="Aldo Attalarick" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/nomorTeleponProfilTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="Nomor Telepon"
+            android:textSize="16sp" />
+
+        <com.google.android.material.textfield.TextInputLayout style="@style/customInputLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nomorTeleponProfilEditText"
+                style="@style/customEditText"
+                android:drawableStart="@drawable/_62"
+                android:drawablePadding="10dp"
+                android:inputType="phone"
+                android:maxLength="13"
+                android:text="892345623" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tanggalLahirProfilTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="Tanggal Lahir"
+            android:textSize="16sp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tanggalLahirProfilInputLayout"
+            style="@style/customInputLayout"
+            android:hint="dd/mm/yyyy">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tanggalLahirProfilEditText"
+                style="@style/customEditText"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/editProfilButton"
+        android:layout_width="397dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="35dp"
+        style="@style/customButtonWhite"
+        android:text="Edit Profil"
+        app:layout_constraintTop_toBottomOf="@id/profilLinearLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="397dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginHorizontal="26dp"
+        style="@style/customButtonWhite"
+        android:text="Logout"
+        app:layout_constraintTop_toBottomOf="@id/editProfilButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
