@@ -1,7 +1,6 @@
 package com.xcod33.risfund
 
 import android.content.Intent
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -13,6 +12,8 @@ import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONObjectRequestListener
+import com.xcod33.risfund.data.GetUserResponse
+import kotlinx.android.synthetic.main.activity_top_up.*
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
@@ -26,6 +27,10 @@ class TopUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_top_up)
+
+        val user = intent.getParcelableExtra<GetUserResponse>("dataUser")
+        usernameTopUpTextView.text = "Hi, ${user!!.fullName}"
+        balanceTopUpTextView.text = "Rp${user!!.balance.toString()}"
 
         back = findViewById(R.id.back)
         TopupButton = findViewById(R.id.TopupButton)

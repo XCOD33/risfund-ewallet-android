@@ -5,13 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONObjectRequestListener
-import kotlinx.android.synthetic.main.activity_transfer.*
+import com.xcod33.risfund.data.GetUserResponse
 import kotlinx.android.synthetic.main.activity_transfer_confirmation.*
 import org.json.JSONException
 import org.json.JSONObject
@@ -21,7 +19,6 @@ class TransferConfirmationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_transfer_confirmation)
-
         val intent = intent
         val transferTo = intent.getStringExtra("transferTo")
         payToTextView.text = transferTo
@@ -38,6 +35,8 @@ class TransferConfirmationActivity : AppCompatActivity() {
     }
 
     private fun startTransfer() {
+
+        val user = intent.getParcelableExtra<GetUserResponse>("dataUser")
 
         val jobj = JSONObject()
         try {
@@ -70,6 +69,7 @@ class TransferConfirmationActivity : AppCompatActivity() {
                             val intent = Intent(this@TransferConfirmationActivity, TransferSuccessActivity::class.java)
                             intent.putExtra("transferId", transferId)
                             intent.putExtra("amount", amount)
+                            intent.putExtra("dataUser", user)
                             startActivity(intent)
                         }
                     } catch (e: JSONException) {
