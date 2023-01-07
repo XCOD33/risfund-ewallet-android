@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="450dp"
-    android:layout_height="800dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/primaryGreen"
     tools:ignore="HardcodedText"
     tools:context=".PlnPascabayarActivity">
 
     <LinearLayout
         android:id="@+id/layoutPlnPascabayar1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageButton
             android:id="@+id/backPlnPascabayar"
             android:layout_width="15dp"
             android:layout_height="24dp"
-            android:layout_marginLeft="25dp"
+            android:layout_marginStart="25dp"
             android:layout_marginTop="34dp"
             android:background="@drawable/iconback" />
 
@@ -35,7 +38,10 @@
     <LinearLayout
         android:id="@+id/cardPurchasePlnPascabayar"
         android:layout_below="@+id/layoutPlnPascabayar1"
-        style="@style/customCardPurchases">
+        style="@style/customCardPurchases"
+        app:layout_constraintTop_toBottomOf="@+id/layoutPlnPascabayar1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <TextView
             android:layout_width="wrap_content"
@@ -113,6 +119,9 @@
         android:layout_marginHorizontal="25dp"
         android:layout_below="@+id/cardPurchasePlnPascabayar"
         style="@style/customButtonWhite"
-        android:text="Lanjutkan"/>
+        android:text="Lanjutkan"
+        app:layout_constraintTop_toBottomOf="@+id/cardPurchasePlnPascabayar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

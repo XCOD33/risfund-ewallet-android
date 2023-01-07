@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="450dp"
-    android:layout_height="800dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/primaryGreen"
     tools:ignore="HarcodedText"
     tools:context=".TransferConfirmationActivity">
 
     <LinearLayout
         android:id="@+id/layoutKonfirmasiTransfer1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageButton
             android:id="@+id/backKonfirmasiTransfer"
@@ -39,7 +42,10 @@
         android:layout_marginTop="53dp"
         android:layout_below="@id/layoutKonfirmasiTransfer1"
         android:orientation="vertical"
-        android:background="@drawable/rectangle15">
+        android:background="@drawable/rectangle15"
+        app:layout_constraintTop_toBottomOf="@+id/layoutKonfirmasiTransfer1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:layout_marginTop="25dp"
@@ -180,8 +186,15 @@
         android:id="@+id/konfirmasiTransferButton"
         style="@style/customButtonWhite"
         android:layout_below="@id/layoutKonfirmasiTransfer2"
+<<<<<<< HEAD
         android:layout_marginHorizontal="25dp"
         android:layout_marginTop="108dp"
         android:text="Konfirmasi" />
+=======
+        android:text="Konfirmasi"
+        app:layout_constraintTop_toBottomOf="@+id/layoutKonfirmasiTransfer2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+>>>>>>> 9fe088f8d6f551aa77cef2fa33720b634eb567a7
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

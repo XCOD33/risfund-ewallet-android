@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="450dp"
-    android:layout_height="800dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/primaryGreen"
     tools:ignore="HarcodedText"
     android:paddingHorizontal="25dp"
@@ -11,9 +11,12 @@
 
     <LinearLayout
         android:id="@+id/layoutPembayaranSukses1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">>
 
         <ImageButton
             android:id="@+id/backPembayaranSukses"
@@ -40,7 +43,10 @@
         android:layout_below="@id/layoutPembayaranSukses1"
         android:background="@drawable/rectangle25"
         android:orientation="vertical"
-        android:paddingTop="88dp">
+        android:paddingTop="88dp"
+        app:layout_constraintTop_toBottomOf="@+id/layoutPembayaranSukses1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -76,6 +82,9 @@
         android:layout_marginTop="36dp"
         android:layout_below="@id/layoutPembayaranSukses2"
         style="@style/customButtonWhite"
-        android:text="Lanjutkan"/>
+        android:text="Lanjutkan"
+        app:layout_constraintTop_toBottomOf="@+id/layoutPembayaranSukses2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
