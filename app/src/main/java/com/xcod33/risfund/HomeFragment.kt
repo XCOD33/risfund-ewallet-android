@@ -49,5 +49,11 @@ class HomeFragment : Fragment() {
             intent.putExtra("dataUser", user)
             startActivity(intent)
         }
+
+        paymentButton.setOnClickListener {
+            val intent = Intent(activity, PaymentActivity::class.java)
+            intent.putExtra("dataUser", user)
+            startActivity(intent)
+        }
     }
 }
