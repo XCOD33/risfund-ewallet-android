@@ -5,6 +5,7 @@
     android:background="@color/primaryGreen"
     android:layout_width="match_parent"
     android:layout_height= "match_parent"
+    android:paddingHorizontal="25dp"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -20,18 +21,19 @@
 
         <ImageView
             android:id = "@+id/SplashScreenImageView"
-            android:layout_width="350dp"
-            android:layout_height="350dp"
+            android:layout_width="400dp"
+            android:layout_height="300dp"
             android:src="@drawable/splash_screen"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/SplashScreenImageView"
+            android:gravity="center"
             android:fontFamily="@font/gotham_bold"
             android:textColor="@color/white"
-            android:textSize="24sp"
-            android:text="Lorem ipsum \ndolor sit."/>
+            android:textSize="45sp"
+            android:text="Let's Save\nOur Fund"/>
 
 
     </LinearLayout>
