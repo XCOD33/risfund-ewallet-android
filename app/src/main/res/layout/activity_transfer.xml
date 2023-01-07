@@ -136,6 +136,7 @@
                 android:textSize="14sp"/>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/noHandphoneTransferInputLayout"
                 style="@style/customInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -153,6 +154,7 @@
                 android:textSize="14sp"/>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/nominalTransferInputLayout"
                 style="@style/customInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -171,6 +173,7 @@
                 android:textSize="14sp"/>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/catatanTransferInputLayout"
                 style="@style/customInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -208,7 +211,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/TransferButton"
+            android:id="@+id/transferTransferButton"
             style="@style/customButtonGreen"
             android:layout_below="@+id/catatanTransferTextView"
             android:layout_marginTop="30dp"

@@ -4,30 +4,26 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
+import android.widget.Toast
+import com.androidnetworking.AndroidNetworking
+import com.androidnetworking.common.Priority
+import com.androidnetworking.error.ANError
+import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import kotlinx.android.synthetic.main.activity_settings.*
+import org.json.JSONException
+import org.json.JSONObject
 import java.util.*
 
 class SettingsActivity : AppCompatActivity() {
-
-    private lateinit var bottomNav: com.google.android.material.bottomnavigation.BottomNavigationView
-    private lateinit var editProfilButton: Button
-    private lateinit var namaLengkapProfilEditText: TextInputEditText
-    private lateinit var nomorTeleponProfilEditText: TextInputEditText
-    private lateinit var tanggalLahirProfilEditText: TextInputEditText
-    private lateinit var tanggalLahirProfilInputLayout: TextInputLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
-        bottomNav = findViewById(R.id.bottomNav)
-        editProfilButton = findViewById(R.id.editProfilButton)
-        namaLengkapProfilEditText = findViewById(R.id.namaLengkapProfilEditText)
-        nomorTeleponProfilEditText = findViewById(R.id.nomorTeleponProfilEditText)
-        tanggalLahirProfilEditText = findViewById(R.id.tanggalLahirProfilEditText)
-        tanggalLahirProfilInputLayout = findViewById(R.id.tanggalLahirProfilInputLayout)
         val cal = Calendar.getInstance()
         val year = cal.get(Calendar.YEAR)
         val month = cal.get(Calendar.MONTH)
@@ -47,6 +43,10 @@ class SettingsActivity : AppCompatActivity() {
         editProfilButton.setOnClickListener {
             namaLengkapProfilEditText.setText(namaLengkapProfilEditText.text.toString())
             nomorTeleponProfilEditText.setText(nomorTeleponProfilEditText.text.toString())
+        }
+
+        logoutButton.setOnClickListener {
+            logout()
         }
 
         bottomNav.setOnNavigationItemSelectedListener { item ->
@@ -76,5 +76,41 @@ class SettingsActivity : AppCompatActivity() {
                 else -> false
             }
         }
+    }
+
+    private fun logout() {
+        val sessionManager = SessionManager(this)
+        val token = JSONObject(sessionManager.getToken())
+        AndroidNetworking.post("https://risfund.loophole.site/api/logout")
+            .addHeaders("Accept", "application/json")
+            .addHeaders("Authorization", "Bearer " + token.getString("token"))
+            .setPriority(Priority.LOW)
+            .build()
+            .getAsJSONObject(object: JSONObjectRequestListener {
+                override fun onResponse(response: JSONObject?) {
+                    try {
+                        if (response != null) {
+                            if(response.getString("message").equals("success")) {
+                                val logout = sessionManager.clearToken()
+
+                                val intent = Intent(this@SettingsActivity, LoginActivity::class.java)
+                                startActivity(intent)
+                            }
+                        }
+                    } catch (error: JSONException) {
+                        Log.d("error response", error.toString())
+                    }
+                }
+
+                override fun onError(error: ANError?) {
+                    if (error != null) {
+                        if (error.errorCode != 0) {
+                            val response = JSONObject(error.errorBody)
+//                                Log.e("responseError", response.getString("message"))
+                            Toast.makeText(this@SettingsActivity, response.getString("message"), Toast.LENGTH_LONG).show()
+                        }
+                    }
+                }
+            })
     }
 }

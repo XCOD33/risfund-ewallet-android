@@ -38,7 +38,7 @@
     <LinearLayout
         android:id="@+id/layoutKonfirmasiTransfer2"
         android:layout_width="match_parent"
-        android:layout_height="345dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="53dp"
         android:layout_below="@id/layoutKonfirmasiTransfer1"
         android:orientation="vertical"
@@ -47,20 +47,144 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/transferConfirmationRecyclerView"
+        <LinearLayout
+            android:layout_marginTop="25dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:listitem="@layout/card_view_confirmation"
-            tools:itemCount="5"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_marginStart="25dp"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:text="Pembayaran Ke"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/payToTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="25dp"
+                android:text=""
+                android:gravity="right"
+                android:textAlignment="gravity"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_marginTop="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layoutConfirmation"
+            android:src="@drawable/linebottom"/>
+
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_marginStart="25dp"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:text="Nama Pengguna"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/payToNameTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="25dp"
+                android:text=""
+                android:gravity="right"
+                android:textAlignment="gravity"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_marginTop="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layoutConfirmation"
+            android:src="@drawable/linebottom"/>
+
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_marginStart="25dp"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:text="Deskripsi"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/noteTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="25dp"
+                android:text=""
+                android:gravity="right"
+                android:textAlignment="gravity"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_marginTop="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layoutConfirmation"
+            android:src="@drawable/linebottom"/>
+
+        <LinearLayout
+            android:id="@+id/layoutConfirmation"
+            android:layout_marginTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_marginStart="25dp"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:text="Jumlah Transfer"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/amountTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="25dp"
+                android:text=""
+                android:gravity="right"
+                android:textAlignment="gravity"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_marginTop="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layoutConfirmation"
+            android:src="@drawable/linebottom"/>
 
     </LinearLayout>
 
     <Button
         android:id="@+id/konfirmasiTransferButton"
         style="@style/customButtonWhite"
-        android:layout_marginTop="36dp"
-        android:layout_marginHorizontal="25dp"
         android:layout_below="@id/layoutKonfirmasiTransfer2"
         android:text="Konfirmasi"
         app:layout_constraintTop_toBottomOf="@+id/layoutKonfirmasiTransfer2"

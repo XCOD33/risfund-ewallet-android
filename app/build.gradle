@@ -61,4 +61,12 @@ dependencies {
 
 //    fast android network
     implementation 'com.amitshekhar.android:android-networking:1.0.2'
+
+//    kotlin extension
+    apply plugin: 'com.android.application'
+    apply plugin: 'kotlin-android'
+    apply plugin: 'kotlin-android-extensions'
+
+//    swipe to refresh
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 }

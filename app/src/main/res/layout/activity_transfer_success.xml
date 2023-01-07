@@ -76,6 +76,7 @@
             android:textColor="@color/secondaryGreen"/>
 
         <TextView
+            android:id="@+id/transferIdTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

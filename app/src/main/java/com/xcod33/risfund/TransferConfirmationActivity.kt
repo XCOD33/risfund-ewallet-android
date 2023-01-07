@@ -1,27 +1,88 @@
 package com.xcod33.risfund
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.androidnetworking.AndroidNetworking
+import com.androidnetworking.common.Priority
+import com.androidnetworking.error.ANError
+import com.androidnetworking.interfaces.JSONObjectRequestListener
+import kotlinx.android.synthetic.main.activity_transfer.*
+import kotlinx.android.synthetic.main.activity_transfer_confirmation.*
+import org.json.JSONException
+import org.json.JSONObject
 
 class TransferConfirmationActivity : AppCompatActivity() {
-
-    private lateinit var transferConfirmationRecyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_transfer_confirmation)
 
-        transferConfirmationRecyclerView = findViewById(R.id.transferConfirmationRecyclerView)
+        val intent = intent
+        val transferTo = intent.getStringExtra("transferTo")
+        payToTextView.text = transferTo
+        val tranferNameTo = intent.getStringExtra("fullName")
+        payToNameTextView.text = tranferNameTo
+        val note = intent.getStringExtra("note")
+        noteTextView.text = note
+        val amount  = intent.getIntExtra("amount", 0)
+        amountTextView.text = amount.toString()
 
-        transferConfirmationRecyclerView.layoutManager = LinearLayoutManager(this)
-        val data = ArrayList<ItemsViewModelTransferConfirmation>()
-        for(i in 1..5) {
-            data.add(ItemsViewModelTransferConfirmation(i, i))
+        konfirmasiTransferButton.setOnClickListener {
+            startTransfer()
+        }
+    }
+
+    private fun startTransfer() {
+
+        val jobj = JSONObject()
+        try {
+            jobj.put("phoneNumber", intent.getStringExtra("transferTo").toString().trim())
+            jobj.put("amount", intent.getIntExtra("amount", 0).toString().toInt())
+            if(intent.getStringExtra("note")!!.isNotEmpty()) {
+                jobj.put("note",intent.getStringExtra("note")!!.trim())
+            }
+        } catch (e: JSONException) {
+            Log.e("Ejobj", e.toString())
         }
 
-        val adapter = CustomAdapterTransferConfirmation(data)
-        transferConfirmationRecyclerView.adapter = adapter
+        val sessionManager = SessionManager(this)
+        val token = JSONObject(sessionManager.getToken())
+
+        AndroidNetworking.post("https://risfund.loophole.site/api/transfer")
+            .addJSONObjectBody(jobj)
+            .addHeaders("Accept", "application/json")
+            .addHeaders("Authorization", "Bearer " + token.getString("token"))
+            .setPriority(Priority.MEDIUM)
+            .build()
+            .getAsJSONObject(object: JSONObjectRequestListener {
+                override fun onResponse(response: JSONObject?) {
+                    try {
+                        if(response!!.getString("message").equals("Transfer Succeeded")) {
+                            val data = JSONObject(response.getString("data"))
+                            val transferId = data.getString("transferId")
+                            val amount = data.getString("amount")
+
+                            val intent = Intent(this@TransferConfirmationActivity, TransferSuccessActivity::class.java)
+                            intent.putExtra("transferId", transferId)
+                            intent.putExtra("amount", amount)
+                            startActivity(intent)
+                        }
+                    } catch (e: JSONException) {
+                        Log.e("Eresponse", e.toString())
+                    }
+                }
+
+                override fun onError(anError: ANError?) {
+                    if(anError!!.errorCode != 0) {
+                        val response = JSONObject(anError.errorBody)
+                        Toast.makeText(this@TransferConfirmationActivity, response.getString("message"), Toast.LENGTH_LONG).show()
+                    }
+                }
+            })
     }
 }
