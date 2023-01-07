@@ -1,40 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@color/primaryGreen"
     tools:context=".PdamActivity"
     tools:ignore="HardcodedText">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/layoutPdam1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_marginHorizontal="25dp">
 
 
         <ImageButton
             android:id="@+id/backPdam"
             android:layout_width="15dp"
             android:layout_height="24dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="34dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="18dp"
             android:background="@drawable/iconback" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="34dp"
-            android:layout_marginStart="148dp"
+            android:layout_centerInParent="true"
             android:text="PDAM"
             android:textStyle="bold"
             android:textSize="20sp"/>
-    </LinearLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/cardPurchasePdam"
@@ -105,4 +104,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

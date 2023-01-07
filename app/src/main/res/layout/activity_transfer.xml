@@ -1,43 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primaryGreen"
     tools:context=".TransferActivity"
+    android:orientation="vertical"
     tools:ignore="HarcodedText">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/layoutTransfer1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_marginHorizontal="25dp">
 
         <ImageButton
             android:id="@+id/backTransfer"
             android:layout_width="15dp"
             android:layout_height="24dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="34dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="18dp"
             android:background="@drawable/iconback" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="34dp"
-            android:layout_marginStart="148dp"
+            android:layout_centerInParent="true"
             android:text="Transfer"
             android:textStyle="bold"
             android:textSize="20sp"/>
-    </LinearLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/layoutTransfer2"
-        android:layout_width="383dp"
+        android:layout_width="match_parent"
         android:layout_height="153dp"
         android:layout_marginTop="53dp"
         android:layout_marginHorizontal="33dp"
@@ -104,7 +103,7 @@
     <LinearLayout
         android:id="@+id/layoutTransfer3"
         android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_height="match_parent"
         android:layout_below="@id/layoutTransfer2"
         android:paddingTop="30dp"
         android:paddingHorizontal="37dp"
@@ -220,4 +219,4 @@
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

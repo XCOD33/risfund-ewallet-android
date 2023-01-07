@@ -37,10 +37,7 @@
     <LinearLayout
         android:id="@+id/cardPurchasePulsa"
         android:layout_below="@+id/layoutPulsa1"
-        style="@style/customCardPurchases"
-        app:layout_constraintTop_toBottomOf="@+id/layoutPulsa1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        style="@style/customCardPurchases">
 
         <TextView
             android:layout_width="wrap_content"
@@ -114,11 +111,9 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/layoutPulsa2"
         android:layout_below="@id/cardPurchasePulsa"
-        style="@style/customLayoutPurchases"
-        app:layout_constraintTop_toBottomOf="@+id/cardPurchasePulsa"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        style="@style/customLayoutPurchases">
 
         <LinearLayout
             android:layout_width="match_parent"
