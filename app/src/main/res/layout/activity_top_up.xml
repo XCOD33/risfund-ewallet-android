@@ -131,6 +131,46 @@
                 android:id="@+id/nominalEditText"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"-->
+<!--                android:id="@+id/providerPulsaInputLayout"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="15dp"-->
+<!--                android:textColorHint="@color/black"-->
+<!--                app:boxBackgroundColor="@color/white"-->
+<!--                app:endIconDrawable="@drawable/spinnericon"-->
+<!--                app:endIconTint="@color/primaryGreen"-->
+<!--                app:boxStrokeWidth="0dp"-->
+<!--                app:boxStrokeWidthFocused="0dp"-->
+<!--                app:boxStrokeColor="@color/white">-->
+
+<!--                <AutoCompleteTextView-->
+<!--                    android:id="@+id/providerPulsaAutoComplete"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:paddingStart="0dp"-->
+<!--                    android:paddingTop="0dp"-->
+<!--                    android:paddingBottom="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:backgroundTint="@color/white"-->
+<!--                    android:inputType="none"-->
+<!--                    android:text="Telkomsel"-->
+<!--                    android:textSize="16sp"/>-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            style="@style/customInputLayout">-->
+
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:id="@+id/paymentChannel"-->
+<!--                style="@style/customEditText"-->
+<!--                android:clickable="false"-->
+<!--                android:focusable="false"-->
+<!--                android:cursorVisible="false"-->
+<!--                android:focusableInTouchMode="false"-->
+<!--                android:drawableStart=""/>-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -1,5 +1,7 @@
 package com.xcod33.risfund
 
+import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -42,10 +44,8 @@ class CustomAdapterListBank(private val mListBank: ArrayList<GetPaymentChannel>)
             val intent = Intent(holder.itemView.context, TripayWebViewActivity::class.java)
             intent.putExtra("dataPayment", itemsViewModel.code)
             holder.itemView.context.startActivity(intent)
-
         }
     }
-
 
 
     override fun getItemCount(): Int {

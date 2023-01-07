@@ -8,6 +8,7 @@ import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.xcod33.risfund.data.GetPaymentChannel
+import com.xcod33.risfund.data.GetUserResponse
 import kotlinx.android.synthetic.main.activity_list_bank.*
 import org.json.JSONException
 import org.json.JSONObject

@@ -1,5 +1,6 @@
 package com.xcod33.risfund
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,6 +13,7 @@ import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONObjectRequestListener
+import com.bumptech.glide.Glide
 import com.xcod33.risfund.data.GetPaymentChannel
 import com.xcod33.risfund.data.GetUserResponse
 import kotlinx.android.synthetic.main.activity_list_bank.*
@@ -37,6 +39,10 @@ class TopUpActivity : AppCompatActivity() {
         back = findViewById(R.id.back)
         TopupButton = findViewById(R.id.TopupButton)
         nominalEditText = findViewById(R.id.nominalEditText)
+
+//        val imageStart = Glide.with(this).load()
+
+//        paymentChannel.setCompoundDrawablesWithIntrinsicBounds()
 
         back.setOnClickListener {
             var intent = Intent(this, HomeActivity2::class.java)

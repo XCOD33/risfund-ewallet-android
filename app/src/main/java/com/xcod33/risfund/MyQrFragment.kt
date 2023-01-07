@@ -43,6 +43,8 @@ class MyQrFragment : Fragment() {
                 }
             }
             qrImageView.setImageBitmap(bmp)
+
+            namaPenggunaTextView.text = user.fullName
         } catch (e: WriterException){
             e.printStackTrace()
         }
