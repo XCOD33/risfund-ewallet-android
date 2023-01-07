@@ -4,20 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
-import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONObjectRequestListener
-import com.google.android.material.textfield.TextInputLayout
 import com.xcod33.risfund.data.GetUserResponse
-import kotlinx.android.synthetic.main.activity_home.*
-import okhttp3.OkHttpClient
 import org.json.JSONException
 import org.json.JSONObject
 import kotlinx.android.synthetic.main.activity_login.*
@@ -54,57 +47,57 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun homeData() {
-            val sessionManager = SessionManager(this)
-            val token = JSONObject(sessionManager.getToken())
-            AndroidNetworking.get("https://risfund.loophole.site/api/user")
-                .addHeaders("Accept", "application/json")
-                .addHeaders("Authorization", "Bearer " + token.getString("token"))
-                .setPriority(Priority.LOW)
-                .build()
-                .getAsJSONObject(object: JSONObjectRequestListener {
-                    override fun onResponse(response: JSONObject?) {
-                        try {
-                            if (response != null) {
-                                if(response.getString("message").equals("User found")) {
-                                    val data = JSONObject(response.getString("data"))
+        val sessionManager = SessionManager(this)
+        val token = JSONObject(sessionManager.getToken())
+        AndroidNetworking.get("https://risfund.loophole.site/api/user")
+            .addHeaders("Accept", "application/json")
+            .addHeaders("Authorization", "Bearer " + token.getString("token"))
+            .setPriority(Priority.LOW)
+            .build()
+            .getAsJSONObject(object: JSONObjectRequestListener {
+                override fun onResponse(response: JSONObject?) {
+                    try {
+                        if (response != null) {
+                            if(response.getString("message").equals("User found")) {
+                                val data = JSONObject(response.getString("data"))
 
-                                    Log.d("token", token.getString("token"))
+                                Log.d("token", token.getString("token"))
 
-                                    val userId = data.getString("userId")
-                                    val fullName = data.getString("fullName")
-                                    val phoneNumber = data.getString("phoneNumber")
-                                    val birthdate = data.getString("birthdate")
-                                    val gender = data.getString("gender")
-                                    val username = data.getString("username")
-                                    val balance = data.getString("balance")
-                                    val userQr = data.getString("userQr")
+                                val userId = data.getString("userId")
+                                val fullName = data.getString("fullName")
+                                val phoneNumber = data.getString("phoneNumber")
+                                val birthdate = data.getString("birthdate")
+                                val gender = data.getString("gender")
+                                val username = data.getString("username")
+                                val balance = data.getString("balance")
+                                val userQr = data.getString("userQr")
 
-                                    userList.clear()
+                                userList.clear()
 
-                                    val responses = GetUserResponse(userId.toInt(), fullName, phoneNumber, birthdate, gender, username, balance.toInt(), userQr)
+                                val responses = GetUserResponse(userId.toInt(), fullName, phoneNumber, birthdate, gender, username, balance.toInt(), userQr)
 
-                                    userList.add(responses)
+                                userList.add(responses)
 
-                                    val intent = Intent(this@LoginActivity, HomeActivity2::class.java)
-                                    intent.putExtra("dataUser", responses)
-                                    startActivity(intent)
-                                }
+                                val intent = Intent(this@LoginActivity, HomeActivity2::class.java)
+                                intent.putExtra("dataUser", responses)
+                                startActivity(intent)
                             }
-                        } catch (error: JSONException) {
-                            Log.d("error response", error.toString())
                         }
+                    } catch (error: JSONException) {
+                        Log.d("error response", error.toString())
                     }
+                }
 
-                    override fun onError(error: ANError?) {
-                        if (error != null) {
-                            if (error.errorCode != 0) {
-                                val response = JSONObject(error.errorBody)
+                override fun onError(error: ANError?) {
+                    if (error != null) {
+                        if (error.errorCode != 0) {
+                            val response = JSONObject(error.errorBody)
 //                                Log.e("responseError", response.getString("message"))
-                                Toast.makeText(this@LoginActivity, response.getString("message"), Toast.LENGTH_LONG).show()
-                            }
+                            Toast.makeText(this@LoginActivity, response.getString("message"), Toast.LENGTH_LONG).show()
                         }
                     }
-                })
+                }
+            })
     }
 
     fun login() {
@@ -154,7 +147,7 @@ class LoginActivity : AppCompatActivity() {
                             if (error.errorCode != 0) {
                                 val response = JSONObject(error.errorBody)
 //                                Log.e("responseError", response.getString("message"))
-                                Toast.makeText(this@LoginActivity, response.getString("message"), Toast.LENGTH_LONG).show()
+                                startActivity(Intent(this@LoginActivity, LoginActivity::class.java))
                             }
                         }
                     }

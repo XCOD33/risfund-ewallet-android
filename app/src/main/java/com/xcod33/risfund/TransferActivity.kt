@@ -4,18 +4,14 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.Toast
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONObjectRequestListener
+import com.xcod33.risfund.data.GetUserResponse
 import kotlinx.android.synthetic.main.activity_transfer.*
-import kotlinx.android.synthetic.main.activity_transfer_confirmation.*
 import org.json.JSONException
 import org.json.JSONObject
-import kotlin.system.exitProcess
 
 class TransferActivity : AppCompatActivity() {
 
@@ -23,21 +19,23 @@ class TransferActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_transfer)
 
+        val user = intent.getParcelableExtra<GetUserResponse>("dataUser")
+
+        usernameTransferTextView.text = "Hi, ${user!!.fullName}"
+        balanceTraansferTextView.text = "Rp${user!!.balance.toString()}"
+
         backTransfer.setOnClickListener {
             var intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
 
         transferTransferButton.setOnClickListener{
-            checkValidation()
-        }
-    }
-
-    private fun checkValidation() {
-        if(noHandphoneTransferEditText.text.isNullOrEmpty()) {
+            if(noHandphoneTransferEditText.text.isNullOrEmpty()) {
             noHandphoneTransferInputLayout.error = "Harap masukkan nomor ponsel tujuan"
         } else if(nominalTransferEditText.text.isNullOrEmpty()) {
             nominalTransferInputLayout.error = "Harap masukkan nominal"
+        } else if(nominalTransferEditText.text.toString().toInt() > user.balance!!) {
+            nominalTransferInputLayout.error = "Maaf saldo anda tidak mencukupi"
         } else {
             val bundle = Bundle()
             bundle.putString("transferTo", noHandphoneTransferEditText.text.toString())
@@ -51,9 +49,12 @@ class TransferActivity : AppCompatActivity() {
                 Log.e("Ejobj", e.toString())
             }
 
+            val sessionManager = SessionManager(this)
+            val token = JSONObject(sessionManager.getToken())
             AndroidNetworking.post("https://risfund.loophole.site/api/check-phone-number")
                 .addJSONObjectBody(jobj)
                 .addHeaders("Accept", "application/json")
+                .addHeaders("Authorization", "Bearer " + token.getString("token"))
                 .setPriority(Priority.MEDIUM)
                 .build()
                 .getAsJSONObject(object: JSONObjectRequestListener {
@@ -67,6 +68,7 @@ class TransferActivity : AppCompatActivity() {
 
                             val intent = Intent(this@TransferActivity, TransferConfirmationActivity::class.java)
                             intent.putExtras(bundle)
+                            intent.putExtra("dataUser", user)
                             startActivity(intent)
                         }
                     }
@@ -74,12 +76,14 @@ class TransferActivity : AppCompatActivity() {
                     override fun onError(anError: ANError?) {
                         if(anError!!.errorCode != 0) {
                             val response = JSONObject(anError.errorBody)
-                            if(response.getString("message") != "User Found") {
-                                Toast.makeText(this@TransferActivity, response.getString("message"), Toast.LENGTH_LONG).show()
+                            when(response.getString("message")) {
+                                "User not found" -> noHandphoneTransferInputLayout.error = response.getString("message")
+                                "Error check" -> noHandphoneTransferInputLayout.error = JSONObject(response.getString("data")).getString("error")
                             }
                         }
                     }
                 })
+        }
         }
     }
 
