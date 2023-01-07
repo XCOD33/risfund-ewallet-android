@@ -1,11 +1,15 @@
 package com.xcod33.risfund
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.xcod33.risfund.data.GetUserResponse
 import com.xcod33.risfund.databinding.ActivityHome2Binding
 
 class HomeActivity2 : AppCompatActivity() {

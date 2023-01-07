@@ -15,6 +15,7 @@ import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.google.android.material.textfield.TextInputLayout
+import com.xcod33.risfund.data.GetUserResponse
 import kotlinx.android.synthetic.main.activity_home.*
 import okhttp3.OkHttpClient
 import org.json.JSONException
@@ -23,6 +24,8 @@ import kotlinx.android.synthetic.main.activity_login.*
 
 
 class LoginActivity : AppCompatActivity() {
+
+    private val userList = ArrayList<GetUserResponse>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -76,18 +79,14 @@ class LoginActivity : AppCompatActivity() {
                                     val balance = data.getString("balance")
                                     val userQr = data.getString("userQr")
 
-                                    val bundle = Bundle()
-                                    bundle.putString("userId", userId)
-                                    bundle.putString("fullName", fullName)
-                                    bundle.putString("phoneNumber", phoneNumber)
-                                    bundle.putString("birthdate", birthdate)
-                                    bundle.putString("gender", gender)
-                                    bundle.putString("username", username)
-                                    bundle.putString("balance", balance)
-                                    bundle.putString("userQr", userQr)
+                                    userList.clear()
+
+                                    val responses = GetUserResponse(userId.toInt(), fullName, phoneNumber, birthdate, gender, username, balance.toInt(), userQr)
+
+                                    userList.add(responses)
 
                                     val intent = Intent(this@LoginActivity, HomeActivity2::class.java)
-                                    intent.putExtras(bundle)
+                                    intent.putExtra("dataUser", responses)
                                     startActivity(intent)
                                 }
                             }
