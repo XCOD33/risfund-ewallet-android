@@ -27,11 +27,11 @@ class MainActivity : AppCompatActivity() {
 
         Handler().postDelayed({
             val sessionManager = SessionManager(this)
-            if(sessionManager.getToken()!! != "") {
+            if(sessionManager.getToken()!!.isNotEmpty()) {
                 checkLogin()
             } else {
             // Launch the main activity
-
+            sessionManager.clearToken()
             startActivity(Intent(this, LoginActivity::class.java))
             // Close the splash screen activity
             finish()
@@ -87,6 +87,7 @@ class MainActivity : AppCompatActivity() {
                                 val response = JSONObject(error.errorBody)
 //                                Log.e("responseError", response.getString("message"))
                                 Toast.makeText(this@MainActivity, response.getString("message"), Toast.LENGTH_LONG).show()
+                                sessionManager.clearToken()
                             }
                         }
                     }
