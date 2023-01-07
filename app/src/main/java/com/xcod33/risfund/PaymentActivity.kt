@@ -21,6 +21,7 @@ import com.budiyev.android.codescanner.DecodeCallback
 import com.budiyev.android.codescanner.ErrorCallback
 import com.budiyev.android.codescanner.ScanMode
 import com.xcod33.risfund.data.GetUserResponse
+import kotlinx.android.synthetic.main.activity_payment.*
 import kotlinx.android.synthetic.main.activity_transfer.*
 import org.json.JSONException
 import org.json.JSONObject
@@ -29,13 +30,10 @@ import java.util.jar.Manifest
 class PaymentActivity : AppCompatActivity() {
 
     private lateinit var codescanner: CodeScanner
-    private lateinit var backPayment: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_payment)
-
-        val user = intent.getParcelableExtra<GetUserResponse>("dataUser")
 
         backPayment.setOnClickListener {
             val intent = Intent(this, HomeActivity2::class.java)
@@ -66,9 +64,6 @@ class PaymentActivity : AppCompatActivity() {
 
         codescanner.decodeCallback = DecodeCallback {
             runOnUiThread {
-//                val intent = Intent(this, Payment2Activity::class.java)
-//                intent.putExtra("transferTo", it.text)
-//                startActivity(intent)
                 val jobj = JSONObject()
                 try {
                     jobj.put("userQr", it.text.toString().trim())
@@ -78,6 +73,7 @@ class PaymentActivity : AppCompatActivity() {
 
                 val sessionManager = SessionManager(this)
                 val token = JSONObject(sessionManager.getToken())
+
                 AndroidNetworking.post("https://risfund.loophole.site/api/check-user-qr")
                     .addJSONObjectBody(jobj)
                     .addHeaders("Accept", "application/json")

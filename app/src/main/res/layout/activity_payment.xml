@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="450dp"
-    android:layout_height="800dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:ignore="HarcodedText"
     tools:context=".PaymentActivity">
 
@@ -49,7 +49,7 @@
         android:layout_alignParentBottom="true"
         style="@style/customNotifMyQR"
         android:layout_marginBottom="90dp"
-        android:layout_marginStart="60dp"
+        android:layout_centerHorizontal="true"
         android:orientation="horizontal">
 
         <ImageView
