@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primaryGreen"
+    tools:ignore="HarcodedText"
+    tools:context=".Payment2Activity">
+
+    <LinearLayout
+        android:id="@+id/layoutPayment1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/backPayment"
+            android:layout_width="15dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="34dp"
+            android:background="@drawable/iconback" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="34dp"
+            android:layout_marginStart="148dp"
+            android:text="Bayar"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutPayment2"
+        android:layout_width="383dp"
+        android:layout_height="153dp"
+        android:layout_marginTop="53dp"
+        android:layout_marginHorizontal="33dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/layoutPayment1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="153dp"
+            android:paddingTop="20dp"
+            android:paddingHorizontal="38dp"
+            android:background="@drawable/rectangle25_15"
+            android:orientation="horizontal"
+            android:elevation="4dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/usernamePaymentTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hi, Nama Pengguna"
+                    android:textSize="12sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/saldoPaymentTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Saldo"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/balancePaymentTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Rp123.000"
+                    android:textSize="32sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/balanceNotifPaymentTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Saldo sisa sedikit"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/red"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutPayment3"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:paddingTop="30dp"
+        android:paddingHorizontal="37dp"
+        android:layout_marginTop="43dp"
+        android:background="@drawable/rectangle25"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/layoutPayment2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/PaymentTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Transfer"
+                android:textSize="26dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Penerima"
+                android:layout_marginTop="25dp"
+                android:textSize="14sp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fullNamePaymentInputLayout"
+                style="@style/customInputLayout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/customEditText"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusableInTouchMode="false"
+                    android:id="@+id/fullNamePaymentEditText"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nominal Bayar"
+                android:layout_marginTop="15dp"
+                android:textSize="14sp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/nominalPaymentInputLayout"
+                style="@style/customInputLayout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/customEditText"
+                    android:drawableStart="@drawable/rp"
+                    android:drawablePadding="10dp"
+                    android:inputType="number"
+                    android:id="@+id/nominalPaymentEditText"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Catatan"
+                android:layout_marginTop="15dp"
+                android:textSize="14sp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/catatanPaymentInputLayout"
+                style="@style/customInputLayout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/customEditText"
+                    android:id="@+id/catatanPaymentEditText"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="31dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:src="@drawable/icon__note_"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/catatanPaymentTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pastikan saldo anda mencukupi"
+                        android:layout_marginLeft="10dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/transferPaymentButton"
+            style="@style/customButtonGreen"
+            android:layout_marginTop="30dp"
+            android:elevation="5dp"
+            android:text="Bayar" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
