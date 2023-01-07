@@ -56,7 +56,7 @@ class Register2Activity : AppCompatActivity() {
                     Log.d("error", e.toString())
                 }
 
-                AndroidNetworking.post(" https://fb9c-125-160-101-0.ap.ngrok.io/api/register")
+                AndroidNetworking.post("https://risfund.loophole.site/api/register")
                     .addJSONObjectBody(jobj)
                     .addHeaders("Accept", "application/json")
                     .setPriority(Priority.MEDIUM)

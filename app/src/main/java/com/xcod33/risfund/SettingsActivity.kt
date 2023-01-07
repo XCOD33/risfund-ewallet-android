@@ -81,7 +81,7 @@ class SettingsActivity : AppCompatActivity() {
     private fun logout() {
         val sessionManager = SessionManager(this)
         val token = JSONObject(sessionManager.getToken())
-        AndroidNetworking.post("https://79c9-125-160-101-0.ap.ngrok.io/api/logout")
+        AndroidNetworking.post("https://risfund.loophole.site/api/logout")
             .addHeaders("Accept", "application/json")
             .addHeaders("Authorization", "Bearer " + token.getString("token"))
             .setPriority(Priority.LOW)

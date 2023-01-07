@@ -56,7 +56,7 @@ class TopUpActivity : AppCompatActivity() {
             e.printStackTrace()
         }
 
-        AndroidNetworking.post("https://fb9c-125-160-101-0.ap.ngrok.io/api/topup")
+        AndroidNetworking.post("https://risfund.loophole.site/api/topup")
             .addJSONObjectBody(jobj)
             .addHeaders("Accept", "application/json")
             .addHeaders("Authorization", "Bearer " + token.getString("token"))

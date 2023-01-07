@@ -53,7 +53,7 @@ class LoginActivity : AppCompatActivity() {
     fun homeData() {
             val sessionManager = SessionManager(this)
             val token = JSONObject(sessionManager.getToken())
-            AndroidNetworking.get("https://79c9-125-160-101-0.ap.ngrok.io/api/user")
+            AndroidNetworking.get("https://risfund.loophole.site/api/user")
                 .addHeaders("Accept", "application/json")
                 .addHeaders("Authorization", "Bearer " + token.getString("token"))
                 .setPriority(Priority.LOW)
@@ -86,7 +86,7 @@ class LoginActivity : AppCompatActivity() {
                                     bundle.putString("balance", balance)
                                     bundle.putString("userQr", userQr)
 
-                                    val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                                    val intent = Intent(this@LoginActivity, HomeActivity2::class.java)
                                     intent.putExtras(bundle)
                                     startActivity(intent)
                                 }
@@ -127,7 +127,7 @@ class LoginActivity : AppCompatActivity() {
                 e.printStackTrace()
             }
 
-            AndroidNetworking.post("https://79c9-125-160-101-0.ap.ngrok.io/api/login")
+            AndroidNetworking.post("https://risfund.loophole.site/api/login")
                 .addJSONObjectBody(jobj)
                 .addHeaders("Accept", "application/json")
                 .setPriority(Priority.HIGH)

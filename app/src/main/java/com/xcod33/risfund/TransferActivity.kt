@@ -51,7 +51,7 @@ class TransferActivity : AppCompatActivity() {
                 Log.e("Ejobj", e.toString())
             }
 
-            AndroidNetworking.post("https://79c9-125-160-101-0.ap.ngrok.io/api/check-phone-number")
+            AndroidNetworking.post("https://risfund.loophole.site/api/check-phone-number")
                 .addJSONObjectBody(jobj)
                 .addHeaders("Accept", "application/json")
                 .setPriority(Priority.MEDIUM)
