@@ -94,7 +94,7 @@ class LoginActivity : AppCompatActivity() {
                         if (error.errorCode != 0) {
                             val response = JSONObject(error.errorBody)
 //                                Log.e("responseError", response.getString("message"))
-                            Toast.makeText(this@LoginActivity, response.getString("message"), Toast.LENGTH_LONG).show()
+                            startActivity(Intent(this@LoginActivity, LoginActivity::class.java))
                         }
                     }
                 }
