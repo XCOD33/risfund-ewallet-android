@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primaryGreen"
+    android:orientation="vertical"
     tools:context=".HomeFragment">
 
     <LinearLayout
@@ -89,8 +90,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="horizontal"
-            android:paddingHorizontal="36dp"
+            android:paddingHorizontal="20dp"
             android:paddingTop="17dp">
 
             <ImageButton
@@ -102,7 +104,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="25dp"
+                android:layout_marginHorizontal="20dp"
                 android:src="@drawable/line" />
 
             <ImageButton
@@ -117,13 +119,12 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:layout_constraintTop_toBottomOf="@id/layout1"
         android:paddingTop="37dp"
-        android:paddingBottom="100dp"
         android:layout_marginTop="50dp"
         android:paddingHorizontal="20dp"
-        android:background="@drawable/rectangle25"
+        android:background="@drawable/rectangle25_0"
         android:orientation="vertical">
 
         <TextView
@@ -137,6 +138,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="27dp"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <ImageButton
@@ -172,6 +174,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="29dp"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <ImageButton
@@ -205,4 +208,4 @@
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

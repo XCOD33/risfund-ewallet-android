@@ -18,7 +18,7 @@
         android:id="@+id/bottomNav2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/rectangle25"
+        android:background="@drawable/rectangle25_0"
         android:elevation="12dp"
         android:paddingHorizontal="25dp"
         app:itemIconSize="40dp"
