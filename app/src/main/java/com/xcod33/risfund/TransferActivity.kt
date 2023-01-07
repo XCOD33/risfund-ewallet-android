@@ -25,7 +25,8 @@ class TransferActivity : AppCompatActivity() {
         balanceTraansferTextView.text = "Rp${user!!.balance.toString()}"
 
         backTransfer.setOnClickListener {
-            var intent = Intent(this, HomeActivity::class.java)
+            var intent = Intent(this, HomeActivity2::class.java)
+            intent.putExtra("dataUser", user)
             startActivity(intent)
         }
 
