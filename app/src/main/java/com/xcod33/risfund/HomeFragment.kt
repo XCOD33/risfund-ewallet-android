@@ -1,12 +1,16 @@
 package com.xcod33.risfund
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.annotation.RequiresApi
+import com.xcod33.risfund.data.GetUserResponse
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
@@ -19,21 +23,15 @@ class HomeFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val intent = requireActivity().intent
-        val userId = intent.getStringExtra("userId")
-        val fullName = intent.getStringExtra("fullName")
-        val phoneNumber = intent.getStringExtra("phoneNumber")
-        val birthdate = intent.getStringExtra("birthdate")
-        val gender = intent.getStringExtra("gender")
-        val username = intent.getStringExtra("username")
-        val balance = intent.getStringExtra("balance")
-        val userQr = intent.getStringExtra("userQr")
+        val user = requireActivity().intent.getParcelableExtra<GetUserResponse>("dataUser")
 
-        fullNameTextView.text = "Hi, $fullName"
-        balanceTextView.text = "Rp${balance}"
+        fullNameTextView.text = "Hi, ${user!!.fullName}"
+        balanceTextView.text = "Rp${user!!.balance.toString()}"
+
 
         topUpButton.setOnClickListener{
             val intent = Intent(activity, TopUpActivity::class.java)
