@@ -1,146 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
     android:background="@color/primaryGreen"
-    android:paddingHorizontal="25dp"
-    tools:ignore="HardcodedText">
-    
-    <LinearLayout
-        android:id="@+id/animationLoginView"
-        style="@style/customAnimasiImage"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+    tools:ignore="HardcodedText"
+    android:fillViewport="true">
 
-        <ImageView
-            android:id="@+id/animasi1ImageView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/untitled_1"/>
-
-    </LinearLayout>
-
-    
-    <LinearLayout
-        android:id="@+id/loginLinear"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:paddingHorizontal="30.24dp"
-        android:background="@drawable/rectangle25"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/animationLoginView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-        
-        <TextView
+        android:layout_height="match_parent"
+        android:paddingHorizontal="25dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <LinearLayout
+            android:id="@+id/animationLoginView"
+            style="@style/customAnimasiImage"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:id="@+id/animasi1ImageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/untitled_1"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/loginLinear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="20dp"
+            android:paddingHorizontal="30.24dp"
+            android:background="@drawable/rectangle25"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/animationLoginView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:text="Masuk"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:text="Nomor Telepon"
+                android:textSize="16sp"
+                android:textColor="@color/black"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/usernameInputLayout"
+                style="@style/customInputLayout">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/usernameEditText"
+                    style="@style/customEditText"
+                    android:inputType="phone"
+                    android:drawableStart="@drawable/_62"
+                    android:drawablePadding="10dp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="31dp"
+                android:text="Password"
+                android:textSize="16sp"
+                android:textColor="@color/black"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passwordInputLayout"
+                style="@style/customInputLayoutPassword">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/passwordEditText"
+                    style="@style/customEditTextPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:layout_gravity="end"
+                android:layout_marginBottom="37dp"
+                android:text="Lupa Password?"
+                android:textSize="16sp"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_below="@+id/loginLinear"
+            android:layout_marginTop="20dp"
             android:text="Masuk"
-            android:textSize="32sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"/>
+            style="@style/customButtonWhite"
+            app:layout_constraintTop_toBottomOf="@+id/loginLinear"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
-            android:text="Nomor Telepon"
-            android:textSize="16sp"
-            android:textColor="@color/black"/>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/usernameInputLayout"
-            style="@style/customInputLayout">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/usernameEditText"
-                style="@style/customEditText"
-                android:inputType="phone"
-                android:drawableStart="@drawable/_62"
-                android:drawablePadding="10dp"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="31dp"
-            android:text="Password"
-            android:textSize="16sp"
-            android:textColor="@color/black"/>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/passwordInputLayout"
-            style="@style/customInputLayoutPassword">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/passwordEditText"
-                style="@style/customEditTextPassword" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:layout_gravity="end"
-            android:layout_marginBottom="37dp"
-            android:text="Lupa Password?"
-            android:textSize="16sp"/>
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/loginButton"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/daftar1TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/loginButton"
+                android:text="Belum memiliki akun? "
+                android:textSize="15sp"
+                android:textColor="@color/white" />
 
-    <Button
-        android:id="@+id/loginButton"
-        android:layout_below="@+id/loginLinear"
-        android:layout_marginTop="20dp"
-        android:text="Masuk"
-        style="@style/customButtonWhite"
-        app:layout_constraintTop_toBottomOf="@+id/loginLinear"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+            <TextView
+                android:id="@+id/daftar2TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="Daftar "
+                android:textColor="@color/secondaryGreen"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/daftar1TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/loginButton"
-        android:layout_marginTop="20dp"
-        android:text="Belum memiliki akun? "
-        android:textSize="15sp"
-        android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@+id/loginButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/daftar2TextView"/>
+            <TextView
+                android:id="@+id/daftar3TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="sekarang"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
 
-    <TextView
-        android:id="@+id/daftar2TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:text="Daftar "
-        android:textColor="@color/secondaryGreen"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/daftar1TextView"
-        app:layout_constraintEnd_toStartOf="@+id/daftar3TextView"
-        app:layout_constraintTop_toBottomOf="@+id/loginButton"/>
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/daftar3TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="sekarang"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/daftar2TextView"
-        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
