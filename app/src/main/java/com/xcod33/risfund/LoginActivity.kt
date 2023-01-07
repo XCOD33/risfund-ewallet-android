@@ -49,6 +49,7 @@ class LoginActivity : AppCompatActivity() {
     fun homeData() {
         val sessionManager = SessionManager(this)
         val token = JSONObject(sessionManager.getToken())
+        Log.d("token", token.getString("token"))
         AndroidNetworking.get("https://risfund.loophole.site/api/user")
             .addHeaders("Accept", "application/json")
             .addHeaders("Authorization", "Bearer " + token.getString("token"))

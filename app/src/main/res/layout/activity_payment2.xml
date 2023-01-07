@@ -1,47 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primaryGreen"
-    tools:context=".TransferActivity"
-    android:orientation="vertical"
-    tools:ignore="HarcodedText">
+    tools:ignore="HarcodedText"
+    tools:context=".Payment2Activity">
 
-    <RelativeLayout
-        android:id="@+id/layoutTransfer1"
+    <LinearLayout
+        android:id="@+id/layoutPayment1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginHorizontal="25dp">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageButton
-            android:id="@+id/backTransfer"
+            android:id="@+id/backPayment"
             android:layout_width="15dp"
             android:layout_height="24dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="18dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="34dp"
             android:background="@drawable/iconback" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="34dp"
-            android:layout_centerInParent="true"
-            android:text="Transfer"
+            android:layout_marginStart="148dp"
+            android:text="Bayar"
             android:textStyle="bold"
             android:textSize="20sp"/>
-    </RelativeLayout>
+    </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/layoutTransfer2"
+        android:id="@+id/layoutPayment2"
         android:layout_width="383dp"
         android:layout_height="153dp"
         android:layout_marginTop="53dp"
         android:layout_marginHorizontal="33dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/layoutTransfer1"
+        app:layout_constraintTop_toBottomOf="@+id/layoutPayment1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -60,7 +61,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/usernameTransferTextView"
+                    android:id="@+id/usernamePaymentTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Hi, Nama Pengguna"
@@ -68,7 +69,7 @@
                     android:textStyle="bold"/>
 
                 <TextView
-                    android:id="@+id/saldoTransferTextView"
+                    android:id="@+id/saldoPaymentTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -77,7 +78,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/balanceTraansferTextView"
+                    android:id="@+id/balancePaymentTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -86,7 +87,7 @@
                     android:textStyle="bold"/>
 
                 <TextView
-                    android:id="@+id/balanceNotifTransferTextView"
+                    android:id="@+id/balanceNotifPaymentTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -101,16 +102,15 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/layoutTransfer3"
+        android:id="@+id/layoutPayment3"
         android:layout_width="match_parent"
         android:layout_height="600dp"
-        android:layout_below="@id/layoutTransfer2"
         android:paddingTop="30dp"
         android:paddingHorizontal="37dp"
         android:layout_marginTop="43dp"
         android:background="@drawable/rectangle25"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/layoutTransfer2"
+        app:layout_constraintTop_toBottomOf="@+id/layoutPayment2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -120,7 +120,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/TransferTextView"
+                android:id="@+id/PaymentTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Transfer"
@@ -130,30 +130,32 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nomor Handphone"
+                android:text="Nama Penerima"
                 android:layout_marginTop="25dp"
                 android:textSize="14sp"/>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/noHandphoneTransferInputLayout"
+                android:id="@+id/fullNamePaymentInputLayout"
                 style="@style/customInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
                     style="@style/customEditText"
-                    android:drawableStart="@drawable/_62"
-                    android:drawablePadding="10dp"
-                    android:id="@+id/noHandphoneTransferEditText"/>
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusableInTouchMode="false"
+                    android:id="@+id/fullNamePaymentEditText"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nominal Transfer"
+                android:text="Nominal Bayar"
                 android:layout_marginTop="15dp"
                 android:textSize="14sp"/>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/nominalTransferInputLayout"
+                android:id="@+id/nominalPaymentInputLayout"
                 style="@style/customInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -161,7 +163,7 @@
                     android:drawableStart="@drawable/rp"
                     android:drawablePadding="10dp"
                     android:inputType="number"
-                    android:id="@+id/nominalTransferEditText"/>
+                    android:id="@+id/nominalPaymentEditText"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -172,12 +174,12 @@
                 android:textSize="14sp"/>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/catatanTransferInputLayout"
+                android:id="@+id/catatanPaymentInputLayout"
                 style="@style/customInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
                     style="@style/customEditText"
-                    android:id="@+id/catatanTransferEditText"/>
+                    android:id="@+id/catatanPaymentEditText"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
@@ -198,7 +200,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/catatanTransferTextView"
+                        android:id="@+id/catatanPaymentTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Pastikan saldo anda mencukupi"
@@ -210,13 +212,12 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/transferTransferButton"
+            android:id="@+id/transferPaymentButton"
             style="@style/customButtonGreen"
-            android:layout_below="@+id/catatanTransferTextView"
             android:layout_marginTop="30dp"
             android:elevation="5dp"
-            android:text="Transfer" />
+            android:text="Bayar" />
 
     </LinearLayout>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
