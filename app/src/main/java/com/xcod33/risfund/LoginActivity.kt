@@ -35,9 +35,9 @@ class LoginActivity : AppCompatActivity() {
 
         loginButton.setOnClickListener {
             login()
-            Handler().postDelayed({
-                homeData()
-            }, 3000)
+//            Handler().postDelayed({
+//                homeData()
+//            }, 3000)
         }
 
         daftar2TextView.setOnClickListener {
@@ -136,6 +136,8 @@ class LoginActivity : AppCompatActivity() {
 
                                     sessionManager.setLogin(true)
                                     sessionManager.setToken(token.toString())
+
+                                    homeData()
                                 }
                             }
                         } catch (e: JSONException) {
@@ -147,8 +149,7 @@ class LoginActivity : AppCompatActivity() {
                         if (error != null) {
                             if (error.errorCode != 0) {
                                 val response = JSONObject(error.errorBody)
-//                                Log.e("responseError", response.getString("message"))
-                                startActivity(Intent(this@LoginActivity, LoginActivity::class.java))
+                                Toast.makeText(this@LoginActivity, response.getString("message"), Toast.LENGTH_LONG).show()
                             }
                         }
                     }
