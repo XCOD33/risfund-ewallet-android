@@ -34,6 +34,8 @@ import org.json.JSONObject
 
 class HomeFragment : Fragment() {
 
+    private val userList = ArrayList<GetUserResponse>()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -50,6 +52,10 @@ class HomeFragment : Fragment() {
 
         fullNameTextView.text = "Hi, ${user!!.fullName}"
         balanceTextView.text = "Rp${user!!.balance.toString()}"
+
+        homeRefresh.setOnRefreshListener {
+            refreshData()
+        }
 
         topUpButton.setOnClickListener{
             val intent = Intent(activity, TopUpActivity::class.java)
@@ -116,5 +122,59 @@ class HomeFragment : Fragment() {
             intent.putExtra("dataUser", user)
             startActivity(intent)
         }
+    }
+
+    private fun refreshData() {
+        val sessionManager = SessionManager(requireActivity().applicationContext)
+        val token = JSONObject(sessionManager.getToken())
+        AndroidNetworking.get("https://risfund.loophole.site/api/user")
+            .addHeaders("Accept", "application/json")
+            .addHeaders("Authorization", "Bearer " + token.getString("token"))
+            .setPriority(Priority.LOW)
+            .build()
+            .getAsJSONObject(object: JSONObjectRequestListener {
+                override fun onResponse(response: JSONObject?) {
+                    try {
+                        if (response != null) {
+                            if(response.getString("message").equals("User found")) {
+                                val data = JSONObject(response.getString("data"))
+
+                                Log.d("token", token.getString("token"))
+
+                                val userId = data.getString("userId")
+                                val fullName = data.getString("fullName")
+                                val phoneNumber = data.getString("phoneNumber")
+                                val birthdate = data.getString("birthdate")
+                                val gender = data.getString("gender")
+                                val username = data.getString("username")
+                                val balance = data.getString("balance")
+                                val userQr = data.getString("userQr")
+
+                                userList.clear()
+
+                                val responses = GetUserResponse(userId.toInt(), fullName, phoneNumber, birthdate, gender, username, balance.toInt(), userQr)
+
+                                userList.add(responses)
+
+                                val intent = Intent(requireContext().applicationContext, HomeActivity2::class.java)
+                                intent.putExtra("dataUser", responses)
+                                startActivity(intent)
+                            }
+                        }
+                    } catch (error: JSONException) {
+                        Log.d("error response", error.toString())
+                    }
+                }
+
+                override fun onError(error: ANError?) {
+                    if (error != null) {
+                        if (error.errorCode != 0) {
+                            val response = JSONObject(error.errorBody)
+//                                Log.e("responseError", response.getString("message"))
+                            Toast.makeText(requireActivity().applicationContext, response.getString("message"), Toast.LENGTH_LONG).show()
+                        }
+                    }
+                }
+            })
     }
 }
