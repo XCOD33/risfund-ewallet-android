@@ -3,12 +3,15 @@ package com.xcod33.risfund
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.xcod33.risfund.data.GetUserResponse
+import kotlinx.android.synthetic.main.activity_paket_data.*
 
 class PaketDataActivity : AppCompatActivity() {
 
@@ -20,6 +23,8 @@ class PaketDataActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_paket_data)
+
+        val user = intent.getParcelableExtra<GetUserResponse>("dataUser")
 
         backPaketData = findViewById(R.id.backPaketData)
         providerPaketDataAutoComplete = findViewById(R.id.providerPaketDataAutoComplete)
@@ -51,8 +56,20 @@ class PaketDataActivity : AppCompatActivity() {
             data.add(ItemsViewModelPaketData(i, i))
         }
 
-        val adapter = CustomAdapterPaketData(data)
-        paketDataRecyclerView.adapter = adapter
+        var phoneNumber: String
+        var provider: String
 
+        paketDataRecyclerView.setOnClickListener {
+            phoneNumber = nomorTeleponPaketDataEditText.text.toString()
+            provider = providerPaketDataAutoComplete.text.toString()
+
+            Log.d("phoneNumber", phoneNumber)
+
+            val adapter = CustomAdapterPaketData(data, phoneNumber, provider, user, this)
+            paketDataRecyclerView.adapter = adapter
+        }
+
+        val adapter = CustomAdapterPaketData(data, nomorTeleponPaketDataEditText.text.toString(), providerPaketDataAutoComplete.text.toString(), user, this)
+        paketDataRecyclerView.adapter = adapter
     }
 }

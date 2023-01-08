@@ -35,9 +35,14 @@ class PurchasesSuccessActivity : AppCompatActivity() {
         }
 
         val intent = intent
-        if(intent.getStringExtra("type") == "pulsa") {
-            titleSuccessTextView.text = intent.getStringExtra("purchaseType")
-            PembayaranAmountTextView.text = "- Rp " + intent.getStringExtra("amount")
-        }
+        titleSuccessTextView.text = intent.getStringExtra("purchaseType")
+        PembayaranAmountTextView.text = "- Rp " + intent.getStringExtra("amount")
+//        if(intent.getStringExtra("type") == "pulsa") {
+//            titleSuccessTextView.text = intent.getStringExtra("purchaseType")
+//            PembayaranAmountTextView.text = "- Rp " + intent.getStringExtra("amount")
+//        } else if (intent.getStringExtra("type") == "paket data") {
+//
+//        }
+
     }
 }
