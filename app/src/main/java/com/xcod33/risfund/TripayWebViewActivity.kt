@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ImageButton
+import com.xcod33.risfund.data.GetUserResponse
 
 class TripayWebViewActivity : AppCompatActivity() {
 
@@ -14,6 +15,8 @@ class TripayWebViewActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tripay_web_view)
+
+        val user = intent.getParcelableExtra<GetUserResponse>("dataUser")
 
         closeTripayWebView = findViewById(R.id.closeTripayWebView)
         val webView: WebView = findViewById(R.id.webview)
@@ -32,7 +35,8 @@ class TripayWebViewActivity : AppCompatActivity() {
         webView.settings.setSupportZoom(true)
 
         closeTripayWebView.setOnClickListener {
-            var intent = Intent(this, TopUpActivity::class.java)
+            val intent = Intent(this, TopUpActivity::class.java)
+            intent.putExtra("dataUser", user)
             startActivity(intent)
         }
     }

@@ -34,7 +34,7 @@
             app:layout_constraintTop_toTopOf="@+id/pengaturanTextView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:src="@drawable/rectangle25"/>
+            android:src="@drawable/profile"/>
 
         <TextView
             android:id="@+id/namaPenggunaProfilTextView"
@@ -79,19 +79,18 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/nomorTeleponProfilTextView"
+                android:id="@+id/usernameProfilTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:text="Nomor Telepon"
+                android:text="Username"
                 android:textSize="16sp" />
 
             <com.google.android.material.textfield.TextInputLayout style="@style/customInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/nomorTeleponProfilEditText"
+                    android:id="@+id/usernameEditText"
                     style="@style/customEditText"
-                    android:drawableStart="@drawable/_62"
                     android:drawablePadding="10dp"
                     android:inputType="phone"
                     android:maxLength="13"
@@ -108,8 +107,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tanggalLahirProfilInputLayout"
-                style="@style/customInputLayout"
-                android:hint="dd/mm/yyyy">
+                style="@style/customInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/tanggalLahirProfilEditText"

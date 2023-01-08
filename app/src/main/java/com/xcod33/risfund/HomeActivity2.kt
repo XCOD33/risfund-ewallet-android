@@ -30,6 +30,7 @@ class HomeActivity2 : AppCompatActivity() {
         setContentView(binding.root)
 
         homeRefreshLayout.setOnRefreshListener {
+            homeRefreshLayout.isRefreshing = false
             refreshData()
         }
 
