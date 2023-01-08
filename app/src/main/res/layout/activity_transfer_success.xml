@@ -45,11 +45,13 @@
         android:orientation="vertical"
         android:paddingTop="88dp">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_gravity="center"
-            android:src="@drawable/transfersucces"/>
+            app:lottie_rawRes="@raw/payment_success"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"/>
 
         <TextView
             android:layout_width="wrap_content"
