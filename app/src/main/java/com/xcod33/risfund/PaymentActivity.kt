@@ -35,8 +35,11 @@ class PaymentActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_payment)
 
+        val user = intent.getParcelableExtra<GetUserResponse>("dataUser")
+
         backPayment.setOnClickListener {
             val intent = Intent(this, HomeActivity2::class.java)
+            intent.putExtra("dataUser", user)
             startActivity(intent)
         }
 

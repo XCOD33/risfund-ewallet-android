@@ -17,7 +17,7 @@ class PlnPrabayarActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pln_prabayar)
 
-        val user = intent.getParcelableExtra<GetUserResponse>("data user")
+        val user = intent.getParcelableExtra<GetUserResponse>("dataUser")
 
         backPlnPrabayar = findViewById(R.id.backPlnPrabayar)
         plnPrabayarAutoComplete = findViewById(R.id.plnPrabayarAutoComplete)
@@ -33,7 +33,7 @@ class PlnPrabayarActivity : AppCompatActivity() {
 
         backPlnPrabayar.setOnClickListener {
             var intent = Intent(this, HomeActivity2::class.java)
-            intent.putExtra("data user", user)
+            intent.putExtra("dataUser", user)
             startActivity(intent)
         }
     }
