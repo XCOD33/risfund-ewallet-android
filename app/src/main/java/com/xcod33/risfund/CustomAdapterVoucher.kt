@@ -28,7 +28,7 @@ class CustomAdapterVoucher(private val mList: ArrayList<ItemsViewModelVoucher>) 
         holder.purchaseTextView.text = itemsViewModel.getTitle
         holder.hargaPurchaseTextView.text = itemsViewModel.getPrice
         holder.purchaseImageButton.setOnClickListener {
-            val intent = Intent(holder.purchaseImageButton.context, PaymentConfirmationActivity::class.java)
+            val intent = Intent(holder.purchaseImageButton.context, PurchasesConfirmationActivity::class.java)
             holder.purchaseImageButton.context.startActivity(intent)
         }
 

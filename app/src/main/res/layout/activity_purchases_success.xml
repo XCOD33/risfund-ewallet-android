@@ -1,50 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primaryGreen"
     tools:ignore="HarcodedText"
-    android:orientation="vertical"
-    tools:context=".TransferSuccessActivity">
+    android:paddingHorizontal="25dp"
+    tools:context=".PurchasesSuccessActivity">
 
-    <RelativeLayout
-        android:id="@+id/layoutTransferSukses1"
+    <LinearLayout
+        android:id="@+id/layoutPembayaranSukses1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginHorizontal="25dp">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">>
 
         <ImageButton
-            android:id="@+id/backTransferSukses"
+            android:id="@+id/backPembayaranSukses"
             android:layout_width="15dp"
             android:layout_height="24dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="34dp"
             android:background="@drawable/iconback" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="34dp"
-            android:layout_centerInParent="true"
-            android:text="Transfer Berhasil"
+            android:layout_marginStart="85dp"
+            android:text="Pembayaran Berhasil"
             android:textStyle="bold"
             android:textSize="20sp"/>
-    </RelativeLayout>
+    </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/layoutTransferSukses2"
+        android:id="@+id/layoutPembayaranSukses2"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="421dp"
         android:layout_marginTop="53dp"
-        android:layout_marginHorizontal="25dp"
-        android:layout_below="@id/layoutTransferSukses1"
+        android:layout_below="@id/layoutPembayaranSukses1"
         android:background="@drawable/rectangle25"
         android:orientation="vertical"
         android:paddingTop="88dp"
-        app:layout_constraintTop_toBottomOf="@+id/layoutTransferSukses1"
+        app:layout_constraintTop_toBottomOf="@+id/layoutPembayaranSukses1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -65,7 +65,7 @@
             android:textColor="@color/secondaryGreen"/>
 
         <TextView
-            android:id="@+id/transferAmountTextView"
+            android:id="@+id/PembayaranAmountTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="11dp"
@@ -75,24 +75,16 @@
             android:textStyle="bold"
             android:textColor="@color/secondaryGreen"/>
 
-        <TextView
-            android:id="@+id/transferIdTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="11dp"
-            android:text="1a8c4fdb-8a86-4744-9d06-4fb54d6d8333"
-            android:textSize="13dp"
-            android:textStyle="bold"
-            android:textColor="@color/secondaryGreen"/>
-
     </LinearLayout>
 
     <Button
-        android:id="@+id/transferBerhasilButton"
+        android:id="@+id/pembayaranBerhasilButton"
         android:layout_marginTop="36dp"
-        android:layout_marginHorizontal="25dp"
+        android:layout_below="@id/layoutPembayaranSukses2"
         style="@style/customButtonWhite"
-        android:text="Lanjutkan" />
+        android:text="Lanjutkan"
+        app:layout_constraintTop_toBottomOf="@+id/layoutPembayaranSukses2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

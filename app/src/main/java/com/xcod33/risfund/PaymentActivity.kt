@@ -90,6 +90,7 @@ class PaymentActivity : AppCompatActivity() {
 
                                 val intent = Intent(this@PaymentActivity, Payment2Activity::class.java)
                                 intent.putExtra("transferTo", fullName)
+                                intent.putExtra("userQr", it.text.toString())
                                 intent.putExtra("dataUser", user)
                                 startActivity(intent)
                             }

@@ -3,16 +3,8 @@ package com.xcod33.risfund
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import com.androidnetworking.AndroidNetworking
-import com.androidnetworking.common.Priority
-import com.androidnetworking.error.ANError
-import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.xcod33.risfund.data.GetUserResponse
 import kotlinx.android.synthetic.main.activity_payment2.*
-import kotlinx.android.synthetic.main.activity_transfer.*
-import org.json.JSONException
-import org.json.JSONObject
 
 class Payment2Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +13,11 @@ class Payment2Activity : AppCompatActivity() {
 
         val user = intent.getParcelableExtra<GetUserResponse>("dataUser")
         val intent = intent
+        val userQr = intent.getStringExtra("userQr")
         val transferTo = intent.getStringExtra("transferTo")
+
+        usernamePaymentTextView.text = "Hi, ${user!!.fullName}"
+        balancePaymentTextView.text = "Rp${user!!.balance.toString()}"
         fullNamePaymentEditText.setText(transferTo)
 
         transferPaymentButton.setOnClickListener {
@@ -31,11 +27,12 @@ class Payment2Activity : AppCompatActivity() {
                 nominalPaymentInputLayout.error = "Maaf saldo anda tidak mencukupi"
             } else {
                 val bundle = Bundle()
+                bundle.putString("userQr", userQr)
                 bundle.putString("transferTo", transferTo)
                 bundle.putString("note", catatanPaymentEditText.text.toString())
                 bundle.putInt("amount", nominalPaymentEditText.text.toString().toInt())
 
-                val intent = Intent(this, PaymentConfirmation::class.java)
+                val intent = Intent(this, PaymentConfirmationActivity::class.java)
                 intent.putExtras(bundle)
                 intent.putExtra("dataUser", user)
                 startActivity(intent)
