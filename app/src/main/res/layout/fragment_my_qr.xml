@@ -1,35 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primaryGreen"
+    android:orientation="vertical"
     tools:context=".MyQrFragment">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="37dp"
-        android:text="Kode QR-ku"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="25dp">
 
-    <ImageButton
-        android:id="@+id/shareMyQR"
-        android:layout_width="24dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="34dp"
-        android:layout_marginStart="114dp"
-        android:layout_marginEnd="25dp"
-        android:background="@drawable/iconshare"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="34dp"
+            android:layout_centerInParent="true"
+            android:text="Kode QR-ku"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <ImageButton
+            android:id="@+id/shareMyQR"
+            android:layout_width="24dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="18dp"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/iconshare"/>
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/layoutMyQR2"
@@ -38,9 +40,7 @@
         android:layout_marginTop="53dp"
         android:background="@drawable/rectangle25"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        android:layout_gravity="center">
 
         <LinearLayout
             android:id="@+id/layoutMyQRProfile"
@@ -105,9 +105,7 @@
         android:layout_below="@id/layoutMyQR2"
         android:layout_marginTop="24dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layoutMyQR2">
+        android:layout_gravity="center">
 
         <ImageView
             android:layout_width="40dp"
@@ -127,4 +125,4 @@
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

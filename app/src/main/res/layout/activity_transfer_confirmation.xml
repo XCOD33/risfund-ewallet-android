@@ -177,7 +177,6 @@
             android:layout_marginTop="14dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/layoutConfirmation"
             android:src="@drawable/linebottom"/>
 
     </LinearLayout>
@@ -185,10 +184,9 @@
     <Button
         android:id="@+id/konfirmasiTransferButton"
         style="@style/customButtonWhite"
-        android:layout_below="@id/layoutKonfirmasiTransfer2"
-        android:text="Konfirmasi"
-        app:layout_constraintTop_toBottomOf="@+id/layoutKonfirmasiTransfer2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        android:layout_marginTop="35dp"
+        android:layout_marginHorizontal="25dp"
+        android:layout_gravity="center"
+        android:text="Konfirmasi" />
 
 </LinearLayout>

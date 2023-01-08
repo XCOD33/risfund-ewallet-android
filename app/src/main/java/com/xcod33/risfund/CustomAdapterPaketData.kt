@@ -28,7 +28,7 @@ class CustomAdapterPaketData(private val mList: ArrayList<ItemsViewModelPaketDat
         holder.purchaseTextView.text = itemsViewModel.getTitle
         holder.hargaPurchaseTextView.text = itemsViewModel.getPrice
         holder.purchaseImageButton.setOnClickListener {
-            val intent = Intent(holder.purchaseImageButton.context, PaymentConfirmationActivity::class.java)
+            val intent = Intent(holder.purchaseImageButton.context, PurchasesConfirmationActivity::class.java)
             holder.purchaseImageButton.context.startActivity(intent)
         }
     }
