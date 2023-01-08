@@ -38,10 +38,7 @@
     <LinearLayout
         android:id="@+id/cardPurchasePdam"
         style="@style/customCardPurchases"
-        android:layout_marginHorizontal="25dp"
-        app:layout_constraintTop_toBottomOf="@+id/layoutPdam1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_marginHorizontal="25dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -99,9 +96,6 @@
         android:layout_marginTop="35dp"
         android:layout_below="@id/cardPurchasePdam"
         android:layout_marginHorizontal="25dp"
-        android:text="Lanjutkan"
-        app:layout_constraintTop_toBottomOf="@+id/cardPurchasePdam"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        android:text="Lanjutkan"/>
 
 </LinearLayout>

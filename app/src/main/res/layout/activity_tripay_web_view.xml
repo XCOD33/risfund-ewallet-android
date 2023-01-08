@@ -12,10 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="20dp"
-        android:background="@color/secondaryGreen"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:background="@color/secondaryGreen">
 
         <ImageButton
             android:id="@+id/closeTripayWebView"
@@ -30,9 +27,6 @@
         android:id="@+id/webview"
         android:layout_below="@id/layoutWeb"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutWeb"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        android:layout_height="match_parent"/>
 
 </LinearLayout>
