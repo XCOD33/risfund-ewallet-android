@@ -15,7 +15,20 @@ import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.xcod33.risfund.data.GetUserResponse
+import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.fragment_home.balanceTextView
+import kotlinx.android.synthetic.main.fragment_home.bpjsButton
+import kotlinx.android.synthetic.main.fragment_home.mtixButton
+import kotlinx.android.synthetic.main.fragment_home.paketDataButton
+import kotlinx.android.synthetic.main.fragment_home.paymentButton
+import kotlinx.android.synthetic.main.fragment_home.pdamButton
+import kotlinx.android.synthetic.main.fragment_home.plnButton
+import kotlinx.android.synthetic.main.fragment_home.pulsaButton
+import kotlinx.android.synthetic.main.fragment_home.topUpButton
+import kotlinx.android.synthetic.main.fragment_home.transferButton
+import kotlinx.android.synthetic.main.fragment_home.voucherButton
+import kotlinx.android.synthetic.main.fragment_home.wifiButton
 import org.json.JSONException
 import org.json.JSONObject
 
@@ -52,6 +65,54 @@ class HomeFragment : Fragment() {
 
         paymentButton.setOnClickListener {
             val intent = Intent(activity, PaymentActivity::class.java)
+            intent.putExtra("dataUser", user)
+            startActivity(intent)
+        }
+
+        pulsaButton.setOnClickListener {
+            val intent = Intent(activity, PulsaActivity::class.java)
+            intent.putExtra("dataUser", user)
+            startActivity(intent)
+        }
+
+        paketDataButton.setOnClickListener {
+            val intent = Intent(activity, PaketDataActivity::class.java)
+            intent.putExtra("dataUser", user)
+            startActivity(intent)
+        }
+
+        voucherButton.setOnClickListener {
+            val intent = Intent(activity, VoucherFisikActivity::class.java)
+            intent.putExtra("dataUser", user)
+            startActivity(intent)
+        }
+
+        plnButton.setOnClickListener {
+            val intent = Intent(activity, PlnPascabayarActivity::class.java)
+            intent.putExtra("dataUser", user)
+            startActivity(intent)
+        }
+
+        pdamButton.setOnClickListener {
+            val intent = Intent(activity, PdamActivity::class.java)
+            intent.putExtra("dataUser", user)
+            startActivity(intent)
+        }
+
+        wifiButton.setOnClickListener {
+            val intent = Intent(activity, WifiActivity::class.java)
+            intent.putExtra("dataUser", user)
+            startActivity(intent)
+        }
+
+        mtixButton.setOnClickListener {
+            val intent = Intent(activity, MtixActivity::class.java)
+            intent.putExtra("dataUser", user)
+            startActivity(intent)
+        }
+
+        bpjsButton.setOnClickListener {
+            var intent = Intent(activity, BpjsActivity::class.java)
             intent.putExtra("dataUser", user)
             startActivity(intent)
         }
