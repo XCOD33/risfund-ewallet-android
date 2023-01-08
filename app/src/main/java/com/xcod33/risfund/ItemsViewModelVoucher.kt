@@ -7,6 +7,8 @@ data class ItemsViewModelVoucher(val title: Int, val price: Int) {
         3 -> "100,000"
         4 -> "150,000"
         5 -> "300,000"
+        6 -> "350,000"
+        7 -> "400,000"
         else -> "NULL"
     }
 
@@ -16,6 +18,8 @@ data class ItemsViewModelVoucher(val title: Int, val price: Int) {
         3 -> "Rp102,000"
         4 -> "Rp152,000"
         5 -> "Rp302,000"
+        6 -> "Rp352,000"
+        7 -> "Rp402,000"
         else -> "NULL"
     }
 }

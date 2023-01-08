@@ -22,7 +22,7 @@
         <ImageView
             android:id = "@+id/SplashScreenImageView"
             android:layout_width="400dp"
-            android:layout_height="300dp"
+            android:layout_height="350dp"
             android:src="@drawable/splash_screen"/>
 
         <TextView
@@ -32,10 +32,8 @@
             android:gravity="center"
             android:fontFamily="@font/gotham_bold"
             android:textColor="@color/white"
-            android:textSize="45sp"
+            android:textSize="30sp"
             android:text="Let's Save\nOur Fund"/>
-
-
     </LinearLayout>
 
 
