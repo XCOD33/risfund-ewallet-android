@@ -7,6 +7,7 @@
     tools:context=".LoginActivity"
     android:background="@color/primaryGreen"
     tools:ignore="HardcodedText"
+    android:scrollbars="none"
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
