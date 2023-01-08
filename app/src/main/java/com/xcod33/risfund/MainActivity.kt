@@ -25,19 +25,19 @@ class MainActivity : AppCompatActivity() {
         // Set a delay for the splash screen
         val splashDelay: Long = 3000 // 3 seconds
 
-        Handler().postDelayed({
             val sessionManager = SessionManager(this)
             if(sessionManager.getToken()!!.isNotEmpty()) {
                 checkLogin()
             } else {
-            // Launch the main activity
-            sessionManager.clearToken()
-            startActivity(Intent(this, LoginActivity::class.java))
-            // Close the splash screen activity
-            finish()
+                Handler().postDelayed({
+                    // Launch the main activity
+                    sessionManager.clearToken()
+                    startActivity(Intent(this, LoginActivity::class.java))
+                    // Close the splash screen activity
+                    finish()
+                }, splashDelay)
             }
 
-        }, splashDelay)
     }
 
     private fun checkLogin() {

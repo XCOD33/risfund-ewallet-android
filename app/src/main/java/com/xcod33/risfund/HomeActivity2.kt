@@ -29,11 +29,6 @@ class HomeActivity2 : AppCompatActivity() {
         binding = ActivityHome2Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        homeRefreshLayout.setOnRefreshListener {
-//            homeRefreshLayout.isRefreshing = false
-//            refreshData()
-//        }
-
         replaceFragment(HomeFragment())
 
 

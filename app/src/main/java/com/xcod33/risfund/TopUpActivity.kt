@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
+import androidx.core.view.isVisible
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Method
 import com.androidnetworking.common.Priority
@@ -37,6 +38,8 @@ class TopUpActivity : AppCompatActivity() {
         val user = intent.getParcelableExtra<GetUserResponse>("dataUser")
         usernameTopUpTextView.text = "Hi, ${user!!.fullName}"
         balanceTopUpTextView.text = "Rp${user!!.balance.toString()}"
+
+        balanceNotifTopUpTextView.isVisible = user.balance!! < 100000
 
         back = findViewById(R.id.back)
         TopupButton = findViewById(R.id.TopupButton)

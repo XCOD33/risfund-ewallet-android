@@ -22,6 +22,7 @@ import com.budiyev.android.codescanner.ErrorCallback
 import com.budiyev.android.codescanner.ScanMode
 import com.xcod33.risfund.data.GetUserResponse
 import kotlinx.android.synthetic.main.activity_payment.*
+import kotlinx.android.synthetic.main.activity_payment.backPayment
 import kotlinx.android.synthetic.main.activity_transfer.*
 import org.json.JSONException
 import org.json.JSONObject

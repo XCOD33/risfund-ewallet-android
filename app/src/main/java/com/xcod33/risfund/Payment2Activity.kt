@@ -3,6 +3,7 @@ package com.xcod33.risfund
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.xcod33.risfund.data.GetUserResponse
 import kotlinx.android.synthetic.main.activity_payment2.*
 
@@ -15,6 +16,8 @@ class Payment2Activity : AppCompatActivity() {
         val intent = intent
         val userQr = intent.getStringExtra("userQr")
         val transferTo = intent.getStringExtra("transferTo")
+
+        balanceNotifPaymentTextView.isVisible = user!!.balance!! < 100000
 
         usernamePaymentTextView.text = "Hi, ${user!!.fullName}"
         balancePaymentTextView.text = "Rp${user!!.balance.toString()}"

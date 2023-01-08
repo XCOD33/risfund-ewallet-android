@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.core.view.isVisible
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
@@ -23,6 +24,8 @@ class TransferActivity : AppCompatActivity() {
 
         usernameTransferTextView.text = "Hi, ${user!!.fullName}"
         balanceTraansferTextView.text = "Rp${user!!.balance.toString()}"
+
+        balanceNotifTransferTextView.isVisible = user.balance!! < 100000
 
         backTransfer.setOnClickListener {
             var intent = Intent(this, HomeActivity2::class.java)
