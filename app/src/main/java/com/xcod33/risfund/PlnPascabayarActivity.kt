@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.ImageButton
+import com.xcod33.risfund.data.GetUserResponse
 
 class PlnPascabayarActivity : AppCompatActivity() {
 
@@ -15,6 +16,8 @@ class PlnPascabayarActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pln_pascabayar)
+
+        val user = intent.getParcelableExtra<GetUserResponse>("data user")
 
         backPlnPascabayar = findViewById(R.id.backPlnPascabayar)
         plnPascabayarAutoComplete = findViewById(R.id.plnPascabayarAutoComplete)
@@ -30,7 +33,8 @@ class PlnPascabayarActivity : AppCompatActivity() {
         }
 
         backPlnPascabayar.setOnClickListener {
-            var intent = Intent(this, HomeActivity::class.java)
+            var intent = Intent(this, HomeActivity2::class.java)
+            intent.putExtra("data user", user)
             startActivity(intent)
         }
     }
