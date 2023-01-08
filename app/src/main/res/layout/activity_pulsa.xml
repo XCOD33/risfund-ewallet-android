@@ -96,6 +96,7 @@
             android:textStyle="bold"/>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nomorTeleponPulsaInputLayout"
             style="@style/customInputLayout"
             android:paddingTop="3dp">
             <com.google.android.material.textfield.TextInputEditText
