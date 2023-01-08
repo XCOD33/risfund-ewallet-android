@@ -134,77 +134,91 @@
             android:textSize="32sp"
             android:textStyle="bold"/>
 
-        <LinearLayout
+        <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="27dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <ImageButton
-                android:id="@+id/pulsaButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/menupulsa"/>
-
-            <ImageButton
-                android:id="@+id/paketDataButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:background="@drawable/menupaketdata"/>
-
-            <ImageButton
-                android:id="@+id/voucherButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:background="@drawable/menuvoucher"/>
-
-            <ImageButton
-                android:id="@+id/plnButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:background="@drawable/menupln"/>
-
-        </LinearLayout>
+            android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="29dp"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <ImageButton
-                android:id="@+id/pdamButton"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/menupdam"/>
+                android:layout_marginTop="27dp"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/wifiButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:background="@drawable/menuwifi"/>
+                <ImageButton
+                    android:id="@+id/pulsaButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/menupulsa"/>
 
-            <ImageButton
-                android:id="@+id/mtixButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:background="@drawable/menumtix"/>
+                <ImageButton
+                    android:id="@+id/paketDataButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:background="@drawable/menupaketdata"/>
 
-            <ImageButton
-                android:id="@+id/bpjsButton"
-                android:layout_width="wrap_content"
+                <ImageButton
+                    android:id="@+id/voucherButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:background="@drawable/menuvoucher"/>
+
+                <ImageButton
+                    android:id="@+id/plnButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:background="@drawable/menupln"/>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:background="@drawable/menubpjs"/>
+                android:layout_marginTop="29dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/pdamButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/menupdam"/>
+
+                <ImageButton
+                    android:id="@+id/wifiButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:background="@drawable/menuwifi"/>
+
+                <ImageButton
+                    android:id="@+id/mtixButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:background="@drawable/menumtix"/>
+
+                <ImageButton
+                    android:id="@+id/bpjsButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:background="@drawable/menubpjs"/>
+            </LinearLayout>
 
         </LinearLayout>
+        </HorizontalScrollView>
 
     </LinearLayout>
 
