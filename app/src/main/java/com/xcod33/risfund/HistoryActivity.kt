@@ -19,41 +19,5 @@ class HistoryActivity : AppCompatActivity() {
         bottomNav.setSelectedItemId(R.id.historyNavigation)
         riwayatRecyclerView = findViewById(R.id.riwayatRecyclerView)
 
-        bottomNav.setOnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.homeNavigation -> {
-                    val intent = Intent(this, HomeActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
-
-                R.id.qrNavigation-> {
-                    val intent = Intent(this, MyQrActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
-
-                R.id.historyNavigation -> {
-                    true
-                }
-
-                R.id.settingNavigation -> {
-                    val intent = Intent(this, SettingsActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
-
-                else -> false
-            }
-        }
-
-        riwayatRecyclerView.layoutManager = LinearLayoutManager(this)
-        val data = ArrayList<ItemsViewModelRiwayat>()
-        for(i in 1..10) {
-            data.add(ItemsViewModelRiwayat(i, i, i, i))
-        }
-
-        val adapter = CustomAdapterRiwayat(data)
-        riwayatRecyclerView.adapter = adapter
     }
 }

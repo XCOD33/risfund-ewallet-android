@@ -10,6 +10,7 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.xcod33.risfund.data.GetUserResponse
 
 class VoucherFisikActivity : AppCompatActivity() {
 
@@ -22,6 +23,8 @@ class VoucherFisikActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_voucher_fisik)
 
+        val user = intent.getParcelableExtra<GetUserResponse>("dataUser")
+
         backVoucherFisik = findViewById(R.id.backVoucherFisik)
         voucherImageView = findViewById(R.id.voucherImageView)
         jenisVoucherAutoComplete = findViewById(R.id.jenisVoucherAutoComplete)
@@ -31,7 +34,8 @@ class VoucherFisikActivity : AppCompatActivity() {
         val voucherAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, voucherList)
 
         backVoucherFisik.setOnClickListener {
-            var intent = Intent(this, HomeActivity::class.java)
+            var intent = Intent(this, HomeActivity2::class.java)
+            intent.putExtra("dataUser", user)
             startActivity(intent)
         }
 
