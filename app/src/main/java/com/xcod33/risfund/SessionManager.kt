@@ -26,4 +26,19 @@ class SessionManager(var context: Context) {
         editor?.clear()
         editor?.commit()
     }
+
+    fun setPayment(code: String?, name: String?, icon_url: String?) {
+        editor?.putString("code", code)
+        editor?.putString("name", name)
+        editor?.putString("iconUrl", icon_url)
+        editor?.commit()
+    }
+
+    fun getPayment(): HashMap<String, String?> {
+        val method = HashMap<String, String?>()
+        method["code"] = pref?.getString("code", "BCAVA")
+        method["name"] = pref?.getString("name", "BCA Virtual Account")
+        method["iconUrl"] = pref?.getString("iconUrl", "https://tripay.co.id/images/payment-channel/ytBKvaleGy1605201833.png")
+        return method
+    }
 }

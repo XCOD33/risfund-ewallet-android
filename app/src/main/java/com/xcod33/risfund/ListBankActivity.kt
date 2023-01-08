@@ -1,5 +1,6 @@
 package com.xcod33.risfund
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,17 +23,10 @@ class ListBankActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_bank)
 
-        choosePaymentChannel()
-        initAdapter()
+        choosePaymentChannel(this)
     }
 
-    private fun initAdapter() {
-        customAdapter = CustomAdapterListBank(listPaymentChannel)
-        val layoutManager = LinearLayoutManager(this)
-        listBankRecyclerView.layoutManager = layoutManager
-    }
-
-    private fun choosePaymentChannel() {
+    private fun choosePaymentChannel(context: Context) {
         AndroidNetworking.get("https://risfund.loophole.site/api/payment-channel")
             .addHeaders("Accept", "application/json")
             .setPriority(Priority.LOW)
@@ -42,6 +36,8 @@ class ListBankActivity : AppCompatActivity() {
                     try {
                         if (response!!.getString("success").equals(true.toString())) {
                             val data = response.getJSONArray("data")
+
+                            listPaymentChannel.clear()
 
                             for (i in 0 until data.length()) {
                                 val value = data.getJSONObject(i)
@@ -55,7 +51,9 @@ class ListBankActivity : AppCompatActivity() {
                             }
                         }
 
-                        listBankRecyclerView.adapter = customAdapter
+                        listBankRecyclerView.adapter = CustomAdapterListBank(listPaymentChannel, context)
+                        val layoutManager = LinearLayoutManager(applicationContext)
+                        listBankRecyclerView.layoutManager = layoutManager
                     } catch (e: JSONException) {
                         e.printStackTrace()
                     }

@@ -16,11 +16,14 @@ import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.bumptech.glide.Glide
 import com.bumptech.glide.Priority
 import com.xcod33.risfund.data.GetPaymentChannel
+import kotlinx.coroutines.withContext
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 
-class CustomAdapterListBank(private val mListBank: ArrayList<GetPaymentChannel>): RecyclerView.Adapter<CustomAdapterListBank.ViewHolder>() {
+class CustomAdapterListBank(private val mListBank: ArrayList<GetPaymentChannel>, val context: Context): RecyclerView.Adapter<CustomAdapterListBank.ViewHolder>() {
+    private lateinit var sessionManager: SessionManager
+
     class ViewHolder(ItemView: View): RecyclerView.ViewHolder(ItemView) {
         val bankImageView: ImageView = ItemView.findViewById(R.id.bankImageView)
         val bankTextView: TextView = ItemView.findViewById(R.id.bankTextView)
@@ -34,6 +37,7 @@ class CustomAdapterListBank(private val mListBank: ArrayList<GetPaymentChannel>)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        sessionManager = SessionManager(context)
         val itemsViewModel = mListBank[position]
 
 //        holder.bankImageView.setImageResource(itemsViewModel.iconUrl!!.toString().toInt())
@@ -41,9 +45,12 @@ class CustomAdapterListBank(private val mListBank: ArrayList<GetPaymentChannel>)
         holder.bankTextView.text = itemsViewModel.name
 
         holder.containerPayment.setOnClickListener {
-            val intent = Intent(holder.itemView.context, TripayWebViewActivity::class.java)
-            intent.putExtra("dataPayment", itemsViewModel.code)
-            holder.itemView.context.startActivity(intent)
+            val code = itemsViewModel.code
+            val name = itemsViewModel.name
+            val iconUrl = itemsViewModel.iconUrl
+
+            sessionManager.setPayment(code, name, iconUrl)
+            (context as Activity).finish()
         }
     }
 
