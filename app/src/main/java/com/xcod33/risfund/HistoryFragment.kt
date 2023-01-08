@@ -1,34 +1,26 @@
 package com.xcod33.risfund
 
+import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.androidnetworking.AndroidNetworking
+import com.androidnetworking.error.ANError
+import com.androidnetworking.interfaces.JSONObjectRequestListener
+import com.xcod33.risfund.data.GetPaymentChannel
+import kotlinx.android.synthetic.main.activity_list_bank.*
+import kotlinx.android.synthetic.main.fragment_history.*
+import org.json.JSONException
+import org.json.JSONObject
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [HistoryFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HistoryFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    private var itemsViewModelRiwayat = ArrayList<ItemsViewModelRiwayat>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,23 +29,50 @@ class HistoryFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_history, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HistoryFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HistoryFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        listHistory()
+    }
+
+    private fun listHistory() {
+        val sessionManager = SessionManager(requireActivity().applicationContext)
+        val token = JSONObject(sessionManager.getToken())
+
+        AndroidNetworking.get("https://risfund.loophole.site/api/history")
+            .addHeaders("Accept", "application/json")
+            .addHeaders("Authorization", "Bearer " + token.getString("token"))
+            .setPriority(com.androidnetworking.common.Priority.MEDIUM)
+            .build()
+            .getAsJSONObject(object: JSONObjectRequestListener {
+                override fun onResponse(response: JSONObject?) {
+                    try {
+                        if (response != null) {
+                            if (response.getString("message").equals("History user found")) {
+                                val data = response.getJSONArray("data")
+                                itemsViewModelRiwayat.clear()
+
+                                for (i in 0 until data.length()) {
+                                    val value = data.getJSONObject(i)
+                                    val type = value.getString("transactionType")
+                                    val date = value.getString("created_at")
+                                    val amount = value.getString("amount")
+
+                                    val responsesHistory = ItemsViewModelRiwayat(type, date, amount.toInt())
+                                    itemsViewModelRiwayat.add(responsesHistory)
+                                }
+                            }
+                        }
+                        riwayatRecyclerView.adapter = CustomAdapterRiwayat(itemsViewModelRiwayat)
+                        val layoutManager = LinearLayoutManager(activity)
+                        riwayatRecyclerView.layoutManager = layoutManager
+                    } catch (e: JSONException) {
+                        e.printStackTrace()
+                    }
                 }
-            }
+                override fun onError(anError: ANError?) {
+                }
+            })
     }
 }

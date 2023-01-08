@@ -26,10 +26,10 @@ class CustomAdapterRiwayat(private val mList: ArrayList<ItemsViewModelRiwayat>) 
         val itemsViewModel = mList[position]
 
         holder.imageViewCardViewRiwayat.setImageResource(itemsViewModel.getImage)
-        holder.judulTextViewCardViewRiwayat.text = itemsViewModel.getTitle
-        holder.tanggalTextViewCardViewRiwayat.text = itemsViewModel.getDate
-        holder.hargaTextViewCardViewRiwayat.text = itemsViewModel.getPrice
-        }
+        holder.judulTextViewCardViewRiwayat.text = itemsViewModel.title
+        holder.tanggalTextViewCardViewRiwayat.text = itemsViewModel.date
+        holder.hargaTextViewCardViewRiwayat.text = itemsViewModel.amount.toString()
+    }
 
     override fun getItemCount(): Int {
         return mList.size
