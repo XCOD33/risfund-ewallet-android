@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.ImageButton
+import com.xcod33.risfund.data.GetUserResponse
 
 class PlnPrabayarActivity : AppCompatActivity() {
 
@@ -15,6 +16,8 @@ class PlnPrabayarActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pln_prabayar)
+
+        val user = intent.getParcelableExtra<GetUserResponse>("dataUser")
 
         backPlnPrabayar = findViewById(R.id.backPlnPrabayar)
         plnPrabayarAutoComplete = findViewById(R.id.plnPrabayarAutoComplete)
@@ -29,7 +32,8 @@ class PlnPrabayarActivity : AppCompatActivity() {
         }
 
         backPlnPrabayar.setOnClickListener {
-            var intent = Intent(this, HomeActivity::class.java)
+            var intent = Intent(this, HomeActivity2::class.java)
+            intent.putExtra("dataUser", user)
             startActivity(intent)
         }
     }
