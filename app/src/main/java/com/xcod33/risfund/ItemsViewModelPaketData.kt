@@ -13,13 +13,13 @@ data class ItemsViewModelPaketData(val title: Int, val price: Int) {
     }
 
     val getPrice = when(price) {
-        1 -> "Rp40,000"
-        2 -> "Rp50,000"
-        3 -> "Rp60,000"
-        4 -> "Rp75,000"
-        5 -> "Rp90,000"
-        6 -> "Rp100,000"
-        7 -> "Rp120,000"
+        1 -> 40000
+        2 -> 50000
+        3 -> 60000
+        4 -> 75000
+        5 -> 95000
+        6 -> 100000
+        7 -> 120000
         else -> "NULL"
     }
 }

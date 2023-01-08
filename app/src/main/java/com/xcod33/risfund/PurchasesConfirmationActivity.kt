@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
+import com.xcod33.risfund.data.GetUserResponse
 
 class PurchasesConfirmationActivity : AppCompatActivity() {
     private lateinit var backKonfirmasiPembayaran: ImageButton
