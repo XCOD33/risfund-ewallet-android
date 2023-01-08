@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.ImageButton
 import android.widget.ImageView
+import com.xcod33.risfund.data.GetUserResponse
 
 class WifiActivity : AppCompatActivity() {
 
@@ -17,6 +18,7 @@ class WifiActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wifi)
+        val user = intent.getParcelableExtra<GetUserResponse>("dataUser")
 
         backWifi = findViewById(R.id.backWifi)
         wifiImageView = findViewById(R.id.wifiImageView)
@@ -37,6 +39,7 @@ class WifiActivity : AppCompatActivity() {
 
         backWifi.setOnClickListener {
             var intent = Intent(this, HomeActivity::class.java)
+            intent.putExtra("dataUser", user)
             startActivity(intent)
         }
 
