@@ -20,6 +20,8 @@ class LoginActivity : AppCompatActivity() {
 
     private val userList = ArrayList<GetUserResponse>()
 
+    private var otp: String? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -40,10 +42,55 @@ class LoginActivity : AppCompatActivity() {
 //            }, 3000)
         }
 
+        requestOtpButton.setOnClickListener {
+            getOtp()
+        }
+
         daftar2TextView.setOnClickListener {
             val intent = Intent(this, Register1Activity::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun getOtp() {
+        if(usernameEditText.text.isNullOrEmpty()) {
+            usernameInputLayout.error = "Harap masukkan nomor handphone"
+        } else {
+            Toast.makeText(this, "OTP Dikirim", Toast.LENGTH_LONG).show()
+
+            val jobj = JSONObject()
+            try {
+                jobj.put("phoneNumber", usernameEditText.text.toString())
+            } catch (e: JSONException) {
+                e.printStackTrace()
+            }
+
+            AndroidNetworking.post("https://risfund.loophole.site/api/get-otp")
+                .addJSONObjectBody(jobj)
+                .addHeaders("Accept", "application/json")
+                .setPriority(Priority.MEDIUM)
+                .build()
+                .getAsJSONObject(object: JSONObjectRequestListener{
+                    override fun onResponse(response: JSONObject?) {
+                        try {
+                            if(response!!.getString("message").equals("otp sent")) {
+                                otp = response.getString("data")
+                            }
+                        } catch (e: JSONException) {
+                            Log.d("eREsponse", e.toString())
+                        }
+                    }
+
+                    override fun onError(anError: ANError?) {
+                        if(anError!!.errorCode != 0) {
+                            val response = JSONObject(anError.errorBody)
+
+                            Toast.makeText(this@LoginActivity, response.getString("data"), Toast.LENGTH_LONG).show()
+                        }
+                    }
+                })
+        }
+
     }
 
     fun homeData() {
@@ -101,7 +148,7 @@ class LoginActivity : AppCompatActivity() {
             })
     }
 
-    fun login() {
+    private fun login() {
         val sessionManager = SessionManager(this)
 
         val phoneNumber = usernameEditText.text.toString().trim()
@@ -112,48 +159,55 @@ class LoginActivity : AppCompatActivity() {
         } else if (passwordEditText.text!!.isEmpty()) {
             passwordInputLayout.error = "Password is required"
         } else {
-            val jobj = JSONObject()
-            try {
-                jobj.put("phoneNumber", phoneNumber)
-                jobj.put("password", password)
-            } catch (e: JSONException) {
-                e.printStackTrace()
-            }
 
-            AndroidNetworking.post("https://risfund.loophole.site/api/login")
-                .addJSONObjectBody(jobj)
-                .addHeaders("Accept", "application/json")
-                .setPriority(Priority.HIGH)
-                .build()
-                .getAsJSONObject(object: JSONObjectRequestListener {
-                    override fun onResponse(response: JSONObject?) {
-                        try {
-                            if (response != null) {
-                                if(response.getString("message").equals("Login Succeeded")) {
-                                    Toast.makeText(this@LoginActivity, "Login Berhasil", Toast.LENGTH_LONG).show()
+            if(otp.isNullOrEmpty()) {
+                otpInputLayout.error = "Harap Masukkan OTP"
+            } else {
+                val jobj = JSONObject()
+                try {
+                    jobj.put("phoneNumber", phoneNumber)
+                    jobj.put("password", password)
+                    jobj.put("otp", otp)
+                } catch (e: JSONException) {
+                    e.printStackTrace()
+                }
 
-                                    val token = JSONObject(response.getString("data"))
+                AndroidNetworking.post("https://risfund.loophole.site/api/login")
+                    .addJSONObjectBody(jobj)
+                    .addHeaders("Accept", "application/json")
+                    .setPriority(Priority.HIGH)
+                    .build()
+                    .getAsJSONObject(object: JSONObjectRequestListener {
+                        override fun onResponse(response: JSONObject?) {
+                            try {
+                                if (response != null) {
+                                    if(response.getString("message").equals("Login Succeeded")) {
+                                        Toast.makeText(this@LoginActivity, "Login Berhasil", Toast.LENGTH_LONG).show()
 
-                                    sessionManager.setLogin(true)
-                                    sessionManager.setToken(token.toString())
+                                        val token = JSONObject(response.getString("data"))
 
-                                    homeData()
+                                        sessionManager.setLogin(true)
+                                        sessionManager.setToken(token.toString())
+
+                                        homeData()
+                                    }
+                                }
+                            } catch (e: JSONException) {
+                                Log.d("error", e.toString())
+                            }
+                        }
+
+                        override fun onError(error: ANError?) {
+                            if (error != null) {
+                                if (error.errorCode != 0) {
+                                    val response = JSONObject(error.errorBody)
+                                    Toast.makeText(this@LoginActivity, response.getString("message"), Toast.LENGTH_LONG).show()
                                 }
                             }
-                        } catch (e: JSONException) {
-                            Log.d("error", e.toString())
                         }
-                    }
+                    })
+            }
 
-                    override fun onError(error: ANError?) {
-                        if (error != null) {
-                            if (error.errorCode != 0) {
-                                val response = JSONObject(error.errorBody)
-                                Toast.makeText(this@LoginActivity, response.getString("message"), Toast.LENGTH_LONG).show()
-                            }
-                        }
-                    }
-                })
         }
     }
 }
