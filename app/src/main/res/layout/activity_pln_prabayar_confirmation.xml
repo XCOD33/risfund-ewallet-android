@@ -7,8 +7,8 @@
     android:background="@color/primaryGreen"
     tools:ignore="HardcodedText"
     android:orientation="vertical"
-    tools:context=".PurchasesConfirmationActivity">
-    
+    tools:context=".PlnPrabayarConfirmationActivity">
+
     <RelativeLayout
         android:id="@+id/layoutKonfirmasiPembayaran1"
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/backKonfirmasiPembayaran"
+            android:id="@+id/backKonfirmasiPrabayarPembayaran"
             android:layout_width="15dp"
             android:layout_height="24dp"
             android:layout_alignParentStart="true"
@@ -58,7 +58,7 @@
                 android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/noMeterTextView"
+                android:id="@+id/noMeterPrabayarTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="25dp"
@@ -91,7 +91,7 @@
                 android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/nameMemberTextView"
+                android:id="@+id/nameMemberPrabayarTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="25dp"
@@ -124,7 +124,7 @@
                 android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/dayaTextView"
+                android:id="@+id/dayaPrabayarTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="25dp"
@@ -139,84 +139,18 @@
             android:layout_marginTop="14dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/layoutConfirmation"
-            android:src="@drawable/linebottom"/>
-
-        <LinearLayout
-            android:id="@+id/layoutConfirmation"
-            android:layout_marginTop="25dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_marginStart="25dp"
-                android:layout_width="125dp"
-                android:layout_height="wrap_content"
-                android:text="Periode"
-                android:textSize="15sp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/periodTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="25dp"
-                android:text=""
-                android:gravity="right"
-                android:textAlignment="gravity"
-                android:textSize="15sp"
-                android:textStyle="bold"/>
-        </LinearLayout>
-
-        <ImageView
-            android:layout_marginTop="14dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/linebottom"/>
-
-        <LinearLayout
-            android:layout_marginTop="25dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_marginStart="25dp"
-                android:layout_width="125dp"
-                android:layout_height="wrap_content"
-                android:text="Jumlah Tagihan"
-                android:textSize="15sp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/amountTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="25dp"
-                android:text=""
-                android:gravity="right"
-                android:textAlignment="gravity"
-                android:textSize="15sp"
-                android:textStyle="bold"/>
-        </LinearLayout>
-
-        <ImageView
-            android:layout_marginTop="14dp"
             android:layout_marginBottom="25dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_below="@+id/layoutConfirmation"
             android:src="@drawable/linebottom"/>
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/konfirmasiPembayaranButton"
+        android:id="@+id/konfirmasiPembayaranPrabayarButton"
         style="@style/customButtonWhite"
         android:layout_marginTop="35dp"
         android:layout_marginHorizontal="25dp"
         android:layout_gravity="center"
         android:text="Konfirmasi"/>
-
 
 </LinearLayout>

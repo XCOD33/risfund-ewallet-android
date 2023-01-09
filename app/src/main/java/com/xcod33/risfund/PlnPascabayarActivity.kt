@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
-import android.widget.ImageButton
 import android.widget.Toast
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
@@ -18,19 +16,11 @@ import org.json.JSONException
 import org.json.JSONObject
 
 class PlnPascabayarActivity : AppCompatActivity() {
-
-    private lateinit var backPlnPascabayar: ImageButton
-    private lateinit var plnPascabayarAutoComplete: AutoCompleteTextView
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pln_pascabayar)
 
         val user = intent.getParcelableExtra<GetUserResponse>("dataUser")
-
-        backPlnPascabayar = findViewById(R.id.backPlnPascabayar)
-        plnPascabayarAutoComplete = findViewById(R.id.plnPascabayarAutoComplete)
-
         val plnList = listOf("PLN Pascabayar", "PLN Prabayar")
         val plnAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, plnList)
 
@@ -96,7 +86,7 @@ class PlnPascabayarActivity : AppCompatActivity() {
                                 bundle.putString("bill", bill)
                                 bundle.putString("amount", amount)
 
-                                val intent = Intent(this@PlnPascabayarActivity, PurchasesConfirmationActivity::class.java)
+                                val intent = Intent(this@PlnPascabayarActivity, PlnPascabayarConfirmationActivity::class.java)
                                 intent.putExtras(bundle)
                                 intent.putExtra("dataUser", user)
                                 startActivity(intent)
