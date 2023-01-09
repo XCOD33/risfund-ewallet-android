@@ -8,6 +8,16 @@ data class ItemsViewModelRiwayat (val title: String, val date: String, val amoun
     val getImage = when(title) {
         "transfer sent" -> R.drawable.transferout
         "transfer received" -> R.drawable.transferin
-        else -> R.drawable.ic_launcher_background
+        "payment sent" -> R.drawable.transferout
+        "payment received" -> R.drawable.transferin
+        else -> R.drawable.receipt
+    }
+
+    val getAmount = when(title) {
+        "transfer sent" -> "-RP" + amount
+        "transfer received" -> "+RP" + amount
+        "payment sent" -> "-RP" + amount
+        "payment received" -> "+RP" + amount
+        else -> "-RP" + amount
     }
 }

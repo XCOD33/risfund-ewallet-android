@@ -110,7 +110,7 @@ class PlnPrabayarActivity : AppCompatActivity() {
                                 val segmentPower = data.getString("segment_power")
 
                                 val bundle = Bundle()
-                                bundle.putString("noMeter", nomorMeteranPlnPascabayarEditText.text.toString())
+                                bundle.putString("noMeter", nomorMeteranPlnPrabayarEditText.text.toString())
                                 bundle.putString("name", name)
                                 bundle.putString("segmentPower", segmentPower)
                                 bundle.putString("amount", amount.toString())
