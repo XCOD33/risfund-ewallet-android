@@ -94,6 +94,46 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="31dp"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:text="Kode OTP"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/otpInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/customInputLayout"
+                    android:layout_weight="1">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/otpEditText"
+                        style="@style/customEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="number"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/requestOtpButton"
+                    style="@style/customButtonGreen"
+                    android:textSize="16sp"
+                    android:textStyle="normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Minta OTP"
+                    android:layout_gravity="center_vertical"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
                 android:layout_gravity="end"
                 android:layout_marginBottom="37dp"
