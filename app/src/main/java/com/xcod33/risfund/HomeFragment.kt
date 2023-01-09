@@ -53,7 +53,7 @@ class HomeFragment : Fragment() {
         val user = requireActivity().intent.getParcelableExtra<GetUserResponse>("dataUser")
 
         if (user!!.balance!! >= 1000000) {
-            balanceTextView.textSize = 28.0f
+            balanceTextView.textSize = 25.0f
         }
 
         fullNameTextView.text = "Hi, ${user!!.fullName}"

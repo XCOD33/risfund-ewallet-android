@@ -4,21 +4,24 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
-import android.widget.ImageButton
-import android.widget.ImageView
+import android.widget.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.androidnetworking.AndroidNetworking
+import com.androidnetworking.common.Priority
+import com.androidnetworking.error.ANError
+import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.xcod33.risfund.data.GetUserResponse
 import kotlinx.android.synthetic.main.activity_paket_data.*
+import kotlinx.android.synthetic.main.activity_pulsa.*
+import org.json.JSONException
+import org.json.JSONObject
 
 class PaketDataActivity : AppCompatActivity() {
 
     private lateinit var backPaketData: ImageButton
     private lateinit var providerPaketDataAutoComplete: AutoCompleteTextView
     private lateinit var providerPaketDataImageView: ImageView
-    private lateinit var paketDataRecyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +32,6 @@ class PaketDataActivity : AppCompatActivity() {
         backPaketData = findViewById(R.id.backPaketData)
         providerPaketDataAutoComplete = findViewById(R.id.providerPaketDataAutoComplete)
         providerPaketDataImageView = findViewById(R.id.providerPaketDataImageView)
-        paketDataRecyclerView = findViewById(R.id.paketDataRecyclerView)
 
         val providerList = listOf("Telkomsel", "Tri", "XL", "Axis", "Smartfren")
         val providerAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, providerList)
@@ -46,30 +48,102 @@ class PaketDataActivity : AppCompatActivity() {
         }
 
         backPaketData.setOnClickListener {
-            var intent = Intent(this, HomeActivity::class.java)
+            var intent = Intent(this, HomeActivity2::class.java)
+            intent.putExtra("dataUser", user)
             startActivity(intent)
         }
 
-        paketDataRecyclerView.layoutManager = LinearLayoutManager(this)
-        val data = ArrayList<ItemsViewModelPaketData>()
-        for(i in 1..7) {
-            data.add(ItemsViewModelPaketData(i, i))
+        paketData1ImageButton.setOnClickListener{
+            createTransaction(40000, "PaketHemat", user)
         }
 
-        var phoneNumber: String
-        var provider: String
-
-        paketDataRecyclerView.setOnClickListener {
-            phoneNumber = nomorTeleponPaketDataEditText.text.toString()
-            provider = providerPaketDataAutoComplete.text.toString()
-
-            Log.d("phoneNumber", phoneNumber)
-
-            val adapter = CustomAdapterPaketData(data, phoneNumber, provider, user, this)
-            paketDataRecyclerView.adapter = adapter
+        paketData2ImageButton.setOnClickListener{
+            createTransaction(50000, "PaketHemat", user)
         }
 
-        val adapter = CustomAdapterPaketData(data, nomorTeleponPaketDataEditText.text.toString(), providerPaketDataAutoComplete.text.toString(), user, this)
-        paketDataRecyclerView.adapter = adapter
+        paketData3ImageButton.setOnClickListener{
+            createTransaction(60000, "ComboSuper", user)
+        }
+
+        paketData4ImageButton.setOnClickListener{
+            createTransaction(75000, "ComboSuper", user)
+        }
+
+        paketData5ImageButton.setOnClickListener{
+            createTransaction(85000, "ComboSakti", user)
+        }
+
+        paketData6ImageButton.setOnClickListener{
+            createTransaction(100000, "ComboSakti", user)
+        }
+
+        paketData7ImageButton.setOnClickListener{
+            createTransaction(110000, "SuperSakti", user)
+        }
+
+        paketData8ImageButton.setOnClickListener{
+            createTransaction(125000, "SuperSakti", user)
+        }
+    }
+
+    private fun createTransaction(amount: Int?, plan: String? ,user: GetUserResponse?){
+        val sessionManager = SessionManager(this)
+        val token = JSONObject(sessionManager.getToken())
+
+        if (nomorTeleponPaketDataEditText.text.isNullOrEmpty()){
+            nomorTeleponPaketDataEditText.error = "Harap Masukkan nomor telepon"
+            nomorTeleponPaketDataEditText.isFocusable = true
+        } else {
+            val jobj = JSONObject()
+            try {
+                jobj.put("phoneNumber", nomorTeleponPaketDataEditText.text)
+                jobj.put("provider", providerPaketDataAutoComplete.text.toString())
+                jobj.put("plan", plan)
+                jobj.put("amount", amount)
+            } catch (e: JSONException) {
+                e.printStackTrace()
+            }
+
+            AndroidNetworking.post("https://risfund.loophole.site/api/purchase/paket-data")
+                .addJSONObjectBody(jobj)
+                .addHeaders("Accept", "application/json")
+                .addHeaders("Authorization", "Bearer " + token.getString("token"))
+                .setPriority(Priority.HIGH)
+                .build()
+                .getAsJSONObject(object: JSONObjectRequestListener {
+                    override fun onResponse(response: JSONObject?) {
+                        try {
+                            if(response!!.getString("message").equals("Purchase paket data succeeded")) {
+                                val data = JSONObject(response.getString("data"))
+
+                                val purchaseType = data.getString("purchaseType")
+                                val amount = data.getString("amount")
+
+                                val bundle = Bundle()
+                                bundle.putString("purchaseType", purchaseType)
+                                bundle.putString("amount", amount)
+
+                                val intent = Intent(this@PaketDataActivity, PurchasesSuccessActivity::class.java)
+                                intent.putExtras(bundle)
+                                intent.putExtra("dataUser", user)
+                                startActivity(intent)
+                            }
+                        } catch (e: JSONException) {
+                            Log.e("eResponse", e.toString())
+                        }
+                    }
+
+                    override fun onError(anError: ANError?) {
+                        if(anError!!.errorCode != 0) {
+                            val response = JSONObject(anError.errorBody)
+
+                            Toast.makeText(this@PaketDataActivity, response.getString("message"), Toast.LENGTH_LONG).show()
+                        } else {
+                            anError.toString()
+                        }
+                    }
+                })
+
+        }
     }
 }

@@ -27,7 +27,11 @@ class PlnPrabayarActivity : AppCompatActivity() {
         plnPrabayarAutoComplete.setAdapter(plnAdapter)
         plnPrabayarAutoComplete.setOnItemClickListener { adapterView, view, i, l ->
             when (i){
-                0 -> startActivity(Intent(this, PlnPascabayarActivity::class.java))
+                0 -> {
+                    val intent = Intent(this, PlnPascabayarActivity::class.java)
+                    intent.putExtra("dataUser", user)
+                    startActivity(intent)
+                }
             }
         }
 
