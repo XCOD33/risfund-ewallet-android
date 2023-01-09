@@ -34,12 +34,12 @@ class WifiConfirmationActivity : AppCompatActivity() {
         val amount = intent.getStringExtra("amount")
         amountWifiTextView.text = amount
 
-        konfirmasiWifiButton.setOnClickListener {
-            startTransaction(user)
+        confirmWifiButton.setOnClickListener {
+            startTransactionWifi(user)
         }
     }
 
-    private fun startTransaction(user: GetUserResponse?) {
+    private fun startTransactionWifi(user: GetUserResponse?) {
         val jobj = JSONObject()
         try {
             jobj.put("customer_no", intent.getStringExtra("noCustomer"))
@@ -60,7 +60,7 @@ class WifiConfirmationActivity : AppCompatActivity() {
             .getAsJSONObject(object: JSONObjectRequestListener {
                 override fun onResponse(response: JSONObject?) {
                     try {
-                        if(response!!.getString("message").equals("Purchase pdam succeeded")) {
+                        if(response!!.getString("message").equals("Purchase wifi succeeded")) {
                             val data = JSONObject(response.getString("data"))
                             val amount = data.getString("amount")
                             val purchaseType = data.getString("purchaseType")

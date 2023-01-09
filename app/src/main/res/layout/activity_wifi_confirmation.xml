@@ -250,7 +250,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/konfirmasiWifiButton"
+        android:id="@+id/confirmWifiButton"
         style="@style/customButtonWhite"
         android:layout_marginTop="35dp"
         android:layout_marginHorizontal="25dp"
