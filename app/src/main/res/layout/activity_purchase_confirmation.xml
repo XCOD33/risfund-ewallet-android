@@ -27,35 +27,195 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="34dp"
             android:layout_centerInParent="true"
+            android:layout_marginTop="34dp"
             android:text="Konfirmasi Pembayaran"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:textStyle="bold" />
     </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/layoutKonfirmasiPembayaran2"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="53dp"
         android:layout_below="@id/layoutKonfirmasiPembayaran1"
         android:orientation="vertical"
         android:background="@drawable/rectangle15">
 
-        <androidx.recyclerview.widget.RecyclerView
+        <LinearLayout
+            android:layout_marginTop="25dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:listitem="@layout/card_view_confirmation"
-            tools:itemCount="7"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_marginStart="25dp"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:text="No. Meter"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/noMeterTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="25dp"
+                android:text=""
+                android:gravity="right"
+                android:textAlignment="gravity"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_marginTop="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layoutConfirmation"
+            android:src="@drawable/linebottom"/>
+
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_marginStart="25dp"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:text="Nama Pelanggan"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/nameMemberTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="25dp"
+                android:text=""
+                android:gravity="right"
+                android:textAlignment="gravity"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_marginTop="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layoutConfirmation"
+            android:src="@drawable/linebottom"/>
+
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_marginStart="25dp"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:text="Daya Listrik"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/dayaTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="25dp"
+                android:text=""
+                android:gravity="right"
+                android:textAlignment="gravity"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_marginTop="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layoutConfirmation"
+            android:src="@drawable/linebottom"/>
+
+        <LinearLayout
+            android:id="@+id/layoutConfirmation"
+            android:layout_marginTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_marginStart="25dp"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:text="Periode"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/periodTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="25dp"
+                android:text=""
+                android:gravity="right"
+                android:textAlignment="gravity"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_marginTop="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/linebottom"/>
+
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_marginStart="25dp"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:text="Jumlah Tagihan"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/amountTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="25dp"
+                android:text=""
+                android:gravity="right"
+                android:textAlignment="gravity"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/linebottom"/>
 
     </LinearLayout>
 
     <Button
         android:id="@+id/konfirmasiPembayaranButton"
         style="@style/customButtonWhite"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="35dp"
         android:layout_marginHorizontal="25dp"
+        android:layout_gravity="center"
         android:text="Konfirmasi"/>
 
 

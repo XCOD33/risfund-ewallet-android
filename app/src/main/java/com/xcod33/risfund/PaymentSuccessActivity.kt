@@ -29,7 +29,7 @@ class PaymentSuccessActivity : AppCompatActivity() {
         val paymentId = intent.getStringExtra("paymentId")
         val amount = intent.getStringExtra("amount")
 
-        paymentAmountTextView.text = "-${amount}"
+        paymentAmountTextView.text = "- Rp " + amount
         transferIdPaymentTextView.text = paymentId
     }
 }
