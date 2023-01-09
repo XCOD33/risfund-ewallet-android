@@ -52,35 +52,35 @@ class VoucherFisikActivity : AppCompatActivity() {
         }
 
         voucherFisik1ImageButton.setOnClickListener{
-            createTransaction(22000, user)
+            createTransaction(20000, user)
         }
 
         voucherFisik2ImageButton.setOnClickListener{
-            createTransaction(52000, user)
+            createTransaction(50000, user)
         }
 
         voucherFisik3ImageButton.setOnClickListener{
-            createTransaction(102000, user)
+            createTransaction(100000, user)
         }
 
         voucherFisik4ImageButton.setOnClickListener{
-            createTransaction(152000, user)
+            createTransaction(150000, user)
         }
 
         voucherFisik5ImageButton.setOnClickListener{
-            createTransaction(252000, user)
+            createTransaction(250000, user)
         }
 
         voucherFisik6ImageButton.setOnClickListener{
-            createTransaction(302000, user)
+            createTransaction(300000, user)
         }
 
         voucherFisik7ImageButton.setOnClickListener{
-            createTransaction(502000, user)
+            createTransaction(500000, user)
         }
 
         voucherFisik8ImageButton.setOnClickListener{
-            createTransaction(752000, user)
+            createTransaction(750000, user)
         }
     }
 

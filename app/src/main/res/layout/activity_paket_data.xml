@@ -124,14 +124,14 @@
                 android:id="@+id/paketData1ImageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/paketdata11"/>
+                android:background="@drawable/paket1"/>
 
             <ImageButton
                 android:id="@+id/paketData2ImageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:background="@drawable/paketdata2"/>
+                android:background="@drawable/paket2"/>
 
         </LinearLayout>
 
@@ -146,14 +146,14 @@
                 android:id="@+id/paketData3ImageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/paketdata3__2_"/>
+                android:background="@drawable/paket3"/>
 
             <ImageButton
                 android:id="@+id/paketData4ImageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:background="@drawable/paketdata4"/>
+                android:background="@drawable/paket4"/>
 
         </LinearLayout>
 
@@ -168,13 +168,13 @@
                 android:id="@+id/paketData5ImageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/paketdata5"/>
+                android:background="@drawable/paket5"/>
             <ImageButton
                 android:id="@+id/paketData6ImageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:background="@drawable/paketdata6"/>
+                android:background="@drawable/paket6"/>
 
         </LinearLayout>
 
@@ -189,14 +189,14 @@
                 android:id="@+id/paketData7ImageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/paketdata7"/>
+                android:background="@drawable/paket7"/>
 
             <ImageButton
                 android:id="@+id/paketData8ImageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:background="@drawable/paketdata8"/>
+                android:background="@drawable/paket8"/>
 
         </LinearLayout>
 

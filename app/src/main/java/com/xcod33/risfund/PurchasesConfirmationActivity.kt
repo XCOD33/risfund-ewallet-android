@@ -87,7 +87,7 @@ class PurchasesConfirmationActivity : AppCompatActivity() {
                 override fun onError(anError: ANError?) {
                     if(anError!!.errorCode != 0) {
                         val response = JSONObject(anError.errorBody)
-
+                        Log.d("error", anError.errorBody.toString())
                         Toast.makeText(this@PurchasesConfirmationActivity, response.getString("message"), Toast.LENGTH_LONG).show()
                     } else {
                         anError.toString()

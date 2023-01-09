@@ -54,39 +54,39 @@ class PaketDataActivity : AppCompatActivity() {
         }
 
         paketData1ImageButton.setOnClickListener{
-            createTransaction(40000, user)
+            createTransaction(40000, "PaketHemat", user)
         }
 
         paketData2ImageButton.setOnClickListener{
-            createTransaction(50000, user)
+            createTransaction(50000, "PaketHemat", user)
         }
 
         paketData3ImageButton.setOnClickListener{
-            createTransaction(60000, user)
+            createTransaction(60000, "ComboSuper", user)
         }
 
         paketData4ImageButton.setOnClickListener{
-            createTransaction(75000, user)
+            createTransaction(75000, "ComboSuper", user)
         }
 
         paketData5ImageButton.setOnClickListener{
-            createTransaction(85000, user)
+            createTransaction(85000, "ComboSakti", user)
         }
 
         paketData6ImageButton.setOnClickListener{
-            createTransaction(100000, user)
+            createTransaction(100000, "ComboSakti", user)
         }
 
         paketData7ImageButton.setOnClickListener{
-            createTransaction(110000, user)
+            createTransaction(110000, "SuperSakti", user)
         }
 
         paketData8ImageButton.setOnClickListener{
-            createTransaction(125000, user)
+            createTransaction(125000, "SuperSakti", user)
         }
     }
 
-    private fun createTransaction(amount: Int?, user: GetUserResponse?){
+    private fun createTransaction(amount: Int?, plan: String? ,user: GetUserResponse?){
         val sessionManager = SessionManager(this)
         val token = JSONObject(sessionManager.getToken())
 
@@ -98,6 +98,7 @@ class PaketDataActivity : AppCompatActivity() {
             try {
                 jobj.put("phoneNumber", nomorTeleponPaketDataEditText.text)
                 jobj.put("provider", providerPaketDataAutoComplete.text.toString())
+                jobj.put("plan", plan)
                 jobj.put("amount", amount)
             } catch (e: JSONException) {
                 e.printStackTrace()
@@ -119,7 +120,6 @@ class PaketDataActivity : AppCompatActivity() {
                                 val amount = data.getString("amount")
 
                                 val bundle = Bundle()
-                                bundle.putString("type", "paket data")
                                 bundle.putString("purchaseType", purchaseType)
                                 bundle.putString("amount", amount)
 
