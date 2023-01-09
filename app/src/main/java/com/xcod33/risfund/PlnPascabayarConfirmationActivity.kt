@@ -85,8 +85,9 @@ class PlnPascabayarConfirmationActivity : AppCompatActivity() {
                 override fun onError(anError: ANError?) {
                     if(anError!!.errorCode != 0) {
                         val response = JSONObject(anError.errorBody)
-
                         Toast.makeText(this@PlnPascabayarConfirmationActivity, response.getString("message"), Toast.LENGTH_LONG).show()
+
+                        Log.d("error", anError.errorBody.toString())
                     } else {
                         anError.toString()
                     }
