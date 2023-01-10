@@ -76,4 +76,10 @@ dependencies {
 
 //    lottie animation
     implementation "com.airbnb.android:lottie:5.2.0"
+
+//    shimmer
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+
+//    shapeable
+    implementation 'com.google.android.material:material:1.2.0'
 }
