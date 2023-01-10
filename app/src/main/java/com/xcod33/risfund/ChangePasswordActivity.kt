@@ -66,13 +66,10 @@ class ChangePasswordActivity : AppCompatActivity() {
                 .getAsJSONObject(object : JSONObjectRequestListener {
                     override fun onResponse(response: JSONObject?) {
                         try {
-                            if (response!!.getString("message")
-                                    .equals("User Password has been changed")
-                            ) {
+                            if (response!!.getString("message").equals("User Password has been changed")) {
                                 val data = JSONObject(response.getString("data"))
 
-                                val intent =
-                                    Intent(this@ChangePasswordActivity, SettingFragment::class.java)
+                                val intent = Intent(this@ChangePasswordActivity, HomeActivity2::class.java)
                                 intent.putExtra("dataUser", user)
                                 startActivity(intent)
                             }
