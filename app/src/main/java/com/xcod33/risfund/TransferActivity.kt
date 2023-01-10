@@ -35,11 +35,14 @@ class TransferActivity : AppCompatActivity() {
 
         transferTransferButton.setOnClickListener{
             if(noHandphoneTransferEditText.text.isNullOrEmpty()) {
-            noHandphoneTransferInputLayout.error = "Harap masukkan nomor ponsel tujuan"
+                noHandphoneTransferEditText.error = "Harap masukkan nomor ponsel tujuan"
+                noHandphoneTransferEditText.isFocusable = true
         } else if(nominalTransferEditText.text.isNullOrEmpty()) {
-            nominalTransferInputLayout.error = "Harap masukkan nominal"
+                nominalTransferEditText.error = "Harap masukkan nominal"
+                nominalTransferEditText.isFocusable = true
         } else if(nominalTransferEditText.text.toString().toInt() > user.balance!!) {
-            nominalTransferInputLayout.error = "Maaf saldo anda tidak mencukupi"
+                nominalTransferEditText.error = "Maaf saldo anda tidak mencukupi"
+                nominalTransferEditText.isFocusable = true
         } else {
             val bundle = Bundle()
             bundle.putString("transferTo", noHandphoneTransferEditText.text.toString())

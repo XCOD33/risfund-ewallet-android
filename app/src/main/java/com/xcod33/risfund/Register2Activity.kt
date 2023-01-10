@@ -38,8 +38,8 @@ class Register2Activity : AppCompatActivity() {
                 passwordRegisterEditText.error = "Password diperlukan"
                 passwordRegisterEditText.requestFocus()
             } else if (rePasswordRegisterEditText.text!!.isEmpty()) {
-                rePasswordRegisterEditText.error = "Re-Password diperlukan"
-                rePasswordRegisterEditText.requestFocus()
+                passwordRegisterEditText.error = "Re-Password diperlukan"
+                passwordRegisterEditText.requestFocus()
             } else {
                 val username = usernameRegisterEditText.text.toString().trim()
                 val password = passwordRegisterEditText.text.toString().trim()
