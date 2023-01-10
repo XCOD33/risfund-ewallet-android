@@ -66,6 +66,7 @@ class TopUpActivity : AppCompatActivity() {
 
             if(nominalEditText.text.isEmpty()) {
                 nominalEditText.error = "Masukkan Nominal Top Up"
+                nominalEditText.isFocusable = true
             } else {
                 Log.d("code", code!!)
                 topup(code)

@@ -25,9 +25,11 @@ class Payment2Activity : AppCompatActivity() {
 
         transferPaymentButton.setOnClickListener {
             if (nominalPaymentEditText.text.isNullOrEmpty()) {
-                nominalPaymentInputLayout.error = "Harap masukkan nominal"
+                nominalPaymentEditText.error = "Harap masukkan nominal"
+                nominalPaymentEditText.isFocusable = true
             } else if (nominalPaymentEditText.text.toString().toInt() > user!!.balance!!) {
-                nominalPaymentInputLayout.error = "Maaf saldo anda tidak mencukupi"
+                nominalPaymentEditText.error = "Maaf saldo anda tidak mencukupi"
+                nominalPaymentEditText.isFocusable = true
             } else {
                 val bundle = Bundle()
                 bundle.putString("userQr", userQr)
