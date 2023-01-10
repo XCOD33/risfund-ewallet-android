@@ -57,10 +57,12 @@ class Register1Activity : AppCompatActivity() {
             } else if (nomorTeleponRegisterEditText.text!!.isEmpty()) {
                 nomorTeleponRegisterEditText.error = "Nomor Telepon diperlukan"
                 nomorTeleponRegisterEditText.requestFocus()
-            } else if (jenisKelaminRegisterAutoComplete.text.isEmpty()) {
-                jenisKelaminRegisterInputLayout.error = "Jenis Kelamin diperlukan"
+            } else if (tanggalLahirRegisterEditText.text.isNullOrEmpty()) {
                 tanggalLahirRegisterEditText.error = "Tanggal Lahir diperlukan"
                 tanggalLahirRegisterEditText.requestFocus()
+            } else if (jenisKelaminRegisterAutoComplete.text.isEmpty()) {
+                jenisKelaminRegisterAutoComplete.error = "Jenis Kelamin diperlukan"
+                jenisKelaminRegisterAutoComplete.requestFocus()
             } else {
                 val intent = Intent(this, Register2Activity::class.java)
                 val bundle = Bundle()

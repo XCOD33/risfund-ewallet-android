@@ -54,7 +54,8 @@ class LoginActivity : AppCompatActivity() {
 
     private fun getOtp() {
         if(usernameEditText.text.isNullOrEmpty()) {
-            usernameInputLayout.error = "Harap masukkan nomor handphone"
+            usernameEditText.error = "Harap masukkan nomor handphone"
+            usernameEditText.requestFocus()
         } else {
             Toast.makeText(this, "OTP Dikirim", Toast.LENGTH_LONG).show()
 
@@ -155,9 +156,11 @@ class LoginActivity : AppCompatActivity() {
         val password = passwordEditText.text.toString().trim()
 
         if (usernameEditText.text!!.isEmpty()) {
-            usernameInputLayout.error = "Username is required"
+            usernameEditText.error = "Username is required"
+            usernameEditText.requestFocus()
         } else if (passwordEditText.text!!.isEmpty()) {
-            passwordInputLayout.error = "Password is required"
+            passwordEditText.error = "Password is required"
+            passwordEditText.requestFocus()
         } else {
 
             if(otp.isNullOrEmpty()) {
