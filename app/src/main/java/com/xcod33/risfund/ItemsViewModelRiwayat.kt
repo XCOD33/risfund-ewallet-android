@@ -10,6 +10,7 @@ data class ItemsViewModelRiwayat (val title: String, val date: String, val amoun
         "transfer received" -> R.drawable.transferin
         "payment sent" -> R.drawable.transferout
         "payment received" -> R.drawable.transferin
+        "topup" -> R.drawable.transferin
         else -> R.drawable.receipt
     }
 
@@ -18,6 +19,7 @@ data class ItemsViewModelRiwayat (val title: String, val date: String, val amoun
         "transfer received" -> "+RP" + amount
         "payment sent" -> "-RP" + amount
         "payment received" -> "+RP" + amount
+        "topup" -> "+RP" + amount
         else -> "-RP" + amount
     }
 }
