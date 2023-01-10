@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONObjectRequestListener
+import com.facebook.shimmer.ShimmerFrameLayout
 import com.xcod33.risfund.data.GetPaymentChannel
 import kotlinx.android.synthetic.main.activity_list_bank.*
 import kotlinx.android.synthetic.main.fragment_history.*
@@ -20,7 +21,10 @@ import org.json.JSONException
 import org.json.JSONObject
 
 class HistoryFragment : Fragment() {
+
     private var itemsViewModelRiwayat = ArrayList<ItemsViewModelRiwayat>()
+    private lateinit var shimmer: ShimmerFrameLayout
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,6 +36,9 @@ class HistoryFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        shimmer = requireActivity().findViewById(R.id.shimmerHistory)
+        shimmer.startShimmer()
 
         listHistory()
     }
@@ -64,6 +71,10 @@ class HistoryFragment : Fragment() {
                                 }
                             }
                         }
+
+                        shimmer.stopShimmer()
+                        shimmer.visibility = View.GONE
+
                         riwayatRecyclerView.adapter = CustomAdapterRiwayat(itemsViewModelRiwayat)
                         val layoutManager = LinearLayoutManager(activity)
                         riwayatRecyclerView.layoutManager = layoutManager
