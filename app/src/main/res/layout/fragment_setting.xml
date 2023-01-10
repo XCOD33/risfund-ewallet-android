@@ -92,7 +92,6 @@
                     android:id="@+id/usernameEditText"
                     style="@style/customEditText"
                     android:drawablePadding="10dp"
-                    android:inputType="phone"
                     android:maxLength="13"
                     android:text="892345623" />
             </com.google.android.material.textfield.TextInputLayout>
