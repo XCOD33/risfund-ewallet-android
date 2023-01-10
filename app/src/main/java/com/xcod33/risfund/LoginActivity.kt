@@ -60,9 +60,8 @@ class LoginActivity : AppCompatActivity() {
                 }
                 override fun onFinish() {
                     countdownOtpTextView.visibility = View.GONE
-                    Toast.makeText(this@LoginActivity, "OTP tidak masuk? minta OTP lagi", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(this@LoginActivity, "OTP tidak masuk? minta OTP lagi", Toast.LENGTH_SHORT).show()
                     requestOtpButton.isEnabled = true
-                    Log.d("status", requestOtpButton.isEnabled.toString())
                     requestOtpButton.setBackgroundColor(Color.parseColor("#25aa63"))
                 }
             }

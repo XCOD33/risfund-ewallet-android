@@ -83,6 +83,10 @@ class HistoryFragment : Fragment() {
                     }
                 }
                 override fun onError(anError: ANError?) {
+
+                    shimmer.stopShimmer()
+                    shimmer.visibility = View.GONE
+
                 }
             })
     }
