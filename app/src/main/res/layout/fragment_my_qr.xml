@@ -56,7 +56,7 @@
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:layout_marginStart="52dp"
-                android:src="@drawable/profile" />
+                android:src="@drawable/green_user" />
 
             <LinearLayout
                 android:layout_width="wrap_content"

@@ -24,7 +24,7 @@ class ChangePasswordActivity : AppCompatActivity() {
         val user = intent.getParcelableExtra<GetUserResponse>("dataUser")
 
         backChangePassword.setOnClickListener {
-            val intent = Intent(this, SettingFragment::class.java)
+            val intent = Intent(this, HomeActivity2::class.java)
             intent.putExtra("dataUser", user)
             startActivity(intent)
         }

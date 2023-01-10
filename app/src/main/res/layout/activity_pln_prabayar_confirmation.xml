@@ -139,6 +139,39 @@
             android:layout_marginTop="14dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/layoutConfirmation"
+            android:src="@drawable/linebottom"/>
+
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_marginStart="25dp"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:text="Total Bayar"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/amountPrabayarTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="25dp"
+                android:text=""
+                android:gravity="right"
+                android:textAlignment="gravity"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_marginTop="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="25dp"
             android:layout_below="@+id/layoutConfirmation"
             android:src="@drawable/linebottom"/>

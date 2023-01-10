@@ -39,6 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="421dp"
         android:layout_marginTop="53dp"
+        android:paddingHorizontal="50dp"
         android:layout_below="@id/layoutPembayaranSukses1"
         android:background="@drawable/rectangle25"
         android:orientation="vertical"
@@ -59,8 +60,9 @@
             android:layout_marginTop="25dp"
             android:layout_gravity="center"
             android:text="Pembayaran Berhasil"
+            android:textAlignment="center"
             android:textStyle="bold"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:textColor="@color/secondaryGreen"/>
 
         <TextView
@@ -70,6 +72,7 @@
             android:layout_marginTop="11dp"
             android:layout_gravity="center"
             android:text="-Rp123.000"
+            android:textAlignment="center"
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/secondaryGreen"/>
