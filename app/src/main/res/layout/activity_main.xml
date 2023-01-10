@@ -23,7 +23,7 @@
             android:id = "@+id/SplashScreenImageView"
             android:layout_width="400dp"
             android:layout_height="350dp"
-            android:src="@drawable/splash_screen"/>
+            android:src="@drawable/splash_screenfix"/>
 
         <TextView
             android:layout_width="wrap_content"

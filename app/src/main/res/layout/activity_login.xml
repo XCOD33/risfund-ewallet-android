@@ -30,7 +30,8 @@
                 android:id="@+id/animasi1ImageView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/untitled_1"/>
+                android:layout_marginTop="30dp"
+                android:background="@drawable/animasi_loginfix2"/>
 
         </LinearLayout>
 
