@@ -32,12 +32,14 @@ class Register2Activity : AppCompatActivity() {
 
         daftarRegisterButton.setOnClickListener {
             if (usernameRegisterEditText.text!!.isEmpty()) {
-                usernameRegisterInputLayout.error = "Username diperlukan"
-                usernameRegisterInputLayout.requestFocus()
+                usernameRegisterEditText.error = "Username diperlukan"
+                usernameRegisterEditText.requestFocus()
             } else if (passwordRegisterEditText.text!!.isEmpty()) {
-                passwordRegisterInputLayout.error = "Password diperlukan"
+                passwordRegisterEditText.error = "Password diperlukan"
+                passwordRegisterEditText.requestFocus()
             } else if (rePasswordRegisterEditText.text!!.isEmpty()) {
-                rePasswordRegisterInputLayout.error = "Re-Password diperlukan"
+                rePasswordRegisterEditText.error = "Re-Password diperlukan"
+                rePasswordRegisterEditText.requestFocus()
             } else {
                 val username = usernameRegisterEditText.text.toString().trim()
                 val password = passwordRegisterEditText.text.toString().trim()

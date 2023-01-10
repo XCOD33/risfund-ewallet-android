@@ -1,11 +1,18 @@
 package com.xcod33.risfund
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.ColorFilter
+import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.os.Handler
 import android.util.Log
+import android.view.View
 import android.widget.Toast
+import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
@@ -19,8 +26,6 @@ import kotlinx.android.synthetic.main.activity_login.*
 class LoginActivity : AppCompatActivity() {
 
     private val userList = ArrayList<GetUserResponse>()
-
-    private var otp: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +48,25 @@ class LoginActivity : AppCompatActivity() {
         }
 
         requestOtpButton.setOnClickListener {
+            requestOtpButton.isEnabled = false
             getOtp()
+            val timer = object : CountDownTimer(30000, 10) {
+                override fun onTick(millisUntilFinished: Long) {
+                    requestOtpButton.setBackgroundColor(Color.GRAY)
+
+                    val second = millisUntilFinished / 1000
+                    countdownOtpTextView.visibility = View.VISIBLE
+                    countdownOtpTextView.text = "Tunggu hingga ${second} detik untuk mencoba kembali"
+                }
+                override fun onFinish() {
+                    countdownOtpTextView.visibility = View.GONE
+                    Toast.makeText(this@LoginActivity, "OTP tidak masuk? minta OTP lagi", Toast.LENGTH_SHORT).show()
+                    requestOtpButton.isEnabled = true
+                    Log.d("status", requestOtpButton.isEnabled.toString())
+                    requestOtpButton.setBackgroundColor(Color.parseColor("#25aa63"))
+                }
+            }
+            timer.start()
         }
 
         daftar2TextView.setOnClickListener {
@@ -54,7 +77,8 @@ class LoginActivity : AppCompatActivity() {
 
     private fun getOtp() {
         if(usernameEditText.text.isNullOrEmpty()) {
-            usernameInputLayout.error = "Harap masukkan nomor handphone"
+            usernameEditText.error = "Harap masukkan nomor handphone"
+            usernameEditText.requestFocus()
         } else {
             Toast.makeText(this, "OTP Dikirim", Toast.LENGTH_LONG).show()
 
@@ -74,7 +98,7 @@ class LoginActivity : AppCompatActivity() {
                     override fun onResponse(response: JSONObject?) {
                         try {
                             if(response!!.getString("message").equals("otp sent")) {
-                                otp = response.getString("data")
+                                Log.d("otp","OTP Sudah diterima")
                             }
                         } catch (e: JSONException) {
                             Log.d("eREsponse", e.toString())
@@ -153,14 +177,17 @@ class LoginActivity : AppCompatActivity() {
 
         val phoneNumber = usernameEditText.text.toString().trim()
         val password = passwordEditText.text.toString().trim()
+        val otp = otpEditText.text.toString().trim()
 
         if (usernameEditText.text!!.isEmpty()) {
-            usernameInputLayout.error = "Username is required"
+            usernameEditText.error = "Username is required"
+            usernameEditText.requestFocus()
         } else if (passwordEditText.text!!.isEmpty()) {
-            passwordInputLayout.error = "Password is required"
+            passwordEditText.error = "Password is required"
+            passwordEditText.requestFocus()
         } else {
 
-            if(otp.isNullOrEmpty()) {
+            if(otp.isEmpty()) {
                 otpInputLayout.error = "Harap Masukkan OTP"
             } else {
                 val jobj = JSONObject()
