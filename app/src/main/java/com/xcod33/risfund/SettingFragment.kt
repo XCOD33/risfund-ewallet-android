@@ -3,6 +3,7 @@ package com.xcod33.risfund
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
+import android.os.Parcelable
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,8 +15,10 @@ import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.bumptech.glide.Priority
 import com.xcod33.risfund.data.GetUserResponse
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register1.*
 import kotlinx.android.synthetic.main.fragment_setting.*
+import kotlinx.android.synthetic.main.fragment_setting.usernameEditText
 import org.json.JSONException
 import org.json.JSONObject
 import java.util.*
@@ -56,7 +59,7 @@ class SettingFragment : Fragment() {
         }
 
         editProfilButton.setOnClickListener {
-            updateUser()
+            updateUser(user)
         }
 
         logoutButton.setOnClickListener {
@@ -64,12 +67,18 @@ class SettingFragment : Fragment() {
         }
     }
 
-    private fun updateUser() {
+    private fun updateUser(user: GetUserResponse) {
         val jobj = JSONObject()
         try {
-            jobj.put("fullName", namaLengkapProfilEditText.text)
-            jobj.put("username", usernameEditText.text)
-            jobj.put("birthdate", tanggalLahirProfilEditText.text)
+            if(namaLengkapProfilEditText.text.toString() != user.fullName) {
+                jobj.put("fullName", namaLengkapProfilEditText.text)
+            }
+            if(usernameEditText.text.toString() != user.username) {
+                jobj.put("username", usernameEditText.text)
+            }
+            if(tanggalLahirProfilEditText.text.toString() != user.birthdate) {
+                jobj.put("birthdate", tanggalLahirProfilEditText.text)
+            }
         } catch (e: JSONException) {
             e.printStackTrace()
         }
@@ -89,6 +98,8 @@ class SettingFragment : Fragment() {
                             val data = response.getJSONArray("data")
                             val firstData = data.getJSONObject(1)
 
+                            userList.clear()
+
                             val userId = firstData.getString("userId")
                             val fullName = firstData.getString("fullName")
                             val phoneNumber = firstData.getString("phoneNumber")
@@ -98,13 +109,11 @@ class SettingFragment : Fragment() {
                             val balance = firstData.getString("balance")
                             val userQr = firstData.getString("userQr")
 
-                            userList.clear()
-
                             val responses = GetUserResponse(userId.toInt(), fullName, phoneNumber, birthdate, gender, username, balance.toInt(), userQr)
 
                             userList.add(responses)
 
-                             val intent = Intent(activity!!.applicationContext, HomeActivity2::class.java)
+                            val intent = Intent(activity!!.applicationContext, HomeActivity2::class.java)
                             intent.putExtra("dataUser", responses)
                             startActivity(intent)
 
