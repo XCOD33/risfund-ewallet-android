@@ -141,7 +141,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     style="@style/customEditText"
                     android:drawableStart="@drawable/_62"
-                    android:inputType="phone"
+                    android:inputType="number"
                     android:drawablePadding="10dp"
                     android:id="@+id/noHandphoneTransferEditText"/>
             </com.google.android.material.textfield.TextInputLayout>
