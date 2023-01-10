@@ -51,7 +51,9 @@ class TopUpActivity : AppCompatActivity() {
         Glide.with(applicationContext).load(payment["iconUrl"]).into(iconBankImageView)
 
         btnChoosePayment.setOnClickListener {
-            startActivity(Intent(this, ListBankActivity::class.java))
+            val intent = Intent(this, ListBankActivity::class.java)
+            intent.putExtra("dataUser", user)
+            startActivity(intent)
         }
 
         back.setOnClickListener {
