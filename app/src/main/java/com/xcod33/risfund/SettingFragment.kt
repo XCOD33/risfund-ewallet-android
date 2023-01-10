@@ -59,6 +59,12 @@ class SettingFragment : Fragment() {
             updateUser()
         }
 
+        changePasswordButton.setOnClickListener {
+            val intent = Intent(activity, ChangePasswordActivity::class.java)
+            intent.putExtra("dataUser", user)
+            startActivity(intent)
+        }
+
         logoutButton.setOnClickListener {
             logout()
         }
