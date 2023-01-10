@@ -34,7 +34,7 @@
             app:layout_constraintTop_toTopOf="@+id/pengaturanTextView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:src="@drawable/profile"/>
+            android:src="@drawable/green_user"/>
 
         <TextView
             android:id="@+id/namaPenggunaProfilTextView"
