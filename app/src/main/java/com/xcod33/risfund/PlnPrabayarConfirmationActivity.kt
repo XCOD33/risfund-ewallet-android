@@ -28,6 +28,8 @@ class PlnPrabayarConfirmationActivity : AppCompatActivity() {
         nameMemberPrabayarTextView.text = name
         val segmentPower = intent.getStringExtra("segmentPower")
         dayaPrabayarTextView.text = segmentPower
+        val amount = intent.getStringExtra("amount")
+        amountPrabayarTextView.text = amount
 
         backKonfirmasiPrabayarPembayaran.setOnClickListener {
             var intent = Intent ( this, HomeActivity2::class.java)
