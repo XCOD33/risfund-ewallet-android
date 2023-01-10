@@ -188,7 +188,8 @@ class LoginActivity : AppCompatActivity() {
         } else {
 
             if(otp.isEmpty()) {
-                otpInputLayout.error = "Harap Masukkan OTP"
+                otpEditText.error = "Harap Masukkan OTP"
+                otpEditText.isFocusable = true
             } else {
                 val jobj = JSONObject()
                 try {

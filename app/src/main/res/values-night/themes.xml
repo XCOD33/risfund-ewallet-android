@@ -2,15 +2,19 @@
     <!-- Base application theme. -->
     <style name="Theme.RISFund" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/primaryGreen</item>
+        <item name="colorPrimaryVariant">@color/primaryGreen</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorSecondary">@color/secondaryGreen</item>
+        <item name="colorSecondaryVariant">@color/secondaryGreen</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">@color/secondaryGreen</item>
         <!-- Customize your theme here. -->
+        <item name="android:textAllCaps">false</item>
+        <item name="editTextColor">@color/black</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/gotham_medium</item>
     </style>
 </resources>
