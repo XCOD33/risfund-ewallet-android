@@ -12,6 +12,7 @@ import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.xcod33.risfund.data.GetUserResponse
 import kotlinx.android.synthetic.main.activity_change_password.*
 import kotlinx.android.synthetic.main.activity_wifi.*
+import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 
@@ -67,7 +68,7 @@ class ChangePasswordActivity : AppCompatActivity() {
                     override fun onResponse(response: JSONObject?) {
                         try {
                             if (response!!.getString("message").equals("User Password has been changed")) {
-                                val data = JSONObject(response.getString("data"))
+                                val data = JSONArray(response.getString("data"))
 
                                 val intent = Intent(this@ChangePasswordActivity, HomeActivity2::class.java)
                                 intent.putExtra("dataUser", user)
