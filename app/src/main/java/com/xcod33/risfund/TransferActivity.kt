@@ -86,6 +86,7 @@ class TransferActivity : AppCompatActivity() {
                             when(response.getString("message")) {
                                 "User not found" -> noHandphoneTransferInputLayout.error = response.getString("message")
                                 "Error check" -> noHandphoneTransferInputLayout.error = JSONObject(response.getString("data")).getString("error")
+                                else -> response.getString("message")
                             }
                         }
                     }
